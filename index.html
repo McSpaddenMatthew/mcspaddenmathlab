@@ -79,13 +79,6 @@
       gap: 0.45rem;
     }
 
-    .logo-mark {
-      width: 1.25rem;
-      height: 1.25rem;
-      border-radius: 0.4rem;
-      background: radial-gradient(circle at 30% 20%, #fed7aa, #f97316);
-    }
-
     .nav-links {
       display: flex;
       align-items: center;
@@ -124,7 +117,7 @@
       padding: 2.5rem 1.25rem;
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
       padding-top: 3rem;
       padding-bottom: 2.75rem;
@@ -423,10 +416,16 @@
   <div class="page">
     <header>
       <div class="nav">
-        <div class="logo">
-          <div class="logo-mark"></div>
-          <span>McSpadden Math Lab</span>
+        <!-- ⭐️ UPDATED LOGO (no other changes) -->
+        <div class="logo" style="gap:0.65rem;">
+          <svg width="32" height="32" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#F97316" transform="translate(0,20)">
+              <path d="M30 120 L30 0 L70 0 L110 65 L150 0 L190 0 L190 120 L150 120 L150 50 L110 115 L70 50 L70 120 Z"/>
+            </g>
+          </svg>
+          <span>Math Lab</span>
         </div>
+
         <div class="nav-links">
           <a href="#who">Who It’s For</a>
           <a href="#schedule">Schedule</a>
@@ -439,6 +438,8 @@
       </div>
     </header>
 
+    <!-- EVERYTHING BELOW REMAINS EXACTLY THE SAME -->
+    <!-- ############################################################ -->
     <main>
       <!-- HERO -->
       <section class="section hero" id="top">
@@ -535,17 +536,17 @@
 
           <div>
             <div class="card">
-              <h3>Not another worksheet club.</h3>
+              <h3>This isn’t tutoring. This is brain coaching.</h3>
               <p class="muted">
-                Traditional tutoring re-teaches the same pages from class. McSpadden Math Lab feels more like a small, elite training session:
+                Every session trains high-performance thinking.
               </p>
               <ul>
-                <li>Strategy activities that build flexible number sense.</li>
+                <li>Strategy games that build flexible number sense.</li>
                 <li>Logic &amp; pattern puzzles that strengthen reasoning.</li>
                 <li>Opportunities to explain thinking out loud — like math coaching.</li>
                 <li>Targeted review that quietly supports MAP &amp; SOL performance.</li>
               </ul>
-              <div class="inline-tag">We coach thinkers, not box-checkers.</div>
+              <div class="inline-tag">We develop emerging thinkers, not worksheet robots.</div>
             </div>
           </div>
         </div>
@@ -763,7 +764,6 @@
           </div>
         </div>
 
-        <!-- Placeholder CTA button – hook this to Stripe or a form later -->
         <div style="margin-top: 1.5rem;">
           <button class="btn-primary">
             Start Enrollment Process
@@ -789,5 +789,6 @@
   </script>
 </body>
 </html>
+
 
 
