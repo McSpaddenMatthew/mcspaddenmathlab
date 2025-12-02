@@ -2,26 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>McSpadden Math Lab</title>
+  <title>McSpadden Math Lab | Premier Small-Group Math Coaching</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Small, serious math training for capable 2nd–5th graders in Haymarket, VA. Challenge-based extension, no worksheets or tutoring."
+    content="Premier small-group math coaching for 2nd–5th graders in Haymarket & Gainesville. Build confident problem solvers who think faster, deeper, and more flexibly."
   />
   <style>
     :root {
-      --navy: #0b1220;
-      --navy-soft: #111827;
-      --gold: #c8a44b;
-      --cream: #f9fafb;
-      --gray: #6b7280;
-      --gray-light: #e5e7eb;
-      --white: #ffffff;
-      --accent: #111827;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --accent: #f97316;
+      --accent-soft: #fed7aa;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: #020617;
+      --border-soft: #1f2937;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      --font-serif: "Georgia", "Times New Roman", serif;
-      --max-width: 1040px;
     }
 
     * {
@@ -31,15 +29,15 @@
     }
 
     body {
-      font-family: var(--font-sans);
-      background: var(--navy-soft);
-      color: var(--cream);
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #1e293b, #020617 52%);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .page {
@@ -49,115 +47,71 @@
     }
 
     header {
-      border-bottom: 1px solid rgba(249, 250, 251, 0.06);
-      background: radial-gradient(circle at top, #020617 0, #020617 50%, #020617 100%);
+      border-bottom: 1px solid var(--border-soft);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.8)
+      );
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .nav {
-      max-width: var(--max-width);
+      max-width: 960px;
       margin: 0 auto;
-      padding: 1.25rem 1.25rem 1rem;
+      padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .brand {
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .logo-mark {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 0.4rem;
+      background: radial-gradient(circle at 30% 20%, #fed7aa, #f97316);
+    }
+
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      font-size: 0.9rem;
     }
 
-    .crest {
-      width: 40px;
-      height: 52px;
-      border: 1.5px solid var(--gold);
-      border-radius: 4px 4px 10px 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #020617;
+    .nav-links a {
+      color: var(--text-muted);
     }
 
-    .crest-top {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--cream);
-    }
-
-    .crest-bar {
-      height: 3px;
-      width: 22px;
-      margin: 0 auto 6px auto;
-      background: var(--gold);
-      border-radius: 999px;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .brand-name {
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-tag {
-      font-size: 0.8rem;
-      color: var(--gray);
+    .nav-links a:hover {
+      color: var(--text-main);
     }
 
     .nav-cta {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.65rem 1.4rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      font-weight: 500;
+      background: var(--accent);
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
-        transform 0.1s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #020617;
-      border-color: #e5b955;
-    }
-
-    .btn-primary:hover {
-      background: #e5b955;
-      transform: translateY(-0.5px);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--cream);
-      border-color: rgba(249, 250, 251, 0.12);
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(249, 250, 251, 0.5);
-      transform: translateY(-0.5px);
+      color: #0b1120;
     }
 
     main {
@@ -165,415 +119,321 @@
     }
 
     .section {
-      max-width: var(--max-width);
+      max-width: 960px;
       margin: 0 auto;
       padding: 2.5rem 1.25rem;
     }
 
+    /* Hero */
     .hero {
       padding-top: 3rem;
-      padding-bottom: 2.5rem;
+      padding-bottom: 2.75rem;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 2.5rem;
       align-items: center;
-    }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.3rem, 3vw, 2.8rem);
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-      color: var(--gray);
-      font-size: 0.98rem;
-      max-width: 34rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-subtitle strong {
-      color: var(--cream);
-      font-weight: 500;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-footnote {
-      font-size: 0.8rem;
-      color: var(--gray);
-      max-width: 34rem;
-      margin-top: 0.5rem;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-    }
-
-    .badge {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.35rem 0.75rem;
-      font-size: 0.75rem;
-      color: var(--gray);
-    }
-
-    .hero-card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      padding: 1.5rem;
-      background: radial-gradient(circle at top left, #0f172a, #020617);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
-    }
-
-    .hero-card-title {
-      font-size: 0.9rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-card-main {
-      font-size: 0.95rem;
-      color: var(--cream);
-      margin-bottom: 1rem;
-    }
-
-    .hero-list {
-      list-style: none;
-      font-size: 0.9rem;
-      color: var(--gray);
-      margin-bottom: 1rem;
-    }
-
-    .hero-list li {
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-card-foot {
-      font-size: 0.8rem;
-      color: var(--gray);
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
-      padding-top: 0.75rem;
-      margin-top: 0.75rem;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
-      gap: 2.5rem;
-      align-items: flex-start;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-heading {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-text {
-      font-size: 0.95rem;
-      color: var(--gray);
-      margin-bottom: 1rem;
-    }
-
-    .pill-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .pill-list li {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--gray);
-    }
-
-    .card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.85);
-      padding: 1.5rem;
-    }
-
-    .card-heading {
-      font-size: 1.05rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .card-sub {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-bottom: 0.75rem;
-    }
-
-    .checklist {
-      list-style: none;
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-
-    .checklist li {
-      margin-bottom: 0.4rem;
-    }
-
-    .checklist strong {
-      color: var(--cream);
-      font-weight: 500;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .step {
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 1.25rem;
-      background: #020617;
-    }
-
-    .step-num {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.35rem;
-    }
-
-    .step-title {
-      font-size: 1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .step-text {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--gray);
-      margin-bottom: 0.35rem;
-    }
-
-    .highlight {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.35rem;
-    }
-
-    .faq {
-      margin-top: 1.5rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .faq-item {
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 1rem 1.1rem;
-      background: #020617;
-    }
-
-    .faq-q {
-      font-size: 0.92rem;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    .faq-a {
-      font-size: 0.88rem;
-      color: var(--gray);
-    }
-
-    .cta-band {
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-      margin-top: 2.5rem;
-      padding: 1.75rem 1.25rem;
-      background: radial-gradient(circle at center, #020617, #020617);
-    }
-
-    .cta-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cta-heading {
-      font-size: 1.1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .cta-text {
-      font-size: 0.9rem;
-      color: var(--gray);
-      max-width: 28rem;
-    }
-
-    .form-section {
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1rem;
-      max-width: 520px;
-    }
-
-    label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--gray);
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: #020617;
-      color: var(--cream);
-      padding: 0.6rem 0.75rem;
-      font-size: 0.9rem;
-      font-family: inherit;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #6b7280;
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .form-footnote {
-      font-size: 0.8rem;
-      color: var(--gray);
-      margin-top: 0.5rem;
-      max-width: 360px;
-    }
-
-    footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
-      padding: 1.25rem;
-      font-size: 0.78rem;
-      color: var(--gray);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
     }
 
     @media (max-width: 840px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        padding-top: 2rem;
       }
-      .hero-card {
-        order: -1;
-      }
-      .two-col {
+    }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw + 1rem, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      max-width: 34rem;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      color: #0b1120;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .btn-outline {
+      padding: 0.7rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: transparent;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note strong {
+      color: var(--accent-soft);
+    }
+
+    .hero-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.2rem 1.25rem 1.35rem;
+      background: radial-gradient(circle at top left, #020617, #020617 58%);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.75);
+      font-size: 0.9rem;
+    }
+
+    .hero-card-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-card-title span:last-child {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .slot {
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .slot-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .slot-main {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .slot-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .hero-price {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-price strong {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    /* Sections */
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-lead {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.75rem;
+    }
+
+    @media (max-width: 840px) {
+      .grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    @media (max-width: 640px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero-cta {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .cta-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .card {
+      border-radius: 1rem;
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, #020617, #020617 65%);
+      padding: 1rem 1rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .card + .card {
+      margin-top: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .inline-tag {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    .highlight-text {
+      color: var(--accent-soft);
+      font-weight: 500;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .mini-pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    .pricing-callout {
+      border-radius: 1rem;
+      border: 1px dashed rgba(248, 250, 252, 0.12);
+      padding: 0.85rem 0.85rem;
+      font-size: 0.9rem;
+      background: rgba(15, 23, 42, 0.8);
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 1.25rem 1.25rem 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .footer-inner span strong {
+      color: var(--accent-soft);
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- NAV -->
     <header>
       <div class="nav">
-        <div class="brand">
-          <div class="crest" aria-hidden="true">
-            <div class="crest-top">ML</div>
-            <div class="crest-bar"></div>
-          </div>
-          <div class="brand-text">
-            <div class="brand-name">McSpadden Math Lab</div>
-            <div class="brand-tag">Haymarket, VA • Small-Group Training</div>
-          </div>
+        <div class="logo">
+          <div class="logo-mark"></div>
+          <span>McSpadden Math Lab</span>
         </div>
-        <div class="nav-cta">
-          <button class="btn btn-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">
-            How it works
-          </button>
-          <button class="btn btn-primary" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
-            Request an Invitation
+        <div class="nav-links">
+          <a href="#who">Who It’s For</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#how">How It Works</a>
+          <a href="#about">About</a>
+          <button class="nav-cta" onclick="document.getElementById('enroll').scrollIntoView({ behavior: 'smooth' });">
+            Enroll
           </button>
         </div>
       </div>
@@ -583,359 +443,344 @@
       <!-- HERO -->
       <section class="section hero" id="top">
         <div>
-          <div class="hero-kicker">Small. Serious. Intentionally challenging.</div>
-          <h1 class="hero-title">
-            A math lab for capable kids who enjoy being challenged.
+          <div class="eyebrow">Premier small-group math coaching</div>
+          <h1>
+            For driven <span>2nd–5th graders</span> in Haymarket &amp; Gainesville.
           </h1>
-          <p class="hero-subtitle">
-            <strong>Built for these students:</strong> 2nd–5th graders who already do well in math, enjoy puzzles and strategy games, and are ready to think harder.
-            McSpadden Math Lab is a weekly small-group program in Haymarket, VA where we train
-            <strong>numerical flexibility, efficiency, and problem solving</strong>—not just homework completion.
+          <p class="hero-sub">
+            Your child isn’t struggling with math. They just deserve to be
+            <strong>pushed</strong> — in a room where thinking hard is normal and
+            excellence is expected.
           </p>
-          <p class="hero-subtitle">
-            Some students coast. They finish early, get bored, or shut down as soon as a problem gets truly complex.
-            Here, they meet structured challenge and learn to stay with hard things.
-          </p>
-          <div class="hero-cta">
-            <button class="btn btn-primary" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
-              Request an Invitation
+
+          <div class="hero-highlights">
+            <div class="hero-pill">Small pods · High attention</div>
+            <div class="hero-pill">MAP &amp; SOL–aligned thinking</div>
+            <div class="hero-pill">Games · Logic · Real problem solving</div>
+          </div>
+
+          <div class="hero-cta-row">
+            <button class="btn-primary" onclick="document.getElementById('enroll').scrollIntoView({ behavior: 'smooth' });">
+              Reserve a Spot
             </button>
-            <button class="btn btn-ghost" onclick="document.getElementById('who').scrollIntoView({behavior:'smooth'})">
-              Is this right for my child?
+            <button class="btn-outline" onclick="document.getElementById('how').scrollIntoView({ behavior: 'smooth' });">
+              How the Lab Works
             </button>
           </div>
-          <p class="hero-footnote">
-            <strong>Soft launch:</strong> begins the first Saturday in February.  
-            Saturdays in Haymarket at <strong>9:00 AM (2nd–3rd grade cohort)</strong> and
-            <strong>10:15 AM (4th–5th grade cohort)</strong>.  
-            Groups are 3–6 students. One 60-minute lab per week.
+
+          <p class="hero-note">
+            Serving <strong>2nd–3rd graders at 10:30am</strong> and
+            <strong>4th–5th graders at 11:30am</strong> on Saturdays at the
+            Haymarket / Gainesville Library.
           </p>
-          <p class="hero-footnote">
-            You’ll be billed <strong>$340</strong> on <strong>February 1st</strong> for the first month (4 labs),
-            and on the first of each month thereafter for as long as you want your child to be pushed.
-          </p>
-          <div class="badge-row">
-            <span class="badge">No tutoring • No homework help</span>
-            <span class="badge">Challenge-based extension training</span>
-            <span class="badge">Focus: flexibility, efficiency, problem solving</span>
-          </div>
         </div>
 
-        <aside class="hero-card" aria-label="Offer summary">
-          <div class="hero-card-title">In plain language</div>
-          <div class="hero-card-main">
-            <strong>Who it’s for:</strong> 2nd–5th graders who are capable, curious, and need an environment to try harder concepts.
+        <aside class="hero-card" id="schedule">
+          <div class="hero-card-title">
+            <span>Saturday Pods</span>
+            <span>Haymarket · Gainesville</span>
           </div>
-          <ul class="hero-list">
-            <li>• 60-minute small-group labs (3–6 students)</li>
-            <li>• Weekly Saturday sessions at <strong>9:00 AM (2nd–3rd)</strong> and <strong>10:15 AM (4th–5th)</strong></li>
-            <li>• We build numerical flexibility, efficiency, and strategy—not speed drills</li>
-            <li>• Built for kids who need to be stretched, not rescued</li>
-          </ul>
-          <div class="hero-card-main">
-            <strong>What you get as a parent:</strong> a child who can stay with multi-step problems, choose efficient strategies, explain their reasoning, and walk into future math classes with calm confidence.
+          <div class="hero-card-grid">
+            <div class="slot">
+              <div class="slot-label">Grades 2–3</div>
+              <div class="slot-main">10:30am · Saturdays</div>
+              <div class="slot-sub">
+                Haymarket / Gainesville Library — early pod for building strong
+                number sense and flexible thinking.
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot-label">Grades 4–5</div>
+              <div class="slot-main">11:30am · Saturdays</div>
+              <div class="slot-sub">
+                Haymarket / Gainesville Library — deeper problem solving, test
+                readiness, and math confidence.
+              </div>
+            </div>
           </div>
-          <div class="hero-card-foot">
-            Tuition is <strong>$85 per lab</strong>, billed as a flat <strong>$340</strong> on the first of each month
-            while enrolled (covers four Saturday labs). No long contracts. No surprise add-ons.
-          </div>
+          <p class="hero-price">
+            <strong>$340</strong> per month covers the full set of Saturday
+            sessions. Your child may attend once or all four Saturdays — your
+            investment stays the same.
+          </p>
         </aside>
       </section>
 
-      <!-- WHO IT'S FOR / PROBLEM -->
+      <!-- WHO IT'S FOR -->
       <section class="section" id="who">
-        <div class="two-col">
+        <div class="grid-2">
           <div>
-            <div class="section-title">Who we serve</div>
-            <h2 class="section-heading">For bright kids who don’t need tutoring — they need extension.</h2>
-            <p class="section-text">
-              You’re not worried your child is behind. You’re worried they’re not being pushed in the right way.
+            <div class="section-kicker">Who we serve</div>
+            <h2 class="section-title">Great kids who deserve to be stretched.</h2>
+            <p class="section-lead">
+              McSpadden Math Lab is for families who want more than “getting by”
+              in math. Your child doesn’t need fixing — they need
+              <span class="highlight-text">a place where it’s normal to think hard, make mistakes, and grow</span>.
             </p>
-            <p class="section-text">
-              Maybe they finish early and get bored. Maybe they shut down as soon as a problem becomes complex.
-              Maybe they get good grades but don’t actually <em>understand</em> why the math works.
-            </p>
-            <p class="section-text">
-              Math Lab is built for capable kids who need challenge, coaching, and a room where effort, strategy, and flexible thinking actually matter.
-              We work on <strong>numerical flexibility</strong> (moving between strategies and representations), 
-              <strong>mathematical efficiency</strong> (choosing the smartest path, not just the fastest),
-              and <strong>problem solving under constraints</strong>.
-            </p>
-            <ul class="pill-list">
-              <li>Finishes work quickly</li>
-              <li>Loves puzzles, patterns, Genius Star, or building</li>
-              <li>Gets frustrated when wrong</li>
-              <li>Needs challenge beyond worksheets</li>
-              <li>Smart but doesn’t always apply themselves</li>
-            </ul>
-            <p class="section-text">
-              We work with students who respond to challenge, not avoid it.
-            </p>
+
+            <div class="card">
+              <h3>Ideal students:</h3>
+              <ul>
+                <li>2nd–5th graders in Haymarket / Gainesville.</li>
+                <li>Kids who are capable, curious, or a little bored in regular class.</li>
+                <li>Students who benefit from structure but also love games and challenges.</li>
+                <li>Families who value confidence, problem solving, and long-term success.</li>
+              </ul>
+              <p class="muted">
+                If you want your child to feel powerful when they see a math
+                problem, they belong here.
+              </p>
+            </div>
           </div>
 
-          <div class="card">
-            <div class="card-heading">What changes when they train here</div>
-            <div class="card-sub">What parents usually notice after a few weeks:</div>
-            <ul class="checklist">
-              <li><strong>Less panic.</strong> They don’t fall apart as quickly when they’re stuck.</li>
-              <li><strong>Better strategy.</strong> They start picking more efficient approaches instead of guessing.</li>
-              <li><strong>More flexibility.</strong> They can move between models, mental math, and written work with ease.</li>
-              <li><strong>Deeper confidence.</strong> They walk into new math topics believing they can figure it out, not hoping to be rescued.</li>
-            </ul>
+          <div>
+            <div class="card">
+              <h3>Not another worksheet club.</h3>
+              <p class="muted">
+                Many “tutoring” programs re-teach the same worksheets from
+                school. We do something different:
+              </p>
+              <ul>
+                <li>Strategy games that build flexible number sense.</li>
+                <li>Logic &amp; pattern puzzles that strengthen reasoning.</li>
+                <li>Opportunities to explain thinking out loud — like math coaching.</li>
+                <li>Targeted review that quietly supports MAP &amp; SOL performance.</li>
+              </ul>
+              <div class="inline-tag">We coach thinkers, not box-checkers.</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- HOW IT WORKS (STORYBRAND PLAN) -->
-      <section class="section" id="how-it-works">
-        <div class="section-title">How it works</div>
-        <h2 class="section-heading">We don’t tutor. We train thinkers.</h2>
-        <p class="section-text">
-          Math Lab is not about racing ahead in the curriculum. It’s about building kids who can handle real thinking —
-          the kind they’ll see in upper grades, advanced courses, and life.
-        </p>
-        <p class="section-text">
-          Students wrestle with unfamiliar problems, compare strategies, and learn to stay calm under challenge.
-          We use strategic games and puzzles (like Genius Star, Math Dice, and spatial challenges) because they build
-          <strong>pattern recognition</strong>, <strong>logical sequencing</strong>, and <strong>cognitive endurance</strong>.
-          There are no worksheets, homework packets, or test-prep tricks.
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how">
+        <div class="section-kicker">Our simple plan</div>
+        <h2 class="section-title">How the Lab works.</h2>
+        <p class="section-lead">
+          Parents are busy. You don’t need another complicated system. Here’s how
+          McSpadden Math Lab makes elite-level math coaching simple:
         </p>
 
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">Step 1</div>
-            <div class="step-title">Request an invitation</div>
-            <p class="step-text">
-              Tell us about your child: grade, how they react when math becomes difficult, and what you’d like to see change this year.
-              This helps us decide if the Lab is the right fit.
-            </p>
+        <div class="grid-2">
+          <div>
+            <div class="card">
+              <h3>1. Enroll your child.</h3>
+              <p class="muted">
+                Choose your child’s grade band — <strong>2nd–3rd</strong> or
+                <strong>4th–5th</strong>. Your flat fee of
+                <span class="highlight-text">$340 per month</span> covers every
+                Saturday session in that month.
+              </p>
+              <p class="muted">
+                Whether your child attends one Saturday or all four, your
+                investment is the same. We plan as if they’re coming every week.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>2. Drop off at the library.</h3>
+              <p class="muted">
+                You bring your child to the Haymarket / Gainesville Library:
+              </p>
+              <ul>
+                <li><strong>10:30am · Grades 2–3</strong></li>
+                <li><strong>11:30am · Grades 4–5</strong></li>
+              </ul>
+              <p class="muted">
+                They join a small pod with clear expectations, warm coaching, and
+                a calm but focused atmosphere.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>3. Watch their confidence grow.</h3>
+              <p class="muted">
+                Over time, you’ll notice more than just “better grades.”
+              </p>
+              <ul>
+                <li>They volunteer answers more often.</li>
+                <li>They don’t freeze when they see a tough problem.</li>
+                <li>They start saying, “I can figure this out.”</li>
+              </ul>
+              <p class="muted">
+                That mindset carries into class, homework, and high-stakes tests.
+              </p>
+            </div>
           </div>
-          <div class="step">
-            <div class="step-num">Step 2</div>
-            <div class="step-title">Placement & schedule</div>
-            <p class="step-text">
-              If it’s a match, we place your child in a small cohort (grades 2–3 at 9:00 AM or grades 4–5 at 10:15 AM)
-              and confirm your Saturday time. Soft launch begins on the first Saturday in February.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-num">Step 3</div>
-            <div class="step-title">Weekly training</div>
-            <p class="step-text">
-              Your child attends one 60-minute lab each week. We work on real problems, multiple strategies, and the resilience to stick with hard things—
-              building habits that later support honors, advanced, and even SAT-level work.
-            </p>
+
+          <div>
+            <div class="card">
+              <h3>What happens in a session?</h3>
+              <p class="muted">
+                Each lab is designed to feel like a mix between a strategy room
+                and a game table:
+              </p>
+              <ul>
+                <li>Warm-up puzzles to get brains firing.</li>
+                <li>Targeted concept work (fractions, place value, word problems, etc.).</li>
+                <li>High-quality games that build mental flexibility and focus.</li>
+                <li>Short reflection: “What did we learn? What got easier?”</li>
+              </ul>
+
+              <div class="pill-row">
+                <span class="mini-pill">Number flexibility</span>
+                <span class="mini-pill">Problem solving</span>
+                <span class="mini-pill">Pattern recognition</span>
+                <span class="mini-pill">Spatial reasoning</span>
+              </div>
+
+              <p class="muted">
+                It’s fun and engaging, but every choice is intentional and rooted
+                in what actually moves students forward.
+              </p>
+            </div>
+
+            <div class="pricing-callout">
+              <strong>Investment:</strong> $340 per month per child.
+              <br />
+              <span class="muted">
+                One clear price. All Saturday sessions included. No extra fees,
+                no hidden upsells — just a consistent, high-quality place for
+                your child to get sharper at math.
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- OFFER / COHORTS / TUITION -->
+      <!-- WHY PARENTS CHOOSE US -->
       <section class="section">
-        <div class="section-title">Inside the lab</div>
-        <h2 class="section-heading">What your child actually does each week.</h2>
-        <p class="section-text">
-          There are no endless packets, apps, or timed drills. Every session is built around real problems, structured difficulty,
-          and deeper thinking at your child’s level.
+        <div class="section-kicker">Why it matters</div>
+        <h2 class="section-title">More than math scores — but scores matter, too.</h2>
+        <p class="section-lead">
+          You care about test results — MAP, SOL, report cards. So do we. But we
+          also care about the kind of thinker your child is becoming.
         </p>
 
-        <div class="grid-3" style="margin-top: 1.5rem;">
-          <div class="card">
-            <div class="label">Cohort one</div>
-            <div class="highlight">Grades 2–3 — Foundational Extension (9:00 AM)</div>
-            <p class="section-text">
-              We take students beyond answer-getting and build strong number sense and early problem-solving habits:
-            </p>
-            <ul class="checklist">
-              <li>• Flexible addition and subtraction strategies</li>
-              <li>• Early multiplication and grouping ideas</li>
-              <li>• Fractions as “fair share” and measurement</li>
-              <li>• Showing thinking with pictures, models, and words</li>
-              <li>• Beginning numerical flexibility and efficiency—multiple ways to see the same problem</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="label">Cohort two</div>
-            <div class="highlight">Grades 4–5 — Deep Structure & Justification (10:15 AM)</div>
-            <p class="section-text">
-              We deepen reasoning and prepare students for more complex work ahead:
-            </p>
-            <ul class="checklist">
-              <li>• Multi-step word problems and strategy choice</li>
-              <li>• Division and fraction models with meaning</li>
-              <li>• Area, arrays, and pattern-based reasoning</li>
-              <li>• Explaining and comparing solutions out loud</li>
-              <li>• Problem solving under constraints (limited moves, time, or information)</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="label">Structure</div>
-            <div class="highlight">Tuition & commitment</div>
-            <p class="section-text">
-              Clear, simple, no-nonsense:
-            </p>
-            <ul class="checklist">
-              <li>• One 60-minute lab per week</li>
-              <li>• 9:00 AM cohort: 2nd–3rd graders</li>
-              <li>• 10:15 AM cohort: 4th–5th graders</li>
-              <li>• Tuition is <strong>$85 per lab</strong>, billed as <strong>$340/month</strong></li>
-            </ul>
-            <p class="section-text" style="margin-top:0.4rem;">
-              You’ll be billed <strong>$340 on February 1st</strong> for the first four-lab month, and on the
-              <strong>1st of each month thereafter</strong> for as long as your child remains enrolled.
-            </p>
-            <p class="section-text">
-              Tuition reserves your child’s seat in a very small group. Missed sessions are not refunded, the same way a sports clinic or music lesson works.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ / CLARITY -->
-      <section class="section">
-        <div class="section-title">Clarity first</div>
-        <h2 class="section-heading">What Math Lab is — and what it isn’t.</h2>
-        <p class="section-text">
-          Parents don’t need more mystery. Here’s exactly what we do and don’t do.
-        </p>
-
-        <div class="faq">
-          <div class="faq-item">
-            <div class="faq-q">Is this tutoring?</div>
-            <div class="faq-a">
-              No. We don’t sit next to your child and walk them through tonight’s homework. Math Lab is a training environment
-              where capable kids get steady challenge, extension, and coaching in flexibility, efficiency, and problem solving.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Do you help with school homework or tests?</div>
-            <div class="faq-a">
-              Our focus is on long-term skills: problem-solving, number sense, fractions, and confidence with hard questions.
-              Those skills make homework and tests easier, but we do not use session time for school assignments.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Is this for kids who are behind?</div>
-            <div class="faq-a">
-              Math Lab is designed for students who are at or above grade level and need to be stretched.
-              If your child is significantly behind and needs one-on-one support, traditional tutoring will serve them better right now.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">What if my child is nervous about being wrong?</div>
-            <div class="faq-a">
-              That’s exactly the type of student we help. We treat mistakes as information, not something to be ashamed of.
-              Over time, many kids go from “I hate being wrong” to “Let me try again a different way” and see errors as part of learning.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Who leads the sessions?</div>
-            <div class="faq-a">
-              All labs are led by Mr. McSpadden, an experienced classroom teacher who specializes in helping elementary students grow
-              in both skill and confidence. Your child will not be handed off to a rotating cast of tutors.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA BAND -->
-      <section class="cta-band">
-        <div class="cta-inner">
+        <div class="grid-2">
           <div>
-            <div class="cta-heading">If your child is capable, they should feel challenged.</div>
-            <p class="cta-text">
-              Math Lab gives bright 2nd–5th graders a place to work hard, think deeply, and build real confidence under pressure.
-              The next step is simple: tell us about your child using the form below. We’ll review your application, confirm if there’s a fit,
-              and offer a seat in the 9:00 (2nd–3rd) or 10:15 (4th–5th) Saturday cohort starting in February.
+            <div class="card">
+              <h3>From “getting by” to leading the pack.</h3>
+              <p class="muted">
+                Many students can “do the steps” in math but don’t truly
+                understand what they’re doing. In the lab, we:
+              </p>
+              <ul>
+                <li>Press for explanations, not just answers.</li>
+                <li>Build stamina with multi-step problems.</li>
+                <li>Celebrate struggle as part of learning.</li>
+                <li>Connect what we do to what they’ll see in class and on tests.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="card">
+              <h3>Fun is a strategy, not a distraction.</h3>
+              <p class="muted">
+                Engagement isn’t the opposite of rigor. When kids are genuinely
+                engaged, they:
+              </p>
+              <ul>
+                <li>Spend more time thinking deeply.</li>
+                <li>Retain strategies longer.</li>
+                <li>Take more academic risks — a big predictor of growth.</li>
+              </ul>
+              <p class="muted">
+                That’s why we combine games, puzzles, and coaching — not to
+                entertain, but to build serious skill in a way kids actually
+                love.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT / GUIDE -->
+      <section class="section" id="about">
+        <div class="grid-2">
+          <div>
+            <div class="section-kicker">Your guide</div>
+            <h2 class="section-title">Led by a classroom teacher & math coach.</h2>
+            <p class="section-lead">
+              McSpadden Math Lab is led by <span class="highlight-text">Matthew
+              McSpadden</span>, a 4th grade math and science teacher in
+              Arlington Public Schools and an experienced math coach who has
+              helped students reach top growth on MAP and SOL assessments.
             </p>
           </div>
-          <button class="btn btn-primary" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
-            Request an Invitation
+          <div>
+            <div class="card">
+              <h3>What this means for your child:</h3>
+              <ul>
+                <li>Strategies that line up with what schools and tests expect.</li>
+                <li>A teacher who understands real classrooms, not just theory.</li>
+                <li>Clear communication with parents in plain language.</li>
+                <li>A lab built to feel safe, challenging, and encouraging at the same time.</li>
+              </ul>
+              <p class="muted">
+                It is the honor of my life to teach your kids and help them see
+                what they’re truly capable of.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENROLL CTA -->
+      <section class="section" id="enroll">
+        <div class="section-kicker">Next step</div>
+        <h2 class="section-title">Ready to give your child an edge?</h2>
+        <p class="section-lead">
+          Here’s the plan: <strong>Enroll</strong> your child, <strong>drop them off</strong> on Saturdays, and
+          <strong>watch their confidence grow</strong>. We’ll handle the math coaching.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Enroll now</h3>
+            <p class="muted">
+              Use the enrollment link or contact form on this page to secure your
+              child’s spot. Pods are intentionally capped so every student gets
+              personal attention.
+            </p>
+            <p class="muted">
+              Once you’re confirmed, we’ll send a short welcome note with what to
+              bring and what to expect on day one.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Your commitment</h3>
+            <ul>
+              <li>Bring your child on time to the library each Saturday.</li>
+              <li>Encourage them to share what they learned after each session.</li>
+              <li>Let us know if there’s anything we should watch for or support.</li>
+            </ul>
+            <p class="muted">
+              Our commitment: to treat your child like a capable mathematician,
+              every single time they walk through the door.
+            </p>
+          </div>
+        </div>
+
+        <!-- Placeholder CTA button – hook this to Stripe or a form later -->
+        <div style="margin-top: 1.5rem;">
+          <button class="btn-primary">
+            Start Enrollment Process
           </button>
-        </div>
-      </section>
-
-      <!-- APPLICATION FORM -->
-      <section class="section form-section" id="apply">
-        <div class="section-title">Next step</div>
-        <h2 class="section-heading">Tell us about your child.</h2>
-        <p class="section-text">
-          To request a seat in a Saturday cohort, complete this short form. We review every response and email you with placement options,
-          your cohort time (9:00 or 10:15), and payment details for the February 1st billing.
-        </p>
-
-        <!-- Netlify form -->
-        <form name="math-lab-application" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="math-lab-application" />
-          <div>
-            <label for="parent-name">Parent / Guardian Name</label>
-            <input id="parent-name" name="parent-name" type="text" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-          <div>
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" />
-          </div>
-          <div>
-            <label for="child-name">Child’s Name</label>
-            <input id="child-name" name="child-name" type="text" required />
-          </div>
-          <div>
-            <label for="grade">Current Grade</label>
-            <select id="grade" name="grade" required>
-              <option value="">Select a grade</option>
-              <option value="2">2nd grade</option>
-              <option value="3">3rd grade</option>
-              <option value="4">4th grade</option>
-              <option value="5">5th grade</option>
-            </select>
-          </div>
-          <div>
-            <label for="math-feelings">How does your child respond when math gets hard?</label>
-            <textarea
-              id="math-feelings"
-              name="math-feelings"
-              placeholder="For example: freezes, rushes, gets frustrated, keeps trying, loves puzzles like Genius Star, etc."
-              required
-            ></textarea>
-          </div>
-          <div>
-            <label for="hopes">What would you love to see change over the next 6–12 months?</label>
-            <textarea
-              id="hopes"
-              name="hopes"
-              placeholder="Confidence, deeper thinking, efficiency, leadership in math, specific skills, etc."
-              required
-            ></textarea>
-          </div>
-          <div>
-            <label for="notes">Anything else we should know?</label>
-            <textarea
-              id="notes"
-              name="notes"
-              placeholder="Optional – learning needs, sports schedule, personality."
-            ></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">
-            Submit Application
-          </button>
-          <p class="form-footnote">
-            We’ll review your responses and follow up with your cohort placement, start date (first Saturday in February),
-            and instructions to complete your $340 February 1st billing. Future months will also bill on the 1st for as long as your child remains enrolled.
+          <p class="hero-note" style="margin-top: 0.6rem;">
+            Have questions first? Add a simple contact form here or an email link
+            for parents who want to talk before enrolling.
           </p>
-        </form>
+        </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-inner">
-        <span>© <span id="year"></span> McSpadden Math Lab</span>
-        <span>Haymarket, VA</span>
+        <span>&copy; <span id="year"></span> McSpadden Math Lab. All rights reserved.</span>
+        <span>Serving families in <strong>Haymarket &amp; Gainesville, VA</strong>.</span>
       </div>
     </footer>
   </div>
@@ -945,4 +790,5 @@
   </script>
 </body>
 </html>
+
 
