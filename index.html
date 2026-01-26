@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Math Readiness Path — Grade 4 Readiness | McSpadden Math Lab</title>
-  <meta name="description" content="A 10-week readiness intervention for students entering Grade 4. Small-group math sessions at the Gainesville–Haymarket Library. Built for clarity, confidence, and durable math foundations." />
+  <meta name="description" content="A 10-week readiness phase for students currently in Grade 3 or early Grade 4. Gainesville–Haymarket Library. Two cohorts: Mon/Wed nights or Tue/Thu nights." />
+
+  <!-- Fonts (safe + clean). If your site already loads Inter elsewhere, you can remove this. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -20,255 +25,776 @@
       --radius-lg: 16px;
       --radius-xl: 24px;
       --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.85);
+      --shadow-card: 0 16px 28px rgba(0,0,0,0.55);
+      --shadow-glow: 0 0 0 1px rgba(198,160,74,0.25), 0 12px 38px rgba(198,160,74,0.08);
+      --line: rgba(255,255,255,0.08);
+      --ok: #22c55e;
+      --warn: #f59e0b;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
     body {
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 30% -10%, rgba(198,160,74,0.12), transparent 55%),
+                  radial-gradient(900px 600px at 90% 0%, rgba(231,217,168,0.06), transparent 55%),
+                  var(--bg);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.35;
     }
 
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 64px 24px;
-    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
-    h1, h2, h3 {
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+    /* Top ticker */
+    .ticker {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 16px;
+    .ticker-inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      flex-wrap: wrap;
     }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
-
-    p {
+    .ticker-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); display: inline-block; opacity: 0.9; }
+    .ticker-strong { color: var(--text-main); font-weight: 600; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(198,160,74,0.35);
+      background: rgba(18,18,18,0.75);
+      box-shadow: var(--shadow-glow);
+      color: var(--text-main);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .pill .cap-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--warn); }
+    .pill strong { color: var(--accent-soft); font-weight: 700; }
+
+    /* Header / Hero */
+    header { padding: 42px 0 18px; }
+    .brandbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .brand .name {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+    .brand .sub {
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
     .hero {
-      padding-top: 96px;
-      padding-bottom: 96px;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.8rem;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      max-width: 720px;
-      font-size: 1.1rem;
-    }
-
-    .cta-primary {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 16px 28px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-      color: #0A0A0A;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .section {
-      margin-top: 96px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      margin-top: 24px;
-    }
-
-    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(18,18,18,0.85), rgba(18,18,18,0.55));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
     }
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(600px 300px at 20% 10%, rgba(198,160,74,0.16), transparent 60%),
+                  radial-gradient(500px 280px at 85% 0%, rgba(231,217,168,0.10), transparent 65%);
+      pointer-events: none;
+    }
+    .hero > * { position: relative; z-index: 1; }
 
-    .badge {
-      display: inline-block;
-      border: 1px solid var(--border-subtle);
-      padding: 6px 12px;
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(198,160,74,0.30);
       border-radius: 999px;
-      font-size: 0.85rem;
-      color: var(--accent);
+      background: rgba(10,10,10,0.35);
+      color: var(--accent-soft);
+      font-weight: 600;
+      font-size: 12px;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -0.7px;
       margin-bottom: 12px;
     }
-
-    .price {
-      font-size: 2.5rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin: 16px 0;
+    .lead {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      max-width: 62ch;
     }
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(198,160,74,0.35);
+      background: rgba(198,160,74,0.12);
+      color: var(--text-main);
+      font-weight: 700;
+      letter-spacing: 0.1px;
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn:hover { transform: translateY(-1px); background: rgba(198,160,74,0.16); border-color: rgba(198,160,74,0.55); }
+    .btn.secondary {
+      background: rgba(18,18,18,0.55);
+      border-color: var(--line);
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .btn.secondary:hover { background: rgba(18,18,18,0.75); border-color: rgba(255,255,255,0.14); }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(10,10,10,0.35);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+    }
+    .meta {
+      display: grid;
+      gap: 10px;
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 13px;
+    }
+    .meta-row .label { color: var(--text-muted); }
+    .meta-row .value { color: var(--text-main); font-weight: 600; }
+    .meta-row .value span { color: var(--text-muted); font-weight: 500; }
+    .divider { height: 1px; background: var(--line); margin: 6px 0; }
+
+    .cap-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(198,160,74,0.25);
+      background: rgba(18,18,18,0.55);
+    }
+    .cap-left { display: grid; gap: 2px; }
+    .cap-title { font-size: 12px; color: var(--text-muted); }
+    .cap-value { font-size: 14px; font-weight: 800; color: var(--accent-soft); letter-spacing: 0.2px; }
+    .cap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(10,10,10,0.40);
+      font-size: 12px;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .cap-badge .cap-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--warn); }
+
+    /* Sections */
+    section { padding: 22px 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(18,18,18,0.72);
+      padding: 18px;
+      box-shadow: var(--shadow-card);
+    }
+    .card h2 {
+      font-size: 18px;
+      letter-spacing: -0.2px;
+      margin-bottom: 10px;
+    }
+    .card p { color: var(--text-muted); line-height: 1.6; font-size: 14px; }
+    .list { margin-top: 10px; display: grid; gap: 8px; }
+    .li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--text-main);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .check {
+      width: 18px; height: 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(198,160,74,0.35);
+      background: rgba(198,160,74,0.10);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--accent-soft);
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-title h2 { font-size: 20px; letter-spacing: -0.3px; }
+    .section-title .hint { color: var(--text-muted); font-size: 13px; }
+
+    /* Steps */
+    .steps { display: grid; gap: 12px; }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(10,10,10,0.35);
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .step-name { font-weight: 800; letter-spacing: -0.2px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(18,18,18,0.55);
+      color: var(--text-muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .step p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+    /* Pricing */
+    .pricing {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      color: var(--text-main);
+      margin: 6px 0 10px;
+    }
+    .fine { color: var(--text-muted); font-size: 13px; line-height: 1.55; }
+
+    /* FAQ */
+    details {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(10,10,10,0.30);
+      padding: 12px 14px;
+    }
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 14px;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details .answer { padding-top: 10px; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    .chev {
+      width: 28px; height: 28px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(18,18,18,0.55);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-weight: 900;
+      transition: transform 140ms ease;
+    }
+    details[open] .chev { transform: rotate(180deg); }
+
+    /* Footer CTA */
+    .cta {
+      text-align: center;
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(198,160,74,0.22);
+      background: linear-gradient(180deg, rgba(198,160,74,0.10), rgba(18,18,18,0.65));
+      box-shadow: var(--shadow-soft);
+    }
+    .cta h2 { font-size: 22px; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .cta p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
 
     footer {
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 120px;
-      padding: 48px 24px;
-      text-align: center;
+      padding: 26px 0 34px;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 12px;
+      text-align: center;
     }
 
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 2.2rem;
-      }
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .pricing { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero container">
-    <div class="eyebrow">The Math Readiness Path</div>
-    <h1>Grade 4 Readiness</h1>
-    <p>
-      A 10-week intervention designed to secure the math foundations students need
-      <strong>before fourth-grade expectations accelerate</strong>.
-    </p>
-    <p>
-      This is not tutoring. It is a time-boxed readiness phase built for clarity,
-      confidence, and durable skill development.
-    </p>
-    <a href="#apply" class="cta-primary">Apply for March Enrollment</a>
-  </section>
+  <!-- Top ticker (dates + cohorts + location) -->
+  <div class="ticker">
+    <div class="container">
+      <div class="ticker-inner">
+        <div class="ticker-left">
+          <span class="dot"></span>
+          <span><span class="ticker-strong">Spring Session:</span> Mar 2–May 6, 2026 (10 weeks)</span>
+          <span class="dot"></span>
+          <span><span class="ticker-strong">Cohorts:</span> Mon/Wed nights or Tue/Thu nights</span>
+          <span class="dot"></span>
+          <span><span class="ticker-strong">Location:</span> Gainesville–Haymarket Library</span>
+        </div>
 
-  <!-- WHO IT'S FOR -->
-  <section class="section container">
-    <h2>Who This Phase Is For</h2>
-    <div class="card">
-      <p>This phase is designed for:</p>
-      <ul>
-        <li>Students currently in Grade 3</li>
-        <li>Students early in Grade 4</li>
-        <li>Children who understand concepts but work slowly or inconsistently</li>
-        <li>Students whose confidence drops as math speeds up</li>
-      </ul>
-      <p>
-        If your child simply needs more worksheets, this is not a fit.
-        If your child needs the <em>right</em> foundations secured before expectations rise,
-        it is.
-      </p>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section container">
-    <h2>How the Path Works</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="badge">Step 1</div>
-        <h3>Math Readiness Clearance</h3>
-        <p>
-          A short diagnostic to identify which skills are solid,
-          which are fragile, and what actually matters right now.
-        </p>
-      </div>
-      <div class="card">
-        <div class="badge">Step 2</div>
-        <h3>Live Small-Group Sessions</h3>
-        <p>
-          Twice-weekly, structured sessions focused on automaticity,
-          number sense, and accuracy under mild pressure.
-        </p>
-      </div>
-      <div class="card">
-        <div class="badge">Step 3</div>
-        <h3>Transfer & Application</h3>
-        <p>
-          Skills are applied through games and problem-solving so they hold
-          outside the session and show up in school.
-        </p>
+        <!-- Cohort-cap indicator (edit numbers as needed) -->
+        <div class="pill" title="Cohorts are capped to protect outcomes. Update these numbers anytime.">
+          <span class="cap-dot" aria-hidden="true"></span>
+          Cohort cap: <strong>8</strong> students • Seats left: <strong>Limited</strong>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- LOGISTICS -->
-  <section class="section container">
-    <h2>Program Details</h2>
-    <div class="card">
-      <p><strong>Duration:</strong> 10 weeks (March start)</p>
-      <p><strong>Location:</strong> Gainesville–Haymarket Library</p>
-      <p><strong>Cohorts:</strong></p>
-      <ul>
-        <li>Monday & Wednesday evenings</li>
-        <li>Tuesday & Thursday evenings</li>
-      </ul>
-      <p>
-        Group size is capped to preserve outcomes.
-        This phase runs on a fixed timeline.
-      </p>
+  <header>
+    <div class="container">
+      <div class="brandbar">
+        <div class="brand">
+          <div class="name">McSpadden Math Lab</div>
+          <div class="sub">Evidence-first, small-group math coaching for durable readiness.</div>
+        </div>
+        <a class="btn secondary" href="#apply">Apply</a>
+      </div>
+
+      <div class="hero">
+        <div>
+          <div class="kicker">Math Readiness Path • Phase: Grade 4 Readiness</div>
+          <h1>Grade 4 math accelerates. Readiness decides whether it compounds—or collapses.</h1>
+          <p class="lead">
+            Math Readiness Path — <strong>Grade 4 Readiness</strong> is a structured, 10-week phase designed for students
+            currently in Grade 3 or early Grade 4 who need their foundations secure before 4th-grade expectations fully kick in.
+            This is not open-ended tutoring. It is a time-boxed readiness intervention with objective benchmarks.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#apply">Apply for Grade 4 Readiness</a>
+            <a class="btn secondary" href="#how">See how it works</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Program details">
+          <div class="meta">
+            <div class="meta-row">
+              <div class="label">Timeline</div>
+              <div class="value">10 weeks <span>(Spring: Mar 2–May 6, 2026)</span></div>
+            </div>
+            <div class="meta-row">
+              <div class="label">Location</div>
+              <div class="value">Gainesville–Haymarket Library</div>
+            </div>
+            <div class="meta-row">
+              <div class="label">Cohorts</div>
+              <div class="value">
+                Mon/Wed nights <span>(Week 1: Mar 2 & Mar 4 • Week 10: May 4 & May 6)</span><br/>
+                Tue/Thu nights <span>(Week 1: Mar 3 & Mar 5 • Week 10: May 5 & May 7)</span>
+              </div>
+            </div>
+            <div class="divider"></div>
+
+            <div class="cap-box">
+              <div class="cap-left">
+                <div class="cap-title">Cohort Capacity</div>
+                <div class="cap-value">Capped to protect outcomes</div>
+              </div>
+              <div class="cap-badge">
+                <span class="cap-dot" aria-hidden="true"></span>
+                Cap: 8 • Limited seats
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- PRICING -->
-  <section class="section container">
-    <h2>Tuition & Guarantee</h2>
-    <div class="card">
-      <p class="price">$2,000</p>
-      <p>
-        All-inclusive tuition for the full 10-week phase.
-        No hourly fees. No add-ons.
-      </p>
-      <p>
-        <strong>The Readiness Guarantee:</strong><br/>
-        If your child attends, participates, and follows the home protocol
-        and you do not see clear, measurable improvement in the targeted readiness skills,
-        we will either recommend the appropriate next step at no additional cost
-        or refund the tuition.
-      </p>
-    </div>
-  </section>
+  <main>
+    <!-- Who it's for -->
+    <section>
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>Who this phase is for</h2>
+            <p>
+              Designed for students currently in <strong>Grade 3</strong> or early <strong>Grade 4</strong> who are capable but:
+            </p>
+            <div class="list" role="list">
+              <div class="li" role="listitem"><span class="check">✓</span><span>Work slowly because facts are not automatic</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>Lose accuracy when problems have multiple steps</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>Rely on counting, guessing, or repeated re-checking</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>Feel confidence drop as math speeds up</span></div>
+            </div>
+          </div>
 
-  <!-- CTA -->
-  <section id="apply" class="section container">
-    <h2>Apply for March Enrollment</h2>
-    <p>
-      Applications are reviewed to ensure appropriate placement and group balance.
-      If this phase is not necessary for your child, we will say so.
-    </p>
-    <a href="#" class="cta-primary">Start Application</a>
-  </section>
+          <div class="card">
+            <h2>What this is not</h2>
+            <p>
+              This phase is intentionally narrow. We do not “cover everything.” We secure the foundations that determine whether 4th-grade math works.
+            </p>
+            <div class="list" role="list">
+              <div class="li" role="listitem"><span class="check">—</span><span>Not open-ended tutoring</span></div>
+              <div class="li" role="listitem"><span class="check">—</span><span>Not a drop-in class</span></div>
+              <div class="li" role="listitem"><span class="check">—</span><span>Not a worksheet program</span></div>
+              <div class="li" role="listitem"><span class="check">—</span><span>Not “wait and see” math</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how">
+      <div class="container">
+        <div class="section-title">
+          <h2>How Grade 4 Readiness works</h2>
+          <div class="hint">A fixed sequence designed to remove guesswork and build momentum.</div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-top">
+              <div class="step-name">Step 1: Math Readiness Clearance</div>
+              <div class="tag">The Guide</div>
+            </div>
+            <p>
+              Before instruction begins, every student completes a short readiness assessment focused on skills that predict long-term success.
+              This tells us what is solid, what is fragile, and what matters right now.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-name">Step 2: Live Readiness Sessions</div>
+              <div class="tag">The Work</div>
+            </div>
+            <p>
+              Students meet in small groups <strong>twice per week</strong> at the Gainesville–Haymarket Library.
+              Sessions are structured to build automaticity, number sense, and accuracy under mild pressure.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-name">Step 3: Transfer & Application</div>
+              <div class="tag">The Hold</div>
+            </div>
+            <p>
+              Each week, students apply skills through games, puzzles, and real problem-solving. If a skill only works in one setting, it is not yet secure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Stack -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>What’s included</h2>
+          <div class="hint">The Readiness Support Stack • built for visible, durable gains</div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h2>1) Must-Know Math Skills Framework (Grades 1–6)</h2>
+            <p>
+              A clear, parent-facing framework of the non-negotiable skills that predict long-term math success (fluency-first: number sense, automaticity, foundational computation).
+            </p>
+          </div>
+          <div class="card">
+            <h2>2) Weekly Parent Snapshot</h2>
+            <p>
+              A short weekly update explaining what was targeted, why it matters, and what’s next. No dashboards. No micromanaging. Just clarity.
+            </p>
+          </div>
+          <div class="card">
+            <h2>3) Home Protocol Card</h2>
+            <p>
+              A one-page, 10-minute routine: exactly what to do, for exactly how long, and when to stop—designed to prevent regression without homework battles.
+            </p>
+          </div>
+          <div class="card">
+            <h2>4) Mid-Phase Readiness Checkpoint</h2>
+            <p>
+              A concise midpoint update outlining what has shifted, what still needs reinforcement, and whether the current trajectory is on track—so adjustments happen early.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Decide -->
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2>How to decide if this phase is right</h2>
+          <p>
+            This phase is not about getting ahead. It’s about being ready.
+            Grade 4 Readiness is a good fit if <strong>two or more</strong> of the following are true:
+          </p>
+          <div class="list" role="list">
+            <div class="li" role="listitem"><span class="check">✓</span><span>Understanding is there, but work is slow or inconsistent</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Accuracy drops on multi-step problems</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Homework takes longer than it should for basic skills</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Counting/guessing still shows up on facts that should be automatic</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Confidence decreases as math speeds up</span></div>
+          </div>
+          <p style="margin-top:12px;">
+            If you’re unsure, that’s normal. The Math Readiness Clearance exists to remove guesswork.
+            If your child does not need this phase, we will say so.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tuition & Guarantee -->
+    <section id="pricing">
+      <div class="container">
+        <div class="pricing">
+          <div class="card">
+            <div class="section-title" style="margin-bottom:6px;">
+              <h2>Tuition</h2>
+              <div class="hint">All-inclusive • no add-ons • no hourly fees</div>
+            </div>
+            <div class="price">$2,000</div>
+            <p class="fine">
+              Investment is for the full <strong>10-week</strong> Grade 4 Readiness phase, including all live sessions (library-based),
+              the complete Readiness Support Stack, and guidance on next steps at the end of the phase.
+            </p>
+            <div class="hero-actions" style="margin-top:14px;">
+              <a class="btn" href="#apply">Apply Now</a>
+              <a class="btn secondary" href="#faq">Read FAQ</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title" style="margin-bottom:6px;">
+              <h2>The Readiness Guarantee</h2>
+              <div class="hint">Premium positioning • low friction</div>
+            </div>
+            <p class="fine">
+              If your child attends sessions, completes the in-session work, and follows the Home Protocol—and you do not see clear, measurable improvement in the targeted readiness skills—we will either:
+            </p>
+            <div class="list" role="list" style="margin-top:10px;">
+              <div class="li" role="listitem"><span class="check">✓</span><span>Recommend the appropriate next step at no additional cost, or</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>Refund the phase tuition.</span></div>
+            </div>
+            <p class="fine" style="margin-top:10px;">
+              This exists for one reason: we do not continue work that is not producing results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What comes next -->
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2>What comes next</h2>
+          <p>
+            Grade 4 Readiness is one phase inside the larger <strong>Math Readiness Path</strong>.
+            At the end of this phase, families receive guidance on whether to pause and maintain—or continue into the next phase when math demands increase.
+          </p>
+          <div class="list" role="list" style="margin-top:10px;">
+            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 5 Readiness</span></div>
+            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 6 Readiness</span></div>
+            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Pre-Algebra Readiness</span></div>
+          </div>
+          <p style="margin-top:12px; color: var(--text-muted);">
+            There is no pressure to continue—only clarity about readiness.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <div class="hint">Clear answers • no fluff</div>
+        </div>
+
+        <div class="steps" style="gap:10px;">
+          <details>
+            <summary>Is this only for students who are behind? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              No. Many students earn solid grades. This phase is about readiness for what comes next—speed, accuracy, and consistency under mild pressure.
+            </div>
+          </details>
+
+          <details>
+            <summary>How is this different from tutoring? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              Tutoring is typically open-ended and reactive. This is time-boxed, targeted, and benchmark-driven. We intervene only where gaps create future risk.
+            </div>
+          </details>
+
+          <details>
+            <summary>Where are sessions held? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              Every session is held at the <strong>Gainesville–Haymarket Library</strong>.
+            </div>
+          </details>
+
+          <details>
+            <summary>When are sessions held? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              Two cohort options: <strong>Monday/Wednesday nights</strong> or <strong>Tuesday/Thursday nights</strong>.
+              (Week 1 begins March 2–5, 2026. Week 10 ends May 4–7, 2026.)
+            </div>
+          </details>
+
+          <details>
+            <summary>How large are cohorts? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              Cohorts are capped because outcomes degrade when groups grow. The current cap is shown at the top of the page.
+            </div>
+          </details>
+
+          <details>
+            <summary>Do you assign homework? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              No traditional homework. Families receive a simple 10-minute Home Protocol designed to maintain gains without stress.
+            </div>
+          </details>
+
+          <details>
+            <summary>What if this isn’t the right fit? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              Fit matters. If your child does not need this phase, we will say so. Readiness matters more than enrollment.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apply -->
+    <section id="apply">
+      <div class="container">
+        <div class="cta">
+          <h2>Apply for Grade 4 Readiness</h2>
+          <p>
+            Applications are reviewed to ensure appropriate placement and group balance.
+            If your child does not need this phase, we will tell you.
+          </p>
+
+          <!-- Replace the href with your real application form URL -->
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn" href="https://example.com/apply" target="_blank" rel="noopener">Open Application</a>
+            <a class="btn secondary" href="#pricing">View Tuition + Guarantee</a>
+          </div>
+
+          <p class="fine" style="margin-top:12px;">
+            Tip: If you already have a Google Form application, paste the link above and you’re live.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © McSpadden Math Lab · Gainesville, VA
+    <div class="container">
+      © <span id="y"></span> McSpadden Math Lab • Gainesville–Haymarket, VA • Cohorts capped to protect outcomes
+    </div>
   </footer>
 
+  <script>
+    // Set year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
 
 
