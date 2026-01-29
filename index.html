@@ -394,6 +394,14 @@
     }
     .cta h2 { font-size: 22px; letter-spacing: -0.3px; margin-bottom: 10px; }
     .cta p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+    .form-embed {
+      width: 100%;
+      min-height: 980px;
+      border: 0;
+      border-radius: 16px;
+      margin-top: 16px;
+      background: rgba(10,10,10,0.35);
+    }
 
     footer {
       padding: 26px 0 34px;
@@ -461,6 +469,8 @@
 
       /* Pricing: prevent oversized type */
       .price { font-size: 30px; }
+
+      .form-embed { min-height: 1080px; }
 
       /* FAQ: improve tap area and wrapping */
       details { padding: 12px; }
@@ -986,6 +996,13 @@
             <a class="btn secondary" href="#pricing">View Tuition + Guarantee</a>
           </div>
 
+          <iframe
+            class="form-embed"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform?embedded=true"
+            title="Grade 4 Readiness Application"
+            loading="lazy">
+          </iframe>
+
           <p class="fine" style="margin-top:12px;">
             
           </p>
@@ -1006,4 +1023,3 @@
   </script>
 </body>
 </html>
-
