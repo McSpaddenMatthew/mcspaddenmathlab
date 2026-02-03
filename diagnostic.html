@@ -35,27 +35,8 @@
       padding: 0 20px;
     }
     header {
-      padding: 36px 0 20px;
+      padding: 56px 0 20px;
       text-align: center;
-    }
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 20px;
-    }
-    .nav label {
-      font-size: 12px;
-      color: var(--muted);
-      margin-right: 8px;
-      align-self: center;
-    }
-    .nav select {
-      background: var(--card);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: 14px;
     }
     h1 {
       font-size: 34px;
@@ -169,13 +150,6 @@
 <body>
   <header>
     <div class="container">
-      <nav class="nav" aria-label="Page selection">
-        <label for="page-select">Page</label>
-        <select id="page-select">
-          <option value="/index.html" selected>Home</option>
-          <option value="/diagnostic.html">Diagnostic</option>
-        </select>
-      </nav>
       <h1>4th Grade Math Readiness Diagnostic</h1>
       <p class="lead">
         This short video will help you decide whether the Grade 4 Readiness phase is the right next step for your child.
@@ -195,9 +169,9 @@
         <div class="video-wrap" aria-label="Diagnostic video">
           <div class="video-embed">
             <iframe
-              title="Grade 4 Readiness Diagnostic Video"
-              src="https://www.youtube.com/embed/VIDEO_ID?cc_load_policy=1&autoplay=0&mute=0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://www.youtube.com/embed/2SNiEiiEE1A?rel=0"
+              title="4th Grade Math Readiness Diagnostic"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
           </div>
@@ -253,14 +227,5 @@
       </div>
     </section>
   </main>
-  <script>
-    const pageSelect = document.getElementById('page-select');
-    pageSelect?.addEventListener('change', (event) => {
-      const target = event.target;
-      if (target && target.value) {
-        window.location.href = target.value;
-      }
-    });
-  </script>
 </body>
 </html>
