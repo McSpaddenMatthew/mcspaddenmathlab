@@ -38,6 +38,44 @@
       padding: 56px 0 20px;
       text-align: center;
     }
+    .site-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+    .site-nav select {
+      appearance: none;
+      background: rgba(20,20,20,0.8);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 28px 8px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .site-nav select:focus {
+      outline: 2px solid rgba(198,160,74,0.45);
+      outline-offset: 2px;
+    }
+    .site-nav .chev {
+      margin-left: -24px;
+      pointer-events: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(18,18,18,0.55);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 11px;
+    }
     h1 {
       font-size: 34px;
       line-height: 1.2;
@@ -150,6 +188,15 @@
 <body>
   <header>
     <div class="container">
+      <div class="site-nav" aria-label="Site navigation">
+        <label for="page-select">Go to</label>
+        <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
+          <option value="" selected>Choose a page</option>
+          <option value="/index.html">Grade 4 Readiness</option>
+          <option value="/diagnostic.html">Readiness Diagnostic</option>
+        </select>
+        <span class="chev" aria-hidden="true">⌄</span>
+      </div>
       <h1>4th Grade Math Readiness Diagnostic</h1>
       <p class="lead">
         This short video will help you decide whether the Grade 4 Readiness phase is the right next step for your child.
