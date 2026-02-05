@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>4th Grade Math Readiness Diagnostic | McSpadden Math Lab</title>
-  <meta name="description" content="A short diagnostic video to help parents decide whether to apply for Grade 4 Readiness." />
+  <meta name="description" content="A short diagnostic video to help parents decide whether to request a brief readiness call about next steps." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0a0a0a;
@@ -34,10 +35,12 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+
     header {
       padding: 56px 0 20px;
       text-align: center;
     }
+
     .site-nav {
       display: inline-flex;
       align-items: center;
@@ -76,6 +79,7 @@
       font-weight: 900;
       font-size: 11px;
     }
+
     h1 {
       font-size: 34px;
       line-height: 1.2;
@@ -85,15 +89,15 @@
     .lead {
       color: var(--muted);
       font-size: 16px;
-      max-width: 68ch;
+      max-width: 70ch;
       margin: 0 auto;
     }
+    .lead + .lead { margin-top: 10px; }
 
-    main { padding-bottom: 40px; }
+    main { padding-bottom: 46px; }
 
-    .section {
-      padding: 26px 0;
-    }
+    .section { padding: 26px 0; }
+
     .card {
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
@@ -125,6 +129,7 @@
       font-size: 22px;
       margin-bottom: 12px;
     }
+
     .list {
       display: grid;
       gap: 10px;
@@ -150,9 +155,19 @@
       font-size: 12px;
     }
 
-    .cta {
-      text-align: center;
+    .callbox {
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(198,160,74,0.22);
+      background: rgba(198,160,74,0.08);
+      text-align: left;
+      color: var(--text);
+      font-size: 14px;
     }
+    .callbox strong { color: var(--accent-soft); }
+
+    .cta { text-align: center; }
     .cta p { color: var(--muted); }
 
     .btn {
@@ -176,6 +191,9 @@
       color: var(--muted);
       text-align: center;
       margin-top: 18px;
+      max-width: 90ch;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media (max-width: 720px) {
@@ -185,6 +203,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -197,13 +216,17 @@
         </select>
         <span class="chev" aria-hidden="true">⌄</span>
       </div>
+
       <h1>4th Grade Math Readiness Diagnostic</h1>
+
       <p class="lead">
-        This short video helps you decide whether it’s worth having a brief readiness call about next steps.
+        Watch the short video below. If two or more parts feel familiar, the next step is a brief readiness call to decide what makes sense.
       </p>
+
       <p class="lead">
         This diagnostic is designed for capable students whose grades look fine right now, but whose math facts or number sense may not yet be automatic enough for what’s coming next.
       </p>
+
       <p class="lead">
         There’s no obligation to move forward. If this phase isn’t right for your child, you’ll know quickly — often without needing a call.
       </p>
@@ -211,22 +234,22 @@
   </header>
 
   <main>
+    <!-- Video -->
     <section class="section">
       <div class="container">
         <div class="video-wrap" aria-label="Diagnostic video">
           <div class="video-embed">
             <iframe
-  title="Grade 4 Readiness Diagnostic Video"
-  src="https://www.youtube-nocookie.com/embed/2SNiEiiEE1A?rel=0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-
-            ></iframe>
+              title="Grade 4 Readiness Diagnostic Video"
+              src="https://www.youtube-nocookie.com/embed/2SNiEiiEE1A?rel=0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Decision Bridge -->
     <section class="section decision">
       <div class="container">
         <div class="card">
@@ -234,6 +257,7 @@
           <p>
             If two or more of the situations described felt familiar, the next step is a short readiness call to decide whether support would be helpful.
           </p>
+
           <div class="list" role="list">
             <div class="li" role="listitem">
               <span class="bullet">✓</span>
@@ -248,23 +272,33 @@
               <span>Confirm whether readiness support is needed</span>
             </div>
           </div>
+
           <p style="margin-top: 12px;">
             I personally take every call and help determine whether readiness support is appropriate — and if so, which group would make sense.
           </p>
         </div>
       </div>
     </section>
-       <p style="margin-top:10px;">
-        <strong>Time &amp; fit note:</strong> Readiness support is a short-term, premium intervention.
-        The current investment is <strong>$2,000</strong>.
-        If that range feels workable, request a call below.
-       </p>
 
+    <!-- Call CTA -->
     <section class="section">
       <div class="container">
         <div class="card cta">
           <h2>Request a Readiness Call</h2>
-          <p>One Form for a Call → one clear next step.</p>
+          <p>One short form → one readiness call.</p>
+
+          <div class="callbox" aria-label="Call expectations">
+            <p>
+              <strong>What this call is (and isn’t):</strong><br>
+              This is not tutoring and not an enrollment decision. It’s a short conversation to decide whether readiness support would even make sense.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>Time &amp; fit note:</strong><br>
+              Readiness support is a short-term, premium intervention. The current investment is <strong>$2,000</strong>.<br>
+              If that range feels workable, request a call below. If not, this likely isn’t the right fit — and that’s okay.
+            </p>
+          </div>
+
           <a
             class="btn"
             href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
@@ -274,8 +308,10 @@
             Request My Readiness Call
           </a>
         </div>
+
         <p class="footnote">
-          If your child already answers math facts automatically, maintains accuracy as problems get longer, and moves confidently through multi-step work, this phase is likely not necessary.
+          If your child already answers math facts automatically, maintains accuracy as problems get longer, and moves confidently through multi-step work,
+          readiness support is likely not necessary — and I’ll tell you that directly.
         </p>
       </div>
     </section>
