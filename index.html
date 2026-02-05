@@ -1,10 +1,11 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Math Readiness Path — Grade 4 Readiness | McSpadden Math Lab</title>
-  <meta name="description" content="A 10-week readiness phase for students currently in Grade 3. Gainesville–Haymarket Library. Two cohorts: Monday and Wednesday nights or Tuesday and Thursday nights. Each cohort is capped at 5 students to protect outcomes." />
+  <title>Math Readiness Path — Next-Grade Readiness (Grades 2–6) | McSpadden Math Lab</title>
+  <meta name="description" content="A 10-week readiness phase for students in Grades 2–6. Gainesville–Haymarket Library. Two cohorts: Monday and Wednesday nights or Tuesday and Thursday nights. Each cohort is capped at 5 students to protect outcomes." />
 
   <!-- Fonts (safe + clean). If your site already loads Inter elsewhere, you can remove this. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,7 +160,7 @@
       align-items: stretch;
       padding: 22px;
       border: 1px solid var(--line);
-      border-radius: varvar(--radius-xl);
+      border-radius: var(--radius-xl); /* FIXED: was varvar(--radius-xl) */
       background: linear-gradient(180deg, rgba(18,18,18,0.85), rgba(18,18,18,0.55));
       box-shadow: var(--shadow-soft);
       overflow: hidden;
@@ -553,6 +554,8 @@
           <span><span class="ticker-strong">Cohorts:</span> Mon/Wed nights or Tue/Thu nights. Each cohort is capped at 5 students to protect results.</span>
           <span class="dot"></span>
           <span><span class="ticker-strong">Location:</span> Gainesville–Haymarket Library</span>
+          <span class="dot"></span>
+          <span><span class="ticker-strong">Grades served:</span> 2–6</span>
         </div>
 
         <!-- Cohort-cap indicator (edit numbers as needed) -->
@@ -575,35 +578,35 @@
           <label for="page-select">Go to</label>
           <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
             <option value="" selected>Choose a page</option>
-            <option value="/index.html">Grade 4 Readiness</option>
+            <option value="/index.html">Next-Grade Readiness (Grades 2–6)</option>
             <option value="/diagnostic.html">Readiness Diagnostic</option>
           </select>
           <span class="chev" aria-hidden="true">⌄</span>
         </div>
         <a class="btn secondary"
-   href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-   target="_blank" rel="noopener">
-  Lock in spring readiness (limited seats)
-</a>
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
+          target="_blank" rel="noopener">
+          Lock in spring readiness (limited seats)
+        </a>
 
       </div>
 
       <div class="hero">
         <div>
-          <div class="kicker">Math Readiness Path • Phase: Grade 4 Readiness</div>
-          <h1>If fluency isn’t automatic by 4th grade, math stops being about thinking and starts being about keeping up.</h1>
+          <div class="kicker">Math Readiness Path • Phase: Next-Grade Readiness (Grades 2–6)</div>
+          <h1>If fluency isn’t automatic by upper elementary, math stops being about thinking and starts being about keeping up.</h1>
           <p class="lead">
-            Math Readiness Path — <strong>Grade 4 Readiness</strong> is a structured, 10-week phase designed for students
-            currently in Grade 3 who need their foundations secure before 4th-grade expectations fully kick in.
+            Math Readiness Path — <strong>Next-Grade Readiness (Grades 2–6)</strong> is a structured, 10-week phase designed to secure the foundations that determine whether the next grade works.
+            Many families find us during the <strong>3rd→4th</strong> transition, but the same readiness gaps show up as early as 2nd grade and become costly by middle school.
             This is not open-ended tutoring. It is a time-boxed readiness intervention with objective benchmarks.
           </p>
 
           <div class="hero-actions">
             <a class="btn"
-   href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-   target="_blank" rel="noopener">
-  Lock in spring readiness (limited seats)
-</a>
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
+              target="_blank" rel="noopener">
+              Lock in spring readiness (limited seats)
+            </a>
 
             <a class="btn secondary" href="#how">See how it works</a>
           </div>
@@ -618,6 +621,10 @@
             <div class="meta-row">
               <div class="label">Location</div>
               <div class="value">Gainesville–Haymarket Library</div>
+            </div>
+            <div class="meta-row">
+              <div class="label">Grades</div>
+              <div class="value">2–6 <span>(grouped by readiness, not labels)</span></div>
             </div>
             <div class="meta-row">
               <div class="label">Cohorts</div>
@@ -729,7 +736,7 @@
           <div class="card">
             <h2>Who this phase is for</h2>
             <p>
-              Designed for students currently in <strong>Grade 3</strong> who are capable but:
+              Designed for students in <strong>Grades 2–6</strong> who are capable but:
             </p>
             <div class="list" role="list">
               <div class="li" role="listitem"><span class="check">✓</span><span>Work slowly because facts are not automatic</span></div>
@@ -737,12 +744,15 @@
               <div class="li" role="listitem"><span class="check">✓</span><span>Rely on counting, guessing, or repeated re-checking</span></div>
               <div class="li" role="listitem"><span class="check">✓</span><span>Feel confidence drop as math speeds up</span></div>
             </div>
+            <p class="fine" style="margin-top:10px;">
+              Most families come in during a transition year (e.g., 3rd→4th or 5th→6th), but readiness issues show up earlier.
+            </p>
           </div>
 
           <div class="card">
             <h2>What this is not</h2>
             <p>
-              This phase is intentionally narrow. We do not “cover everything.” We secure the foundations that determine whether 4th-grade math works.
+              This phase is intentionally narrow. We do not “cover everything.” We secure the foundations that determine whether the next grade works.
             </p>
             <div class="list" role="list">
               <div class="li" role="listitem"><span class="check">—</span><span>Not open-ended tutoring</span></div>
@@ -759,7 +769,7 @@
     <section id="how">
       <div class="container">
         <div class="section-title">
-          <h2>How Grade 4 Readiness works</h2>
+          <h2>How Next-Grade Readiness works</h2>
           <div class="hint">A fixed sequence designed to remove guesswork and build momentum.</div>
         </div>
 
@@ -769,12 +779,10 @@
               <div class="step-name">Step 1: Math Readiness Clearance</div>
               <div class="tag">The Guide</div>
             </div>
-            <p><p class="fine" style="margin-top:10px;">
-  Student performance is monitored continuously throughout the phase.
-  Based on what each student demonstrates in sessions, families receive a <strong>simple 10-minute home protocol</strong> aligned to current needs.
-  The goal is targeted reinforcement—not additional work.
-</p>
-
+            <p class="fine" style="margin-top:10px;">
+              Student performance is monitored continuously throughout the phase.
+              Based on what each student demonstrates in sessions, families receive a <strong>simple 10-minute home protocol</strong> aligned to current needs.
+              The goal is targeted reinforcement—not additional work.
             </p>
           </div>
 
@@ -840,54 +848,54 @@
     </section>
 
     <!-- How to Decide -->
-<section>
-  <div class="container">
-    <div class="card">
-      <h2>How to decide if this phase is right</h2>
-      <p>
-        This phase is not about getting ahead. It’s about being ready.
-        Grade 4 Readiness is a good fit if <strong>two or more</strong> of the following are true:
-      </p>
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2>How to decide if this phase is right</h2>
+          <p>
+            This phase is not about getting ahead. It’s about being ready.
+            Next-Grade Readiness (Grades 2–6) is a good fit if <strong>two or more</strong> of the following are true:
+          </p>
 
-      <div class="list" role="list">
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Homework takes <strong>too long</strong> for what should be basic work—even when understanding is there</span>
-        </div>
+          <div class="list" role="list">
+            <div class="li" role="listitem">
+              <span class="check">✓</span>
+              <span>Homework takes <strong>too long</strong> for what should be basic work—even when understanding is there</span>
+            </div>
 
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Accuracy drops when problems include <strong>multiple steps</strong></span>
-        </div>
+            <div class="li" role="listitem">
+              <span class="check">✓</span>
+              <span>Accuracy drops when problems include <strong>multiple steps</strong></span>
+            </div>
 
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Your child still relies on <strong>counting, guessing, or repeated re-checking</strong> for facts that should be automatic</span>
-        </div>
+            <div class="li" role="listitem">
+              <span class="check">✓</span>
+              <span>Your child still relies on <strong>counting, guessing, or repeated re-checking</strong> for facts that should be automatic</span>
+            </div>
 
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Your child is capable, but <strong>hesitates</strong> because they don’t trust their answer</span>
-        </div>
+            <div class="li" role="listitem">
+              <span class="check">✓</span>
+              <span>Your child is capable, but <strong>hesitates</strong> because they don’t trust their answer</span>
+            </div>
 
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Small errors (place value, regrouping, operation choice) show up repeatedly and <strong>compound</strong> across a page</span>
-        </div>
+            <div class="li" role="listitem">
+              <span class="check">✓</span>
+              <span>Small errors (place value, regrouping, operation choice) show up repeatedly and <strong>compound</strong> across a page</span>
+            </div>
 
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Math is starting to feel like a <strong>daily fight</strong> rather than something they can do calmly</span>
+            <div class="li" role="listitem">
+              <span class="check">✓</span>
+              <span>Math is starting to feel like a <strong>daily fight</strong> rather than something they can do calmly</span>
+            </div>
+          </div>
+
+          <p style="margin-top:12px;">
+            If you’re unsure, that’s normal. The Math Readiness Clearance exists to remove guesswork.
+            If your child does not need this phase, we will say so.
+          </p>
         </div>
       </div>
-
-      <p style="margin-top:12px;">
-        If you’re unsure, that’s normal. The Math Readiness Clearance exists to remove guesswork.
-        If your child does not need this phase, we will say so.
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="failure">
       <div class="container">
@@ -902,13 +910,13 @@
           </div>
 
           <p class="fine" style="margin-top:12px;">
-            These patterns typically show up early in 4th grade — once content density increases and fluency is assumed.
+            These patterns typically show up during transition years (3rd→4th and 5th→6th) — once content density increases and fluency is assumed.
           </p>
         </div>
       </div>
     </section>
 
-     <!-- Tuition & Guarantee -->
+    <!-- Tuition & Guarantee -->
     <section id="pricing">
       <div class="container">
         <div class="pricing">
@@ -922,19 +930,20 @@
 
             <p class="fine">
               This is a <strong>10-week readiness intervention</strong> designed to close foundational gaps
-              <strong>before they compound</strong> in 4th grade.
+              <strong>before they compound</strong> in upper elementary and middle school.
               Many families end up spending <strong>$100–$150/hour</strong> on private tutoring across multiple years once math becomes a daily fight.
-              This phase is structured to prevent that path by addressing the core skills early—inside a small group where no student can disappear.<p class="fine" style="margin-top:10px;">
-  Families often don’t see the long-term cost until much later.
-  When foundational gaps persist into middle school, intervention becomes more intensive—and more expensive.
-  We regularly speak with families who spend <strong>tens of thousands of dollars</strong> on years of math tutoring, algebra remediation, and SAT/ACT prep.
-  This phase exists to reduce the likelihood that path becomes necessary.
-</p>
+              This phase is structured to prevent that path by addressing the core skills early—inside a small group where no student can disappear.
+            </p>
 
+            <p class="fine" style="margin-top:10px;">
+              Families often don’t see the long-term cost until much later.
+              When foundational gaps persist into middle school, intervention becomes more intensive—and more expensive.
+              We regularly speak with families who spend <strong>tens of thousands of dollars</strong> on years of math tutoring, algebra remediation, and SAT/ACT prep.
+              This phase exists to reduce the likelihood that path becomes necessary.
             </p>
 
             <div class="list" role="list" style="margin-top:10px;">
-              <div class="li" role="listitem"><span class="check">✓</span><span><strong>10 weeks</strong> of structured Grade 4 Readiness sessions (2x/week)</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span><strong>10 weeks</strong> of structured readiness sessions (2x/week)</span></div>
               <div class="li" role="listitem"><span class="check">✓</span><span><strong>Readiness Support Stack</strong> (Must-Know Skills Framework, Weekly Parent Snapshot, Home Protocol Card, Mid-Phase Checkpoint)</span></div>
               <div class="li" role="listitem"><span class="check">✓</span><span><strong>End-of-phase guidance</strong> on what to maintain and what comes next</span></div>
             </div>
@@ -945,10 +954,10 @@
 
             <div class="hero-actions" style="margin-top:14px;">
               <a class="btn"
-   href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-   target="_blank" rel="noopener">
-  Lock in spring readiness (limited seats)
-</a>
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
+                target="_blank" rel="noopener">
+                Lock in spring readiness (limited seats)
+              </a>
 
               <a class="btn secondary" href="#faq">Read FAQ</a>
             </div>
@@ -974,18 +983,18 @@
       </div>
     </section>
 
-
-
     <!-- What comes next -->
     <section>
       <div class="container">
         <div class="card">
           <h2>What comes next</h2>
           <p>
-            Grade 4 Readiness is one phase inside the larger <strong>Math Readiness Path</strong>.
+            Next-Grade Readiness is one phase inside the larger <strong>Math Readiness Path</strong>.
             At the end of this phase, families receive guidance on whether to pause and maintain—or continue into the next phase when math demands increase.
           </p>
           <div class="list" role="list" style="margin-top:10px;">
+            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 3 Readiness</span></div>
+            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 4 Readiness</span></div>
             <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 5 Readiness</span></div>
             <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 6 Readiness</span></div>
             <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Pre-Algebra Readiness</span></div>
@@ -1017,6 +1026,13 @@
             <summary>How is this different from tutoring? <span class="chev">⌄</span></summary>
             <div class="answer">
               Tutoring is typically open-ended and reactive. This is time-boxed, targeted, and benchmark-driven. We intervene only where gaps create future risk.
+            </div>
+          </details>
+
+          <details>
+            <summary>What grades do you serve? <span class="chev">⌄</span></summary>
+            <div class="answer">
+              <strong>Grades 2–6.</strong> Students are grouped by readiness so instruction stays tight and outcomes stay protected.
             </div>
           </details>
 
@@ -1063,26 +1079,23 @@
     <section id="apply">
       <div class="container">
         <div class="cta">
-          <h2>Apply for Grade 4 Readiness</h2>
+          <h2>Apply for Next-Grade Readiness (Grades 2–6)</h2>
           <p>
             Applications are reviewed to ensure appropriate placement and group balance.
             If your child does not need this phase, we will tell you.
           </p>
 
-          <!-- Replace the href with your real application form URL -->
           <div class="hero-actions" style="justify-content:center;">
             <a class="btn"
-   href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-   target="_blank" rel="noopener">
-  Lock in spring readiness (limited seats)
-</a>
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
+              target="_blank" rel="noopener">
+              Lock in spring readiness (limited seats)
+            </a>
 
             <a class="btn secondary" href="#pricing">View Tuition + Guarantee</a>
           </div>
 
-          <p class="fine" style="margin-top:12px;">
-            
-          </p>
+          <p class="fine" style="margin-top:12px;"></p>
         </div>
       </div>
     </section>
@@ -1090,7 +1103,7 @@
 
   <footer>
     <div class="container">
-      © <span id="y"></span> McSpadden Math Lab • Gainesville–Haymarket, VA • Cohorts capped to protect outcomes
+      © <span id="y"></span> McSpadden Math Lab • Gainesville–Haymarket, VA • Grades 2–6 • Cohorts capped to protect outcomes
     </div>
   </footer>
 
@@ -1100,3 +1113,4 @@
   </script>
 </body>
 </html>
+```
