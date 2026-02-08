@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ready for the Next Grade | McSpadden Math Lab</title>
+  <meta name="description" content="10-week, in-person readiness cohorts by grade (2nd–6th)."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+      <div class="pill">Limited seats • Cohorts by grade</div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">Full system</div>
+      <h1>Ready for the Next Grade.</h1>
+      <p class="lede">A 10-week, in-person readiness program for capable kids who need smoother fundamentals — so next grade feels easier, not louder.</p>
+    </section>
+
+    <div class="card">
+      <div class="card-hd">
+        <strong>Watch: How the program works</strong>
+        <small>~10–15 min</small>
+      </div>
+      <div class="card-bd">
+        <div class="grid two">
+          <div>
+            <div class="video">
+              <!-- Replace with your VSL video embed -->
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="Ready for the Next Grade VSL"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="cta">
+              <a class="btn" href="./schedule-call.html"
+                 onclick="fbq('track','Lead',{content_name:'VSL->ScheduleCall'});">
+                Schedule a short call
+              </a>
+              <a class="btn outline" href="./lead-magnet.html">Rewatch the free reset</a>
+            </div>
+
+            <p class="note">On the call, I’ll tell you if it’s a fit. If it’s not, I’ll tell you what to do instead.</p>
+          </div>
+
+          <aside class="steps">
+            <h2>What you’re buying (clear)</h2>
+            <ol>
+              <li><strong>10 weeks</strong> • 2 sessions/week (in person)</li>
+              <li><strong>Small cohort</strong> • grouped by grade (2nd–6th)</li>
+              <li><strong>Diagnostic first</strong> • I find the lowest rung causing slowdown</li>
+              <li><strong>Targeted intervention</strong> • number sense + key facts + current grade demands</li>
+              <li><strong>Progress tracking</strong> • I track what’s mastered and what’s next</li>
+              <li><strong>Less parent workload</strong> • you don’t have to “teach at home”</li>
+            </ol>
+            <div class="hr"></div>
+            <small><strong>Capacity:</strong> small groups by design. Once a cohort is full, it closes.</small>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> McSpadden Math Lab</div>
+      <div><a href="./schedule-call.html">Schedule a call</a></div>
+    </div>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

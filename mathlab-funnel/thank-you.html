@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>You’re Booked | McSpadden Math Lab</title>
+  <meta name="description" content="Confirmation and what to expect on your call."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','Schedule'); /* booking confirmation event */
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+      <div class="pill">Booked ✅</div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">Confirmed</div>
+      <h1>You’re booked.</h1>
+      <p class="lede">Quick heads-up so the call is useful: I’ll ask a few simple questions, then I’ll tell you exactly whether the cohort is a fit.</p>
+    </section>
+
+    <div class="card">
+      <div class="card-hd">
+        <strong>What to expect</strong>
+        <small>15–20 minutes</small>
+      </div>
+      <div class="card-bd">
+        <div class="steps">
+          <ol>
+            <li><strong>Where math slows down</strong> (what you notice at home)</li>
+            <li><strong>Grade + schedule</strong> (which cohort makes sense)</li>
+            <li><strong>Fit decision</strong> (yes / no + what to do next)</li>
+          </ol>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="./vsl.html">Rewatch the full system</a>
+          <a class="btn outline" href="./lead-magnet.html">Rewatch the free reset</a>
+        </div>
+
+        <p class="note">If you need to reschedule, use the link in your confirmation email/text.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> McSpadden Math Lab</div>
+      <div><a href="./vsl.html">Full system</a> · <a href="./lead-magnet.html">Free reset</a></div>
+    </div>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
