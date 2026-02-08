@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Schedule a Call | McSpadden Math Lab</title>
+  <meta name="description" content="Schedule a short call to see if Ready for the Next Grade is a fit."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+
+  <style>
+    /* Calendly embed sizing */
+    .cal-wrap{border:1px solid var(--line); border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow);}
+    .cal{min-height: 720px;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+      <div class="pill">15–20 minutes • No pressure</div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">Next step</div>
+      <h1>Schedule a short call.</h1>
+      <p class="lede">This call is simply to see if the 10-week cohort is the right fit for your child (and your schedule). If it’s not a fit, I’ll tell you what to do instead.</p>
+    </section>
+
+    <div class="card">
+      <div class="card-hd">
+        <strong>Pick a time</strong>
+        <small>Haymarket / Gainesville</small>
+      </div>
+      <div class="card-bd">
+        <div class="cal-wrap">
+          <!-- Replace with your Calendly scheduling link -->
+          <div class="cal calendly-inline-widget"
+               data-url="https://calendly.com/YOUR_CALENDLY/ready-for-next-grade-call"
+               style="width:100%;height:720px;"></div>
+        </div>
+
+        <p class="note">After you book, you’ll land on a confirmation page with what to expect.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> McSpadden Math Lab</div>
+      <div><a href="./vsl.html">Back to the full system video</a></div>
+    </div>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

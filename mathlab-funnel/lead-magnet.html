@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>7-Day Math Reset | McSpadden Math Lab</title>
+  <meta name="description" content="A 5-min/day, 7-day reset to find the lowest rung and fix it first."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+
+  <!-- Meta Pixel (replace YOUR_PIXEL_ID) -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+      <div class="pill">In-person • Haymarket / Gainesville</div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker">Free video</div>
+      <h1>Fix the lowest rung first.</h1>
+      <p class="lede">A 7-day, 5-minutes-a-day reset that shows you the one skill your child should master next — without trying to fix everything at once.</p>
+    </section>
+
+    <div class="card">
+      <div class="card-hd">
+        <strong>Watch: The 7-Day Reset</strong>
+        <small>~6–10 min</small>
+      </div>
+      <div class="card-bd">
+        <div class="grid two">
+          <div>
+            <div class="video">
+              <!-- Replace with your lead magnet video embed -->
+              <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="7-Day Reset"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="cta">
+              <a class="btn" href="./vsl.html" onclick="fbq('track','ViewContent',{content_name:'LeadMagnet->VSL'});">
+                Take me to the full system
+              </a>
+              <a class="btn outline" href="./schedule-call.html">
+                Or just schedule a short call
+              </a>
+            </div>
+
+            <p class="note">If the reset helps, the next video shows the full “Ready for the Next Grade” system and what you get in the 10-week program.</p>
+          </div>
+
+          <aside class="steps">
+            <h2>7-Day Reset (simple steps)</h2>
+            <ol>
+              <li><strong>Pick one rung:</strong> subtraction (most common) or the first skill that causes slowdown.</li>
+              <li><strong>Do 5 minutes daily:</strong> quick verbal practice (no counting, no worksheets).</li>
+              <li><strong>Use one success rule:</strong> answers in ~2 seconds without counting.</li>
+              <li><strong>Only then move up:</strong> don’t stack skills or “do today’s classwork” as practice.</li>
+            </ol>
+            <div class="hr"></div>
+            <small>Why this works: math is hierarchical. When you try to fix everything at once, kids get learning interference — progress feels random and slow.</small>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> McSpadden Math Lab</div>
+      <div><a href="./vsl.html">Full system video</a> · <a href="./schedule-call.html">Schedule a call</a></div>
+    </div>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
