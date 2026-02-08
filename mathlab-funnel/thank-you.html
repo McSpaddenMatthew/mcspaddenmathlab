@@ -4,7 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>You’re Booked | McSpadden Math Lab</title>
-  <meta name="description" content="Confirmation and what to expect on your call."/>
+  <meta name="description" content="Your call is booked. Here’s what to expect and how to prepare."/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,14 +19,51 @@
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init','YOUR_PIXEL_ID');
-    fbq('track','Schedule'); /* booking confirmation event */
+    fbq('track','PageView');
+
+    // Conversion event for "Booked Call" (fires on this confirmation page)
+    fbq('trackCustom', 'BookedCall');
   </script>
+
+  <style>
+    .callout{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .stack{display:grid; gap:12px;}
+    .k{font-weight:700;}
+    .bullets{margin:0; padding-left: 18px;}
+    .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--line);
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--text);
+    }
+    .tiny{font-size: 14px; color: var(--muted);}
+  </style>
 </head>
 
 <body>
   <div class="wrap">
     <div class="topbar">
       <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+
       <div class="site-nav" aria-label="Site navigation">
         <label for="page-select">Navigate</label>
         <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
@@ -38,44 +76,67 @@
         </select>
         <span class="chev" aria-hidden="true">⌄</span>
       </div>
-      <div class="pill">Booked ✅</div>
+
+      <div class="pill">Call confirmed</div>
     </div>
 
     <section class="hero">
       <div class="kicker">Confirmed</div>
-      <h1>You’re booked.</h1>
-      <p class="lede">Quick heads-up so the call is useful: I’ll ask a few simple questions, then I’ll tell you exactly whether the cohort is a fit.</p>
+      <h1>You’re booked. Here’s what to expect.</h1>
+      <p class="lede">
+        You’ll get a calendar invite by email in a moment. This is a short clarity call—quick, direct, and useful.
+      </p>
+
+      <div class="callout">
+        <div class="stack">
+          <div><span class="k">Call length:</span> 15–20 minutes</div>
+          <div><span class="k">Goal:</span> Decide if Next-Grade Readiness is a fit (and if not, what to do instead)</div>
+          <div class="tiny">Tip: If you don’t see the invite, check Promotions/Spam.</div>
+        </div>
+      </div>
     </section>
 
     <div class="card">
       <div class="card-hd">
-        <strong>What to expect</strong>
-        <small>15–20 minutes</small>
+        <strong>What we’ll do on the call</strong>
+        <small>No pressure • No sales script</small>
       </div>
       <div class="card-bd">
-        <div class="steps">
-          <ol>
-            <li><strong>Where math slows down</strong> (what you notice at home)</li>
-            <li><strong>Grade + schedule</strong> (which cohort makes sense)</li>
-            <li><strong>Fit decision</strong> (yes / no + what to do next)</li>
-          </ol>
+        <ul class="bullets">
+          <li>Clarify what’s making math feel hard right now (speed, facts, fractions, word problems, etc.).</li>
+          <li>Identify the highest-leverage skill gaps for next-grade readiness.</li>
+          <li>Decide: join the cohort, or follow a simple plan you can use instead.</li>
+        </ul>
+
+        <div class="callout" style="margin-top:16px;">
+          <div class="k">If you have it handy, bring one thing:</div>
+          <ul class="bullets" style="margin-top:8px;">
+            <li>A recent MAP score / report card, <em>or</em></li>
+            <li>A quick example of where your child gets stuck</li>
+          </ul>
+          <div class="tiny" style="margin-top:8px;">No documents? Still fine. We can diagnose from your description.</div>
         </div>
 
-        <div class="cta">
-          <a class="btn" href="./vsl.html">Rewatch the full system</a>
-          <a class="btn outline" href="./lead-magnet.html">Rewatch the free reset</a>
+        <div class="cta-row">
+          <a class="btn" href="./vsl.html">Rewatch the system video</a>
+          <a class="btn secondary" href="./schedule-call.html">Need to reschedule?</a>
         </div>
 
-        <p class="note">If you need to reschedule, use the link in your confirmation email/text.</p>
+        <p class="note" style="margin-top:14px;">
+          If something comes up, please use the reschedule link in your calendar invite so the slot opens up for another family.
+        </p>
       </div>
     </div>
 
     <div class="footer">
       <div>© <span id="y"></span> McSpadden Math Lab</div>
-      <div><a href="./vsl.html">Full system</a> · <a href="./lead-magnet.html">Free reset</a></div>
+      <div><a href="../index.html">Back to Next-Grade Readiness</a></div>
     </div>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
