@@ -22,18 +22,16 @@
   </script>
 
   <style>
-    /* Calendly embed sizing */
-    <div class="card-bd">
-  <div class="cal-wrap">
-    <div class="cal calendly-inline-widget"
-         data-url="https://calendly.com/mcspaddenmatthew/15min"
-         style="width:100%;height:720px;">
-    </div>
-  </div>
-
-  <p class="note">After you book, you’ll land on a confirmation page with what to expect.</p>
-</div>
-
+    /* Calendly embed sizing (CSS only — no HTML in <style>) */
+    .cal-wrap{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .cal{
+      min-height: 720px;
+    }
   </style>
 </head>
 
@@ -69,10 +67,12 @@
       </div>
       <div class="card-bd">
         <div class="cal-wrap">
-          <!-- Replace with your Calendly scheduling link -->
+          <!-- Calendly inline widget begin -->
           <div class="cal calendly-inline-widget"
-               data-url="https://calendly.com/YOUR_CALENDLY/ready-for-next-grade-call"
-               style="width:100%;height:720px;"></div>
+               data-url="https://calendly.com/mcspaddenmatthew/15min"
+               style="width:100%;height:720px;">
+          </div>
+          <!-- Calendly inline widget end -->
         </div>
 
         <p class="note">After you book, you’ll land on a confirmation page with what to expect.</p>
@@ -85,7 +85,12 @@
     </div>
   </div>
 
+  <!-- Calendly script (ONLY ONCE, and AFTER the widget) -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
