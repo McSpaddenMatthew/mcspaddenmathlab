@@ -1,784 +1,134 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Math Readiness Path — Next-Grade Readiness (Grades 2–6) | McSpadden Math Lab</title>
-  <meta name="description" content="A 10-week readiness phase for students in Grades 2–6. Gainesville–Haymarket Library. Two cohorts: Monday and Wednesday nights or Tuesday and Thursday nights. Each cohort is capped at 5 students to protect outcomes." />
+  <meta name="description" content="A 10-week readiness phase for students in Grades 2–6. Gainesville–Haymarket Library. Two cohorts: Monday and Wednesday nights or Tuesday and Thursday nights. Each cohort is capped at 5 students to protect outcomes."/>
 
-  <!-- Fonts (safe + clean). If your site already loads Inter elsewhere, you can remove this. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0A0A0A;
-      --bg-alt: #121212;
-      --accent: #C6A04A;
-      --accent-soft: #E7D9A8;
-      --text-main: #F3F3F3;
-      --text-muted: #9CA3AF;
-      --card-bg: #121212;
-      --border-subtle: #2A2A2A;
-      --max-width: 960px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.85);
-      --shadow-card: 0 16px 28px rgba(0,0,0,0.55);
-      --shadow-glow: 0 0 0 1px rgba(198,160,74,0.25), 0 12px 38px rgba(198,160,74,0.08);
-      --line: rgba(255,255,255,0.08);
-      --ok: #22c55e;
-      --warn: #f59e0b;
-    }
+  <!-- Use the SAME CSS system as your funnel pages (white Loom vibe) -->
+  <link rel="stylesheet" href="./mathlab-funnel/styles.css"/>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 30% -10%, rgba(198,160,74,0.12), transparent 55%),
-                  radial-gradient(900px 600px at 90% 0%, rgba(231,217,168,0.06), transparent 55%),
-                  var(--bg);
-      color: var(--text-main);
-      line-height: 1.35;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
-
-    /* Top ticker */
-    .ticker {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(10,10,10,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .ticker-inner {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-      flex-wrap: wrap;
-    }
-    .ticker-left {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-      color: var(--text-muted);
-      font-size: 13px;
-      letter-spacing: 0.2px;
-    }
-    .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); display: inline-block; opacity: 0.9; }
-    .ticker-strong { color: var(--text-main); font-weight: 600; }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(198,160,74,0.35);
-      background: rgba(18,18,18,0.75);
-      box-shadow: var(--shadow-glow);
-      color: var(--text-main);
-      font-size: 12px;
-      white-space: nowrap;
-    }
-    .pill .cap-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--warn); }
-    .pill strong { color: var(--accent-soft); font-weight: 700; }
-
-    /* Header / Hero */
-    header { padding: 42px 0 18px; }
-    .brandbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .site-nav {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-muted);
-      font-size: 12px;
-      letter-spacing: 0.2px;
-    }
-    .site-nav label {
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--accent-soft);
-    }
-    .site-nav select {
-      appearance: none;
-      background: rgba(18,18,18,0.95);
-      border: 1px solid rgba(198,160,74,0.55);
-      color: var(--text-main);
-      padding: 9px 34px 9px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      min-width: 240px;
-    }
-    .site-nav select:focus {
-      outline: 2px solid rgba(198,160,74,0.45);
-      outline-offset: 2px;
-    }
-    .site-nav .chev {
-      margin-left: -24px;
-      pointer-events: none;
-      width: 20px;
-      height: 20px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(18,18,18,0.55);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-weight: 900;
-      font-size: 11px;
-    }
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .brand .name {
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      font-size: 14px;
-      color: var(--text-main);
-    }
-    .brand .sub {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 18px;
-      align-items: stretch;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl); /* fixed from varvar(...) */
-      background: linear-gradient(180deg, rgba(18,18,18,0.85), rgba(18,18,18,0.55));
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      position: relative;
-    }
-    .hero:before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: radial-gradient(600px 300px at 20% 10%, rgba(198,160,74,0.16), transparent 60%),
-                  radial-gradient(500px 280px at 85% 0%, rgba(231,217,168,0.10), transparent 65%);
-      pointer-events: none;
-    }
-    .hero > * { position: relative; z-index: 1; }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border: 1px solid rgba(198,160,74,0.30);
-      border-radius: 999px;
-      background: rgba(10,10,10,0.35);
-      color: var(--accent-soft);
-      font-weight: 600;
-      font-size: 12px;
-      width: fit-content;
-      margin-bottom: 14px;
-    }
-    h1 {
-      font-size: 34px;
-      line-height: 1.08;
-      letter-spacing: -0.7px;
-      margin-bottom: 12px;
-    }
-    .lead {
-      color: var(--text-muted);
-      font-size: 16px;
-      line-height: 1.55;
-      margin-bottom: 18px;
-      max-width: 62ch;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 12px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(198,160,74,0.35);
-      background: rgba(198,160,74,0.12);
-      color: var(--text-main);
-      font-weight: 700;
-      letter-spacing: 0.1px;
-      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
-      cursor: pointer;
-      user-select: none;
-    }
-    .btn:hover { transform: translateY(-1px); background: rgba(198,160,74,0.16); border-color: rgba(198,160,74,0.55); }
-    .btn.secondary {
-      background: rgba(18,18,18,0.55);
-      border-color: var(--line);
-      color: var(--text-main);
-      font-weight: 600;
-    }
-    .btn.secondary:hover { background: rgba(18,18,18,0.75); border-color: rgba(255,255,255,0.14); }
-
-    .hero-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: rgba(10,10,10,0.35);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-      box-shadow: var(--shadow-card);
-    }
-    .meta {
-      display: grid;
-      gap: 10px;
-    }
-    .meta-row {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 10px;
-      align-items: start;
-      font-size: 13px;
-    }
-    .meta-row .label { color: var(--text-muted); }
-    .meta-row .value { color: var(--text-main); font-weight: 600; }
-    .meta-row .value span { color: var(--text-muted); font-weight: 500; }
-    .divider { height: 1px; background: var(--line); margin: 6px 0; }
-
-    .cap-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(198,160,74,0.25);
-      background: rgba(18,18,18,0.55);
-    }
-    .cap-left { display: grid; gap: 2px; }
-    .cap-title { font-size: 12px; color: var(--text-muted); }
-    .cap-value { font-size: 14px; font-weight: 800; color: var(--accent-soft); letter-spacing: 0.2px; }
-    .cap-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(10,10,10,0.40);
-      font-size: 12px;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-    .cap-badge .cap-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--warn); }
-
-    /* Sections */
-    section { padding: 22px 0; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: rgba(18,18,18,0.72);
-      padding: 18px;
-      box-shadow: var(--shadow-card);
-    }
-    .card h2 {
-      font-size: 18px;
-      letter-spacing: -0.2px;
-      margin-bottom: 10px;
-    }
-    .card p { color: var(--text-muted); line-height: 1.6; font-size: 14px; }
-    .list { margin-top: 10px; display: grid; gap: 8px; }
-    .li {
-      display: grid;
-      grid-template-columns: 18px 1fr;
-      gap: 10px;
-      align-items: start;
-      color: var(--text-main);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .check {
-      width: 18px; height: 18px;
-      border-radius: 6px;
-      border: 1px solid rgba(198,160,74,0.35);
-      background: rgba(198,160,74,0.10);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: var(--accent-soft);
-      font-size: 12px;
-      margin-top: 1px;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .section-title h2 { font-size: 20px; letter-spacing: -0.3px; }
-    .section-title .hint { color: var(--text-muted); font-size: 13px; }
-
-    /* Steps */
-    .steps { display: grid; gap: 12px; }
-    .step {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: rgba(10,10,10,0.35);
-      padding: 16px;
-      display: grid;
-      gap: 8px;
-    }
-    .step-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .step-name { font-weight: 800; letter-spacing: -0.2px; }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(18,18,18,0.55);
-      color: var(--text-muted);
-      font-size: 12px;
-      white-space: nowrap;
-    }
-    .step p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
-
-    /* Pricing */
-    .pricing {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .price {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: -0.8px;
-      color: var(--text-main);
-      margin: 6px 0 10px;
-    }
-    .fine { color: var(--text-muted); font-size: 13px; line-height: 1.55; }
-
-    /* FAQ */
-    details {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(10,10,10,0.30);
-      padding: 12px 14px;
-    }
-    details summary {
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-weight: 700;
-      color: var(--text-main);
-      font-size: 14px;
-    }
-    details summary::-webkit-details-marker { display: none; }
-    details .answer { padding-top: 10px; color: var(--text-muted); font-size: 14px; line-height: 1.6; }
-    .chev {
-      width: 28px; height: 28px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(18,18,18,0.55);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-weight: 900;
-      transition: transform 140ms ease;
-    }
-    details[open] .chev { transform: rotate(180deg); }
-
-    /* Footer CTA */
-    .cta {
-      text-align: center;
-      padding: 22px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(198,160,74,0.22);
-      background: linear-gradient(180deg, rgba(198,160,74,0.10), rgba(18,18,18,0.65));
-      box-shadow: var(--shadow-soft);
-    }
-    .cta h2 { font-size: 22px; letter-spacing: -0.3px; margin-bottom: 10px; }
-    .cta p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
-
-    footer {
-      padding: 26px 0 34px;
-      color: var(--text-muted);
-      font-size: 12px;
-      text-align: center;
-    }
-
-    /* Responsive */
-    @media (max-width: 920px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .pricing { grid-template-columns: 1fr; }
-      h1 { font-size: 30px; }
-    }
-
-    /* --- Mobile refinements (minimal change) --- */
-    @media (max-width: 520px) {
-      .container { padding: 0 14px; }
-
-      header { padding: 28px 0 12px; }
-      .brandbar { margin-bottom: 16px; }
-      .brandbar { flex-direction: column; align-items: flex-start; }
-      .brand .name { font-size: 13px; }
-      .brand .sub { font-size: 12px; }
-
-      .hero { padding: 16px; gap: 14px; }
-      h1 { font-size: 26px; letter-spacing: -0.5px; }
-      .lead { font-size: 14px; line-height: 1.6; }
-
-      .kicker { font-size: 11px; padding: 7px 10px; }
-
-      /* Buttons: easier tapping + cleaner stacking */
-      .hero-actions { gap: 10px; }
-      .site-nav { width: 100%; }
-      .site-nav select { width: 100%; }
-      .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 14px;
-      }
-
-      /* Cards: reduce density */
-      .card { padding: 16px; }
-      .card h2 { font-size: 16px; }
-      .card p { font-size: 13.5px; }
-
-      /* Lists: avoid tight columns */
-      .li { grid-template-columns: 16px 1fr; gap: 10px; }
-      .check { width: 16px; height: 16px; border-radius: 6px; font-size: 11px; }
-
-      /* Meta rows: stack label/value for readability */
-      .meta-row {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-      .meta-row .label { font-size: 12px; }
-      .meta-row .value { font-size: 13px; line-height: 1.45; }
-
-      /* Section titles: stack hint under title */
-      .section-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      .section-title h2 { font-size: 18px; }
-      .section-title .hint { font-size: 12px; }
-
-      /* Pricing: prevent oversized type */
-      .price { font-size: 30px; }
-
-      /* FAQ: improve tap area and wrapping */
-      details { padding: 12px; }
-      details summary { font-size: 13.5px; }
-      .chev { width: 30px; height: 30px; }
-
-      /* Ticker: allow breathing room */
-      .ticker-left { font-size: 12px; }
-      .pill { font-size: 11.5px; padding: 6px 9px; }
-
-      /* --- Reviews: swipe carousel on mobile --- */
-      #reviews .grid {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        padding: 4px 2px 10px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-      }
-      #reviews .grid::-webkit-scrollbar { height: 8px; }
-      #reviews .grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.06); border-radius: 999px; }
-      #reviews .grid::-webkit-scrollbar-thumb { background: rgba(198,160,74,0.22); border-radius: 999px; }
-      #reviews .grid .card {
-        min-width: 84%;
-        flex: 0 0 auto;
-        scroll-snap-align: start;
-      }
-    }
-
-    /* Ultra-small phones */
-    @media (max-width: 380px) {
-      h1 { font-size: 24px; }
-      .hero { padding: 14px; }
-      .card { padding: 14px; }
-      #reviews .grid .card { min-width: 90%; }
-    }
-  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
 </head>
 
 <body>
+  <div class="wrap">
+    <!-- Top Bar -->
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
 
-  <!-- Top ticker (dates + cohorts + location) -->
-  <div class="ticker">
-    <div class="container">
-      <div class="ticker-inner">
-        <div class="ticker-left">
-          <span class="dot"></span>
-          <span><span class="ticker-strong">Spring Session:</span> Mar 2–May 6, 2026 (10 weeks)</span>
-          <span class="dot"></span>
-          <span><span class="ticker-strong">Cohorts:</span> Mon/Wed nights or Tue/Thu nights. Each cohort is capped at 5 students to protect results.</span>
-          <span class="dot"></span>
-          <span><span class="ticker-strong">Location:</span> Gainesville–Haymarket Library</span>
-          <span class="dot"></span>
-          <span><span class="ticker-strong">Grades:</span> 2–6</span>
-        </div>
+      <div class="site-nav" aria-label="Site navigation">
+        <label for="page-select">Navigate</label>
+        <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
+          <option value="" selected>Choose a page</option>
+          <option value="./index.html">Next-Grade Readiness (Grades 2–6)</option>
+          <option value="./mathlab-funnel/lead-magnet.html">7-Day Math Reset (Lead Magnet)</option>
+          <option value="./mathlab-funnel/vsl.html">Ready for the Next Grade (VSL)</option>
+          <option value="./mathlab-funnel/schedule-call.html">Schedule a Call</option>
+          <option value="./mathlab-funnel/thank-you.html">You're Booked (Thank You)</option>
+        </select>
+        <span class="chev" aria-hidden="true">⌄</span>
+      </div>
 
-        <!-- Cohort-cap indicator (edit numbers as needed) -->
-        <div class="pill" title="Cohorts are capped at 5 students to protect outcomes.">
-          <span class="cap-dot" aria-hidden="true"></span>
-          Cohort cap: <strong>5</strong> students • Seats left: <strong>Limited</strong>
+      <div class="pill">In-person • Haymarket / Gainesville</div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="kicker">Next-Grade Readiness (Grades 2–6)</div>
+      <h1>Make math feel calm again.</h1>
+      <p class="lede">
+        A focused 10-week readiness program that builds speed, accuracy, and confidence —
+        without the overwhelm.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="./mathlab-funnel/schedule-call.html"
+           onclick="fbq('track','Lead',{content_name:'Index->ScheduleCall'});">
+          Schedule a short call
+        </a>
+        <a class="btn outline" href="./mathlab-funnel/lead-magnet.html"
+           onclick="fbq('track','ViewContent',{content_name:'Index->LeadMagnet'});">
+          Watch the free 7-day reset
+        </a>
+      </div>
+
+      <p class="note">
+        If it’s a fit, I’ll walk you through the next step. If it’s not, I’ll tell you what to do instead.
+      </p>
+    </section>
+
+    <!-- Main Card -->
+    <div class="card">
+      <div class="card-hd">
+        <strong>What you’re buying (clear)</strong>
+        <small>10 weeks • in person • cohorts by grade</small>
+      </div>
+
+      <div class="card-bd">
+        <div class="grid two">
+          <div>
+            <h2 style="margin:0 0 10px;">Program structure</h2>
+            <ol style="margin:0; padding-left:18px; display:grid; gap:8px;">
+              <li><strong>10 weeks</strong> • two in-person sessions per week</li>
+              <li><strong>Small cohorts</strong> • grouped by grade (2nd–6th)</li>
+              <li><strong>Diagnostic first</strong> • I identify the lowest rung causing slowdown</li>
+              <li><strong>Targeted intervention</strong> • number sense, facts, grade-level demands</li>
+              <li><strong>Progress tracking</strong> • what’s solid, what’s next, what’s coming up</li>
+              <li><strong>Parent relief</strong> • no reteaching, no worksheet chasing</li>
+            </ol>
+            <div class="hr"></div>
+            <p class="note" style="margin:0;">
+              <strong>Capacity stays small by design.</strong> Once a cohort is full, it closes.
+            </p>
+          </div>
+
+          <aside class="steps">
+            <h2>Start here</h2>
+            <ol>
+              <li><strong>Watch the free reset</strong> (5 min/day for 7 days)</li>
+              <li><strong>Watch the full system</strong> (how the program works)</li>
+              <li><strong>Schedule a short call</strong> (fit + next steps)</li>
+            </ol>
+            <div class="hr"></div>
+            <small>
+              Parents usually try to fix everything at once. We fix the lowest rung first — then move up the ladder.
+            </small>
+          </aside>
         </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div>© <span id="y"></span> McSpadden Math Lab</div>
+      <div>
+        <a href="./mathlab-funnel/vsl.html">Full system</a> ·
+        <a href="./mathlab-funnel/schedule-call.html">Schedule a call</a>
       </div>
     </div>
   </div>
 
-  <header>
-    <div class="container">
-      <div class="brandbar">
-        <div class="brand">
-          <div class="name">McSpadden Math Lab</div>
-          <div class="sub">Small-group readiness coaching with calm, focused sessions.</div>
-        </div>
-        <div class="site-nav" aria-label="Site navigation">
-          <label for="page-select">Navigate</label>
-          <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
-            <option value="" selected>Choose a page</option>
-            <option value="/index.html">Next-Grade Readiness (Grades 2–6)</option>
-            <option value="/mathlab-funnel/lead-magnet.html">7-Day Math Reset (Lead Magnet)</option>
-            <option value="/mathlab-funnel/vsl.html">Ready for the Next Grade (VSL)</option>
-            <option value="/mathlab-funnel/schedule-call.html">Schedule a Call</option>
-            <option value="/mathlab-funnel/thank-you.html">You're Booked (Thank You)</option>
-          </select>
-          <span class="chev" aria-hidden="true">⌄</span>
-        </div>
-        <a class="btn secondary"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-           target="_blank" rel="noopener">
-          Lock in spring readiness (limited seats)
-        </a>
-
-      </div>
-
-      <div class="hero">
-        <div>
-          <div class="kicker">Next-Grade Readiness (Grades 2–6)</div>
-
-          <h1>Make math feel calm again.</h1>
-
-          <p class="lead">
-            A focused 10-week readiness program that builds speed, accuracy, and confidence without the overwhelm.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-               target="_blank" rel="noopener">
-              Lock in spring readiness (limited seats)
-            </a>
-
-            <a class="btn secondary" href="#how">See how it works</a>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Program details">
-          <div class="meta">
-            <div class="meta-row">
-              <div class="label">Timeline</div>
-              <div class="value">10 weeks <span>(Mar 2–May 6, 2026)</span></div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Location</div>
-              <div class="value">Gainesville–Haymarket Library</div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Grades</div>
-              <div class="value">2–6 <span>(grouped by readiness)</span></div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Cohorts</div>
-              <div class="value">
-                Mon/Wed nights <span>(Mar 2–May 6)</span><br/>
-                Tue/Thu nights <span>(Mar 3–May 7)</span>
-              </div>
-            </div>
-            <div class="divider"></div>
-
-            <div class="cap-box">
-              <div class="cap-left">
-                <div class="cap-title">Cohort Capacity</div>
-                <div class="cap-value">Capped at 5 students to protect outcomes</div>
-              </div>
-              <div class="cap-badge">
-                <span class="cap-dot" aria-hidden="true"></span>
-                Cap: 5 • Limited seats
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2>Next-grade readiness, in plain terms</h2>
-          <div class="hint">Short, calm, and focused on fluency.</div>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h2>Small cohorts, big clarity</h2>
-            <p>
-              Groups of five keep attention high and keep students from slipping through.
-            </p>
-          </div>
-          <div class="card">
-            <h2>Twice-weekly sessions</h2>
-            <p>
-              In-person sessions at the Gainesville–Haymarket Library, designed for speed, accuracy, and confidence.
-            </p>
-          </div>
-          <div class="card">
-            <h2>Home protocol (10 minutes)</h2>
-            <p>
-              A short, targeted routine so progress sticks without nightly battles.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how">
-      <div class="container">
-        <div class="card">
-          <h2>What you’ll see change</h2>
-          <div class="list" role="list">
-            <div class="li" role="listitem"><span class="check">✓</span><span>Less counting and re-checking</span></div>
-            <div class="li" role="listitem"><span class="check">✓</span><span>Faster work without guessing</span></div>
-            <div class="li" role="listitem"><span class="check">✓</span><span>Calmer, more accurate multi-step work</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="container">
-        <div class="pricing">
-          <div class="card">
-            <div class="section-title" style="margin-bottom:6px;">
-              <h2>Tuition</h2>
-              <div class="hint">All-inclusive • 10 weeks • 2x/week</div>
-            </div>
-
-            <div class="price">$2,000</div>
-
-            <p class="fine">
-              Cohorts are capped at five students. If we are not the right fit, we will tell you.
-            </p>
-
-            <div class="hero-actions" style="margin-top:14px;">
-              <a class="btn"
-                 href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-                 target="_blank" rel="noopener">
-                Lock in spring readiness (limited seats)
-              </a>
-
-              <a class="btn secondary" href="#apply">Apply now</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="section-title" style="margin-bottom:6px;">
-              <h2>Schedule</h2>
-              <div class="hint">Mar 2–May 6, 2026</div>
-            </div>
-            <p class="fine">
-              Monday/Wednesday nights or Tuesday/Thursday nights. Location: Gainesville–Haymarket Library.
-            </p>
-            <div class="list" role="list" style="margin-top:10px;">
-              <div class="li" role="listitem"><span class="check">✓</span><span>Grades 2–6, grouped by readiness</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span>2 sessions per week</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span>5 students per cohort</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="apply">
-      <div class="container">
-        <div class="cta">
-          <h2>Ready for next-grade readiness?</h2>
-          <p>
-            Short application. Clear answer. No fluff.
-          </p>
-
-          <div class="hero-actions" style="justify-content:center;">
-            <a class="btn"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSfO8oBdHKv9BETG9DQ2NHJP70v-f6Mk2C3GIIjoC-ymewStnA/viewform"
-               target="_blank" rel="noopener">
-              Lock in spring readiness (limited seats)
-            </a>
-
-            <a class="btn secondary" href="#how">See outcomes</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © <span id="y"></span> McSpadden Math Lab • Gainesville–Haymarket, VA • Grades 2–6 • Cohorts capped to protect outcomes
-    </div>
-  </footer>
-
   <script>
-    // Set year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
