@@ -24,8 +24,10 @@
 
 <body>
   <div class="wrap">
+    <!-- Top Bar -->
     <div class="topbar">
       <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+
       <div class="site-nav" aria-label="Site navigation">
         <label for="page-select">Navigate</label>
         <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
@@ -38,30 +40,38 @@
         </select>
         <span class="chev" aria-hidden="true">⌄</span>
       </div>
+
       <div class="pill">Limited seats • Cohorts by grade</div>
     </div>
 
+    <!-- Hero -->
     <section class="hero">
       <div class="kicker">Full system</div>
       <h1>Ready for the Next Grade.</h1>
-      <p class="lede">A 10-week, in-person readiness program for capable kids who need smoother fundamentals — so next grade feels easier, not louder.</p>
+      <p class="lede">
+        A 10-week, in-person readiness program for capable kids who need smoother fundamentals —
+        so the next grade feels easier, not louder.
+      </p>
     </section>
 
+    <!-- Main Card -->
     <div class="card">
       <div class="card-hd">
         <strong>Watch: How the program works</strong>
         <small>~10–15 min</small>
       </div>
+
       <div class="card-bd">
         <div class="grid two">
+          <!-- Video + CTA -->
           <div>
             <div class="video">
-              <!-- Replace with your VSL video embed -->
               <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
+                src="https://www.youtube.com/embed/c2MO7ClrC48"
                 title="Ready for the Next Grade VSL"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                allowfullscreen>
+              </iframe>
             </div>
 
             <div class="cta">
@@ -69,35 +79,50 @@
                  onclick="fbq('track','Lead',{content_name:'VSL->ScheduleCall'});">
                 Schedule a short call
               </a>
-              <a class="btn outline" href="./lead-magnet.html">Rewatch the free reset</a>
+              <a class="btn outline" href="./lead-magnet.html">
+                Rewatch the free 7-day reset
+              </a>
             </div>
 
-            <p class="note">On the call, I’ll tell you if it’s a fit. If it’s not, I’ll tell you what to do instead.</p>
+            <p class="note">
+              On the call, I’ll tell you honestly if this is a fit.
+              If it’s not, I’ll tell you what to focus on instead.
+            </p>
           </div>
 
+          <!-- Offer Clarity -->
           <aside class="steps">
             <h2>What you’re buying (clear)</h2>
             <ol>
-              <li><strong>10 weeks</strong> • 2 sessions/week (in person)</li>
-              <li><strong>Small cohort</strong> • grouped by grade (2nd–6th)</li>
-              <li><strong>Diagnostic first</strong> • I find the lowest rung causing slowdown</li>
-              <li><strong>Targeted intervention</strong> • number sense + key facts + current grade demands</li>
-              <li><strong>Progress tracking</strong> • I track what’s mastered and what’s next</li>
-              <li><strong>Less parent workload</strong> • you don’t have to “teach at home”</li>
+              <li><strong>10 weeks</strong> • two in-person sessions per week</li>
+              <li><strong>Small cohorts</strong> • grouped by grade (2nd–6th)</li>
+              <li><strong>Diagnostic first</strong> • I identify the lowest rung causing slowdown</li>
+              <li><strong>Targeted intervention</strong> • number sense, facts, and grade-level demands</li>
+              <li><strong>Progress tracking</strong> • what’s solid, what’s next, what’s coming up</li>
+              <li><strong>Less parent workload</strong> • no reteaching, no worksheet chasing</li>
             </ol>
+
             <div class="hr"></div>
-            <small><strong>Capacity:</strong> small groups by design. Once a cohort is full, it closes.</small>
+
+            <small>
+              <strong>Capacity is limited.</strong>
+              Groups stay small by design. Once a cohort is full, it closes.
+            </small>
           </aside>
         </div>
       </div>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
       <div>© <span id="y"></span> McSpadden Math Lab</div>
       <div><a href="./schedule-call.html">Schedule a call</a></div>
     </div>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
