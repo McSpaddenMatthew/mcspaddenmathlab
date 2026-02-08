@@ -32,6 +32,18 @@
   <div class="wrap">
     <div class="topbar">
       <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+      <div class="site-nav" aria-label="Site navigation">
+        <label for="page-select">Navigate</label>
+        <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
+          <option value="" selected>Choose a page</option>
+          <option value="../index.html">Next-Grade Readiness (Grades 2–6)</option>
+          <option value="./lead-magnet.html">7-Day Math Reset (Lead Magnet)</option>
+          <option value="./vsl.html">Ready for the Next Grade (VSL)</option>
+          <option value="./schedule-call.html">Schedule a Call</option>
+          <option value="./thank-you.html">You're Booked (Thank You)</option>
+        </select>
+        <span class="chev" aria-hidden="true">⌄</span>
+      </div>
       <div class="pill">15–20 minutes • No pressure</div>
     </div>
 

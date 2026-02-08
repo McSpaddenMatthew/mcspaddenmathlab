@@ -107,15 +107,23 @@
       font-size: 12px;
       letter-spacing: 0.2px;
     }
+    .site-nav label {
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent-soft);
+    }
     .site-nav select {
       appearance: none;
-      background: rgba(18,18,18,0.7);
-      border: 1px solid var(--line);
+      background: rgba(18,18,18,0.95);
+      border: 1px solid rgba(198,160,74,0.55);
       color: var(--text-main);
-      padding: 8px 28px 8px 10px;
+      padding: 9px 34px 9px 12px;
       border-radius: 12px;
       font-size: 12px;
+      font-weight: 600;
       cursor: pointer;
+      min-width: 240px;
     }
     .site-nav select:focus {
       outline: 2px solid rgba(198,160,74,0.45);
@@ -571,14 +579,13 @@
       <div class="brandbar">
         <div class="brand">
           <div class="name">McSpadden Math Lab</div>
-          <div class="sub">Evidence-first, small-group math coaching for durable readiness.</div>
+          <div class="sub">Small-group readiness coaching with calm, focused sessions.</div>
         </div>
         <div class="site-nav" aria-label="Site navigation">
-          <label for="page-select">Go to</label>
+          <label for="page-select">Navigate</label>
           <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
             <option value="" selected>Choose a page</option>
             <option value="/index.html">Next-Grade Readiness (Grades 2–6)</option>
-            <option value="/diagnostic.html">Readiness Diagnostic</option>
             <option value="/mathlab-funnel/lead-magnet.html">7-Day Math Reset (Lead Magnet)</option>
             <option value="/mathlab-funnel/vsl.html">Ready for the Next Grade (VSL)</option>
             <option value="/mathlab-funnel/schedule-call.html">Schedule a Call</option>
@@ -596,16 +603,12 @@
 
       <div class="hero">
         <div>
-          <div class="kicker">Math Readiness Path • Phase: Next-Grade Readiness (Grades 2–6)</div>
+          <div class="kicker">Next-Grade Readiness (Grades 2–6)</div>
 
-          <h1>When numbers aren’t easy yet, math feels like a race.</h1>
+          <h1>Make math feel calm again.</h1>
 
           <p class="lead">
-            In this 10-week program, kids practice the “must-know” number skills so the next grade feels easier—and mistakes don’t pile up.
-          </p>
-
-          <p class="fine" style="margin-top:10px;">
-            Goal: less counting, fewer mistakes, and faster work—without feeling stressed.
+            A focused 10-week readiness program that builds speed, accuracy, and confidence without the overwhelm.
           </p>
 
           <div class="hero-actions">
@@ -623,7 +626,7 @@
           <div class="meta">
             <div class="meta-row">
               <div class="label">Timeline</div>
-              <div class="value">10 weeks <span>(Spring: Mar 2–May 6, 2026)</span></div>
+              <div class="value">10 weeks <span>(Mar 2–May 6, 2026)</span></div>
             </div>
             <div class="meta-row">
               <div class="label">Location</div>
@@ -636,8 +639,8 @@
             <div class="meta-row">
               <div class="label">Cohorts</div>
               <div class="value">
-                Mon/Wed nights <span>(Week 1: Mar 2 & Mar 4 • Week 10: May 4 & May 6)</span><br/>
-                Tue/Thu nights <span>(Week 1: Mar 3 & Mar 5 • Week 10: May 5 & May 7)</span>
+                Mon/Wed nights <span>(Mar 2–May 6)</span><br/>
+                Tue/Thu nights <span>(Mar 3–May 7)</span>
               </div>
             </div>
             <div class="divider"></div>
@@ -659,301 +662,61 @@
   </header>
 
   <main>
-
-    <!-- ✅ Parent Reviews (placed toward top, right after hero) -->
-    <section id="reviews">
-      <div class="container">
-        <div class="section-title">
-          <h2>What parents say</h2>
-          <div class="hint"></div>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <h2>Emily H — Arlington, VA</h2>
-            <p>
-              “McSpadden Math Lab was the first time I felt like someone actually understood how my child thinks about numbers.
-              The focus on number sense and fluency made everything else easier. It wasn’t busywork — it was precise, intentional, and effective.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Sarah G — McLean, VA</h2>
-            <p>
-              “What stood out immediately was the clarity of instruction. There was no guessing, no ‘try this trick.’
-              My child finally developed real understanding and confidence. You could tell this was built by someone who truly knows math — not just tutoring.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Jennifer P — Alexandria, VA</h2>
-            <p>
-              “We’ve tried other programs before, but McSpadden Math Lab felt different from day one.
-              The emphasis on fluency and foundational skills made a noticeable difference within weeks. My child stopped avoiding math and started explaining their thinking.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Laura W — Arlington, VA</h2>
-            <p>
-              “This wasn’t just help with homework. It was a complete reset in how my child understood math.
-              The structure, pacing, and attention to number relationships showed a level of expertise we hadn’t seen elsewhere.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Michelle M — McLean, VA</h2>
-            <p>
-              “McSpadden Math Lab gave my child confidence I didn’t realize was missing.
-              The focus on automaticity and core skills meant less frustration and more success at school. It felt calm, professional, and very intentional.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Grace P — Alexandria, VA</h2>
-            <p>
-              “What impressed us most was how clearly the program targeted gaps without overwhelming our child.
-              The fluency work was efficient, and the progress felt real — not inflated or superficial.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Anna T — Arlington, VA</h2>
-            <p>
-              “There’s a noticeable difference between someone who teaches math and someone who truly understands how children learn math.
-              McSpadden Math Lab is the latter. The results spoke for themselves.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>Helen W — McLean, VA</h2>
-            <p>
-              “McSpadden Math Lab gave us confidence as parents. We trusted the process because it was clear there was a plan —
-              focused on the skills that actually matter. It felt thoughtful, evidence-based, and refreshingly different.”
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Who it's for -->
     <section>
       <div class="container">
+        <div class="section-title">
+          <h2>Next-grade readiness, in plain terms</h2>
+          <div class="hint">Short, calm, and focused on fluency.</div>
+        </div>
         <div class="grid">
           <div class="card">
-            <h2>Who this phase is for</h2>
+            <h2>Small cohorts, big clarity</h2>
             <p>
-              Designed for students in <strong>Grades 2–6</strong> who are capable but:
+              Groups of five keep attention high and keep students from slipping through.
             </p>
-            <div class="list" role="list">
-              <div class="li" role="listitem"><span class="check">✓</span><span>Work slowly because facts are not automatic</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span>Lose accuracy when problems have multiple steps</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span>Rely on counting, guessing, or repeated re-checking</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span>Feel confidence drop as math speeds up</span></div>
-            </div>
           </div>
-
           <div class="card">
-            <h2>What this is not</h2>
+            <h2>Twice-weekly sessions</h2>
             <p>
-              This phase is intentionally narrow. We do not “cover everything.” We secure the foundations that determine whether the next grade works.
+              In-person sessions at the Gainesville–Haymarket Library, designed for speed, accuracy, and confidence.
             </p>
-            <div class="list" role="list">
-              <div class="li" role="listitem"><span class="check">—</span><span>Not open-ended tutoring</span></div>
-              <div class="li" role="listitem"><span class="check">—</span><span>Not a drop-in class</span></div>
-              <div class="li" role="listitem"><span class="check">—</span><span>Not a worksheet program</span></div>
-              <div class="li" role="listitem"><span class="check">—</span><span>Not “wait and see” math</span></div>
-            </div>
+          </div>
+          <div class="card">
+            <h2>Home protocol (10 minutes)</h2>
+            <p>
+              A short, targeted routine so progress sticks without nightly battles.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
     <section id="how">
       <div class="container">
-        <div class="section-title">
-          <h2>How Next-Grade Readiness works</h2>
-          <div class="hint">A fixed sequence designed to remove guesswork and build momentum.</div>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-top">
-              <div class="step-name">Step 1: Math Readiness Clearance</div>
-              <div class="tag">The Guide</div>
-            </div>
-            <p class="fine" style="margin-top:10px;">
-              Student performance is monitored continuously throughout the phase.
-              Based on what each student demonstrates in sessions, families receive a <strong>simple 10-minute home protocol</strong> aligned to current needs.
-              The goal is targeted reinforcement—not additional work.
-            </p>
-          </div>
-
-          <div class="step">
-            <div class="step-top">
-              <div class="step-name">Step 2: Live Readiness Sessions</div>
-              <div class="tag">The Work</div>
-            </div>
-            <p>
-              Cohorts meet in small groups <strong>twice per week</strong> at the Gainesville–Haymarket Library.
-              Sessions are structured to build automaticity, number sense, and accuracy under mild pressure.
-            </p>
-          </div>
-
-          <div class="step">
-            <div class="step-top">
-              <div class="step-name">Step 3: Transfer & Application</div>
-              <div class="tag">The Hold</div>
-            </div>
-            <p>
-              Each week, students apply skills through concepts, puzzles, and real problem-solving. If a skill only works in one setting, it is not yet secure.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Support Stack -->
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2>What’s included</h2>
-          <div class="hint">The Readiness Support Stack • built for visible, durable gains</div>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <h2>1) Must-Know Math Skills Framework (Grades 1–6)</h2>
-            <p>
-              A clear, parent-facing framework of the non-negotiable skills that predict long-term math success (fluency-first: number sense, automaticity, foundational computation).
-            </p>
-          </div>
-          <div class="card">
-            <h2>2) Weekly Parent Snapshot</h2>
-            <p>
-              A short weekly update explaining what was targeted, why it matters, and what’s next. No dashboards. No micromanaging. Just clarity.
-            </p>
-          </div>
-          <div class="card">
-            <h2>3) Home Protocol Card</h2>
-            <p>
-              A one-page, 10-minute routine: exactly what to do, for exactly how long, and when to stop—designed to prevent regression without homework battles.
-            </p>
-          </div>
-          <div class="card">
-            <h2>4) Mid-Phase Readiness Checkpoint</h2>
-            <p>
-              A concise midpoint update outlining what has shifted, what still needs reinforcement, and whether the current trajectory is on track—so adjustments happen early.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How to Decide -->
-<section>
-  <div class="container">
-    <div class="card">
-      <h2>How to decide if this phase is right</h2>
-      <p>
-        This phase is not about getting ahead. It’s about being ready.
-        Next-Grade Readiness (Grades 2–6) is a good fit if <strong>two or more</strong> of the following are true:
-      </p>
-
-      <div class="list" role="list">
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Homework takes <strong>too long</strong> for what should be basic work—even when understanding is there</span>
-        </div>
-
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Accuracy drops when problems include <strong>multiple steps</strong></span>
-        </div>
-
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Your child still relies on <strong>counting, guessing, or repeated re-checking</strong> for facts that should be automatic</span>
-        </div>
-
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Your child is capable, but <strong>hesitates</strong> because they don’t trust their answer</span>
-        </div>
-
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Small errors (place value, regrouping, operation choice) show up repeatedly and <strong>compound</strong> across a page</span>
-        </div>
-
-        <div class="li" role="listitem">
-          <span class="check">✓</span>
-          <span>Math is starting to feel like a <strong>daily fight</strong> rather than something they can do calmly</span>
-        </div>
-      </div>
-
-      <p style="margin-top:12px;">
-        If you’re unsure, that’s normal. The Math Readiness Clearance exists to remove guesswork.
-        If your child does not need this phase, we will say so.
-      </p>
-    </div>
-  </div>
-</section>
-
-    <section class="failure">
-      <div class="container">
         <div class="card">
-          <h2>What happens if these gaps aren’t addressed</h2>
-
+          <h2>What you’ll see change</h2>
           <div class="list" role="list">
-            <div class="li" role="listitem"><span class="check">—</span><span>Multi-step problems break down as pacing increases</span></div>
-            <div class="li" role="listitem"><span class="check">—</span><span>Accuracy drops even when the concept is understood</span></div>
-            <div class="li" role="listitem"><span class="check">—</span><span>Students rely on counting or guessing under pressure</span></div>
-            <div class="li" role="listitem"><span class="check">—</span><span>Math becomes stressful instead of predictable</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Less counting and re-checking</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Faster work without guessing</span></div>
+            <div class="li" role="listitem"><span class="check">✓</span><span>Calmer, more accurate multi-step work</span></div>
           </div>
-
-          <p class="fine" style="margin-top:12px;">
-            These patterns typically show up in transition years — once content density increases and strong number skills are assumed.
-          </p>
         </div>
       </div>
     </section>
 
-     <!-- Tuition & Guarantee -->
     <section id="pricing">
       <div class="container">
         <div class="pricing">
           <div class="card">
             <div class="section-title" style="margin-bottom:6px;">
               <h2>Tuition</h2>
-              <div class="hint">All-inclusive • no add-ons • no hourly fees</div>
+              <div class="hint">All-inclusive • 10 weeks • 2x/week</div>
             </div>
 
             <div class="price">$2,000</div>
 
             <p class="fine">
-              This is a <strong>10-week readiness intervention</strong> designed to close foundational gaps
-              <strong>before they compound</strong> in upper elementary.
-              Many families end up spending <strong>$100–$150/hour</strong> on private tutoring across multiple years once math becomes a daily fight.
-              This phase is structured to prevent that path by addressing the core skills early—inside a small group where no student can disappear.
-            </p>
-
-            <p class="fine" style="margin-top:10px;">
-              Families often don’t see the long-term cost until much later.
-              When foundational gaps persist into middle school, intervention becomes more intensive—and more expensive.
-              We regularly speak with families who spend <strong>tens of thousands of dollars</strong> on years of math tutoring, algebra remediation, and SAT/ACT prep.
-              This phase exists to reduce the likelihood that path becomes necessary.
-            </p>
-
-            <div class="list" role="list" style="margin-top:10px;">
-              <div class="li" role="listitem"><span class="check">✓</span><span><strong>10 weeks</strong> of structured readiness sessions (2x/week)</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span><strong>Readiness Support Stack</strong> (Must-Know Skills Framework, Weekly Parent Snapshot, Home Protocol Card, Mid-Phase Checkpoint)</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span><strong>End-of-phase guidance</strong> on what to maintain and what comes next</span></div>
-            </div>
-
-            <p class="fine" style="margin-top:10px;">
-              Enrollment is capped at 5 students per cohort to protect outcomes. <strong>Initial intake target: 10 students total.</strong>
+              Cohorts are capped at five students. If we are not the right fit, we will tell you.
             </p>
 
             <div class="hero-actions" style="margin-top:14px;">
@@ -963,123 +726,34 @@
                 Lock in spring readiness (limited seats)
               </a>
 
-              <a class="btn secondary" href="#faq">Read FAQ</a>
+              <a class="btn secondary" href="#apply">Apply now</a>
             </div>
           </div>
 
           <div class="card">
             <div class="section-title" style="margin-bottom:6px;">
-              <h2>The Readiness Guarantee</h2>
-              <div class="hint"></div>
+              <h2>Schedule</h2>
+              <div class="hint">Mar 2–May 6, 2026</div>
             </div>
             <p class="fine">
-              If your child attends sessions, completes the in-session work, and follows the Home Protocol—and you do not see clear, measurable improvement in the targeted readiness skills—we will either:
+              Monday/Wednesday nights or Tuesday/Thursday nights. Location: Gainesville–Haymarket Library.
             </p>
             <div class="list" role="list" style="margin-top:10px;">
-              <div class="li" role="listitem"><span class="check">✓</span><span>Recommend the appropriate next step at no additional cost, or</span></div>
-              <div class="li" role="listitem"><span class="check">✓</span><span>Refund the phase tuition.</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>Grades 2–6, grouped by readiness</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>2 sessions per week</span></div>
+              <div class="li" role="listitem"><span class="check">✓</span><span>5 students per cohort</span></div>
             </div>
-            <p class="fine" style="margin-top:10px;">
-              This exists for one reason: we do not continue work that is not producing results.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- What comes next -->
-    <section>
-      <div class="container">
-        <div class="card">
-          <h2>What comes next</h2>
-          <p>
-            Next-Grade Readiness is one phase inside the larger <strong>Math Readiness Path</strong>.
-            At the end of this phase, families receive guidance on whether to pause and maintain—or continue into the next phase when math demands increase.
-          </p>
-          <div class="list" role="list" style="margin-top:10px;">
-            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 3 Readiness</span></div>
-            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 4 Readiness</span></div>
-            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 5 Readiness</span></div>
-            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Grade 6 Readiness</span></div>
-            <div class="li" role="listitem"><span class="check">→</span><span>Math Readiness Path — Pre-Algebra Readiness</span></div>
-          </div>
-          <p style="margin-top:12px; color: var(--text-muted);">
-            There is no pressure to continue—only clarity about readiness.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="container">
-        <div class="section-title">
-          <h2>FAQ</h2>
-          <div class="hint">Clear answers • no fluff</div>
-        </div>
-
-        <div class="steps" style="gap:10px;">
-          <details>
-            <summary>Is this only for students who are behind? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              No. Many students earn solid grades. This phase is about readiness for what comes next—speed, accuracy, and consistency under mild pressure.
-            </div>
-          </details>
-
-          <details>
-            <summary>How is this different from tutoring? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              Tutoring is typically open-ended and reactive. This is time-boxed, targeted, and benchmark-driven. We intervene only where gaps create future risk.
-            </div>
-          </details>
-
-          <details>
-            <summary>Where are sessions held? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              Every session is held at the <strong>Gainesville–Haymarket Library</strong>.
-            </div>
-          </details>
-
-          <details>
-            <summary>When are sessions held? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              Two cohort options: <strong>Monday/Wednesday nights</strong> or <strong>Tuesday/Thursday nights</strong>.
-              (Week 1 begins March 2–5, 2026. Week 10 ends May 4–7, 2026.)
-            </div>
-          </details>
-
-          <details>
-            <summary>How large are cohorts? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              Cohorts are capped because outcomes degrade when groups grow. The current cap is shown at the top of the page.
-            </div>
-          </details>
-
-          <details>
-            <summary>Do you assign homework? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              No traditional homework. Families receive a simple 10-minute Home Protocol designed to maintain gains without stress.
-            </div>
-          </details>
-
-          <details>
-            <summary>What if this isn’t the right fit? <span class="chev">⌄</span></summary>
-            <div class="answer">
-              Fit matters. If your child does not need this phase, we will say so. Readiness matters more than enrollment.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Apply -->
     <section id="apply">
       <div class="container">
         <div class="cta">
-          <h2>Apply for Next-Grade Readiness (Grades 2–6)</h2>
+          <h2>Ready for next-grade readiness?</h2>
           <p>
-            Applications are reviewed to ensure appropriate placement and group balance.
-            If your child does not need this phase, we will tell you.
+            Short application. Clear answer. No fluff.
           </p>
 
           <div class="hero-actions" style="justify-content:center;">
@@ -1089,10 +763,8 @@
               Lock in spring readiness (limited seats)
             </a>
 
-            <a class="btn secondary" href="#pricing">View Tuition + Guarantee</a>
+            <a class="btn secondary" href="#how">See outcomes</a>
           </div>
-
-          <p class="fine" style="margin-top:12px;"></p>
         </div>
       </div>
     </section>
