@@ -1,54 +1,51 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1263416992352726');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <!-- Meta Pixel Code (keep ONE pixel block only) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    // ✅ Use your real pixel ID here (this one is from your top block)
+    fbq('init', '1263416992352726');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>7-Day Math Reset | McSpadden Math Lab</title>
-  <meta name="description" content="Free 6–10 minute video: a 7-day, 5-min/day reset to identify the one skill slowing your child down and fix it first—without trying to fix everything at once."/>
+  <meta name="description" content="Free 6–10 minute video: a 7-day, 5-min/day reset to find the one skill slowing your child down and fix it first—without trying to fix everything at once."/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css"/>
 
-  <!-- Meta Pixel (replace YOUR_PIXEL_ID) -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f.fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-    t=b.createElement(e);t.async=!0;t.src=v;
-    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','1626495865016197');
-    fbq('track','PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
-  </noscript>
+  <!-- Page-specific meta (optional but helpful for sharing) -->
+  <meta property="og:title" content="7-Day Math Reset | McSpadden Math Lab" />
+  <meta property="og:description" content="Find the lowest rung. Fix it first. 5 minutes/day for 7 days." />
+  <meta property="og:type" content="website" />
 </head>
 
 <body>
   <div class="wrap">
     <!-- Top Bar -->
     <div class="topbar">
-      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
+      <div class="brand" aria-label="McSpadden Math Lab">
+        <span class="dot" aria-hidden="true"></span> McSpadden Math Lab
+      </div>
 
       <div class="site-nav" aria-label="Site navigation">
         <label for="page-select">Navigate</label>
@@ -71,82 +68,127 @@ src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"
       <div class="kicker">Free video</div>
       <h1>Fix the lowest rung first.</h1>
       <p class="lede">
-        A 7-day, 5-minutes-a-day reset that helps you identify the <em>one</em> skill
-        slowing your child down — and fix that first, instead of trying to fix everything at once.
+        A 7-day, 5-minutes-a-day reset that helps you find the <em>one</em> skill slowing your child down —
+        and fix that first, instead of trying to fix everything at once.
+      </p>
+
+      <!-- Alex-style: remove ambiguity, force the next step -->
+      <div class="cta" style="margin-top: 14px;">
+        <a class="btn" href="#watch" onclick="fbq('track','ViewContent',{content_name:'LeadMagnet:WatchVideo'});">
+          Watch the 6–10 minute video
+        </a>
+        <a class="btn outline" href="./vsl.html"
+           onclick="fbq('track','ViewContent',{content_name:'LeadMagnet:GoToVSL_Top'});">
+          Skip ahead to the full system
+        </a>
+      </div>
+
+      <p class="note" style="margin-top: 10px;">
+        This page explains the <strong>quick reset</strong>. The next page (VSL) shows the
+        <strong>full 10-week system</strong> and who it’s for.
       </p>
     </section>
 
     <!-- Main Card -->
-    <div class="card">
+    <div class="card" id="watch">
       <div class="card-hd">
-        <strong>Watch: The 7-Day Reset</strong>
+        <strong>Watch: The 7-Day Math Reset</strong>
         <small>~6–10 min</small>
       </div>
 
       <div class="card-bd">
         <div class="grid two">
-          <!-- Video + CTA -->
+          <!-- Left: Video + the "fork" -->
           <div>
             <div class="video">
               <iframe
                 src="https://www.youtube.com/embed/W1gy7wQdoWw"
                 title="7-Day Math Reset"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
             </div>
 
+            <div class="hr"></div>
+
+            <!-- Alex-style consequence wedge (concrete, not dramatic) -->
+            <h2 style="margin: 0 0 8px 0;">What happens if you don’t fix the low rung</h2>
+            <p class="note" style="margin-top: 0;">
+              This is what parents usually see when one foundational skill isn’t automatic yet:
+            </p>
+            <ul class="note" style="margin-top: 8px; padding-left: 18px;">
+              <li><strong>Multi-step problems break</strong> because the child runs out of working memory.</li>
+              <li><strong>Accuracy drops</strong> as the pace increases (tests, timed work, longer assignments).</li>
+              <li><strong>Confidence erodes</strong> even when the child “understands” the lesson.</li>
+              <li><strong>Homework becomes a fight</strong> because everything takes too long.</li>
+            </ul>
+
+            <div class="hr"></div>
+
+            <!-- The forced decision: do nothing vs VSL -->
+            <h2 style="margin: 0 0 8px 0;">What to do next</h2>
+            <div class="note" style="margin-top: 0;">
+              After you try the reset, you’ll be in one of two places:
+            </div>
+            <ol class="note" style="margin-top: 10px; padding-left: 18px;">
+              <li>
+                <strong>It’s already easy.</strong> Great — do nothing. Your child is probably ready to move on.
+              </li>
+              <li>
+                <strong>It’s not easy yet.</strong> Watch the full system video. It shows how the
+                <strong>10-week Next-Grade Readiness</strong> program fixes the rungs in the right order
+                (so you’re not guessing or chasing worksheets).
+              </li>
+            </ol>
+
             <div class="cta">
               <a class="btn" href="./vsl.html"
-                 onclick="fbq('track','ViewContent',{content_name:'LeadMagnet->VSL'});">
-                Watch the full system video
+                 onclick="fbq('track','ViewContent',{content_name:'LeadMagnet->VSL_Main'});">
+                Watch the full system video (next step)
               </a>
-              <a class="btn outline" href="./schedule-call.html">
+              <a class="btn outline" href="./schedule-call.html"
+                 onclick="fbq('track','Lead',{content_name:'LeadMagnet->ScheduleCall'});">
                 Or schedule a short call
               </a>
             </div>
 
             <p class="note">
-              If this reset helps, the next video walks through the complete
-              <strong>Ready for the Next Grade</strong> system — what happens each week,
-              what your child gets in the 10-week program, and how to decide if it’s a fit.
+              If you’re a “just tell me what to do” parent: the VSL is the decision tool.
+              It explains what happens each week, what your child gets, and how to know if it’s a fit.
             </p>
 
             <div class="hr"></div>
 
-            <p class="note">
-              Quick context: Math is a ladder. If one lower rung isn’t automatic yet,
-              everything above it takes more effort. School keeps moving (pacing guides),
-              and home often becomes “school part two.”
-              This reset removes pressure by fixing <em>one rung at a time</em>.
+            <h2 style="margin: 0 0 8px 0;">Quick context (in plain English)</h2>
+            <p class="note" style="margin-top: 0;">
+              Math is a ladder. If a lower rung isn’t automatic yet, everything above it costs more effort.
+              School keeps moving. This reset works because you fix <em>one rung at a time</em> until it’s easy.
             </p>
           </div>
 
-          <!-- Steps -->
+          <!-- Right: Steps (tighten + remove jargon like "learning interference") -->
           <aside class="steps">
             <h2>The 7-Day Reset (simple steps)</h2>
 
             <ol>
               <li>
-                <strong>Pick one rung.</strong>
-                Start with the first skill that causes slowdown.
-                For many kids, this is <strong>two-digit minus one-digit subtraction</strong>,
-                but it could also be addition, multiplication, or division facts.
+                <strong>Pick one “slowdown” skill.</strong>
+                Choose the first place your child hesitates.
+                Common culprits: subtraction with regrouping, addition facts, multiplication facts, division facts.
               </li>
               <li>
-                <strong>Practice verbally for 5 minutes a day.</strong>
-                Ask quick questions out loud.
-                No worksheets. No fingers. No counting strategies.
+                <strong>Do 5 minutes a day (out loud).</strong>
+                Fast, verbal questions. No worksheets. No apps required.
               </li>
               <li>
                 <strong>Use one success rule.</strong>
-                You’re looking for answers in ~2 seconds
-                <strong>without</strong> pausing, whisper-counting, or using fingers.
+                You’re aiming for answers in about <strong>2 seconds</strong> without fingers,
+                whisper-counting, or long pauses.
               </li>
               <li>
                 <strong>Don’t stack skills.</strong>
-                Avoid practicing “whatever happened in class today.”
-                Stay on the same rung until it’s easy — then move up.
+                Stay on the same rung until it’s easy. Then move up one rung.
               </li>
             </ol>
 
@@ -154,18 +196,27 @@ src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"
 
             <small>
               <strong>Why this works:</strong>
-              Math is hierarchical. When kids try to learn new skills before old ones are automatic,
-              they experience <em>learning interference</em> — progress feels random and slow.
-              Fix one rung first, and everything above it becomes easier.
+              When a basic skill is slow, the brain spends all its energy on the “little” part,
+              and there’s not enough left for the “big” part (multi-step thinking).
+              Make the low rung automatic, and the higher work gets easier.
             </small>
 
             <div class="hr"></div>
 
             <small>
               <strong>Want this handled for you?</strong>
-              The full system video explains how I run small, in-person, grade-level cohorts
-              and take sequencing, pacing, and decision-making off parents’ plates.
+              The full system video explains the in-person, small-group program and how I run the sequence
+              so parents don’t have to guess what to practice next.
             </small>
+
+            <div class="hr"></div>
+
+            <div class="cta">
+              <a class="btn" href="./vsl.html"
+                 onclick="fbq('track','ViewContent',{content_name:'LeadMagnet->VSL_Sidebar'});">
+                Go to the full system video
+              </a>
+            </div>
           </aside>
         </div>
       </div>
@@ -175,8 +226,8 @@ src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"
     <div class="footer">
       <div>© <span id="y"></span> McSpadden Math Lab</div>
       <div>
-        <a href="./vsl.html">Full system video</a> ·
-        <a href="./schedule-call.html">Schedule a call</a>
+        <a href="./vsl.html" onclick="fbq('track','ViewContent',{content_name:'Footer->VSL'});">Full system video</a> ·
+        <a href="./schedule-call.html" onclick="fbq('track','Lead',{content_name:'Footer->ScheduleCall'});">Schedule a call</a>
       </div>
     </div>
   </div>
@@ -186,4 +237,6 @@ src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"
   </script>
 </body>
 </html>
+```
+
 
