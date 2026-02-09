@@ -360,6 +360,54 @@ a.btn::after{
   background: var(--line);
   margin: 18px 0;
 }
+/* =========================
+   BUTTON EMERGENCY OVERRIDES
+   Put this at the very bottom
+   ========================= */
+
+/* Force buttons to ignore link/visited quirks + injected link icons */
+a.btn,
+.btn{
+  text-decoration: none !important;
+}
+
+a.btn:visited,
+.btn:visited{
+  color: inherit !important;
+}
+
+/* Kill ANY pseudo-content that might be injected elsewhere */
+a.btn::before,
+a.btn::after,
+.btn::before,
+.btn::after{
+  content: "" !important;
+  display: none !important;
+}
+
+/* Force SOLID button look */
+a.btn:not(.outline),
+.btn:not(.outline){
+  background: var(--text) !important;
+  border-color: var(--text) !important;
+  color: #fff !important;
+}
+
+/* Force OUTLINE (white) button look */
+a.btn.outline,
+.btn.outline{
+  background: #fff !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+}
+
+/* Extra hardening: if there’s a global rule like a::before {content: ...} */
+a.btn.outline::before,
+a.btn.outline::after{
+  content: "" !important;
+  display: none !important;
+}
+
 
 /* Footer */
 .footer{
