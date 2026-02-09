@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +12,6 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    // ✅ Use your real pixel ID here (this one is from your top block)
     fbq('init', '1263416992352726');
     fbq('track', 'PageView');
   </script>
@@ -31,9 +29,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./styles.css?v=4"/>
 
-  <!-- Page-specific meta (optional but helpful for sharing) -->
   <meta property="og:title" content="7-Day Math Reset | McSpadden Math Lab" />
   <meta property="og:description" content="Find the lowest rung. Fix it first. 5 minutes/day for 7 days." />
   <meta property="og:type" content="website" />
@@ -72,13 +69,14 @@
         and fix that first, instead of trying to fix everything at once.
       </p>
 
-      <!-- Alex-style: remove ambiguity, force the next step -->
       <div class="cta" style="margin-top: 14px;">
-        <a class="btn" href="#watch" onclick="fbq('track','ViewContent',{content_name:'LeadMagnet:WatchVideo'});">
+        <a class="btn" href="#watch"
+           onclick='fbq("track","ViewContent",{content_name:"LeadMagnet:WatchVideo"});'>
           Watch the 6–10 minute video
         </a>
+
         <a class="btn outline" href="./vsl.html"
-           onclick="fbq('track','ViewContent',{content_name:'LeadMagnet:GoToVSL_Top'});">
+           onclick='fbq("track","ViewContent",{content_name:"LeadMagnet:GoToVSL_Top"});'>
           Skip ahead to the full system
         </a>
       </div>
@@ -112,7 +110,6 @@
 
             <div class="hr"></div>
 
-            <!-- Alex-style consequence wedge (concrete, not dramatic) -->
             <h2 style="margin: 0 0 8px 0;">What happens if you don’t fix the low rung</h2>
             <p class="note" style="margin-top: 0;">
               This is what parents usually see when one foundational skill isn’t automatic yet:
@@ -126,7 +123,6 @@
 
             <div class="hr"></div>
 
-            <!-- The forced decision: do nothing vs VSL -->
             <h2 style="margin: 0 0 8px 0;">What to do next</h2>
             <div class="note" style="margin-top: 0;">
               After you try the reset, you’ll be in one of two places:
@@ -144,11 +140,12 @@
 
             <div class="cta">
               <a class="btn" href="./vsl.html"
-                 onclick="fbq('track','ViewContent',{content_name:'LeadMagnet->VSL_Main'});">
+                 onclick='fbq("track","ViewContent",{content_name:"LeadMagnet->VSL_Main"});'>
                 Watch the full system video (next step)
               </a>
+
               <a class="btn outline" href="./schedule-call.html"
-                 onclick="fbq('track','Lead',{content_name:'LeadMagnet->ScheduleCall'});">
+                 onclick='fbq("track","Lead",{content_name:"LeadMagnet->ScheduleCall"});'>
                 Or schedule a short call
               </a>
             </div>
@@ -167,7 +164,7 @@
             </p>
           </div>
 
-          <!-- Right: Steps (tighten + remove jargon like "learning interference") -->
+          <!-- Right -->
           <aside class="steps">
             <h2>The 7-Day Reset (simple steps)</h2>
 
@@ -213,7 +210,7 @@
 
             <div class="cta">
               <a class="btn" href="./vsl.html"
-                 onclick="fbq('track','ViewContent',{content_name:'LeadMagnet->VSL_Sidebar'});">
+                 onclick='fbq("track","ViewContent",{content_name:"LeadMagnet->VSL_Sidebar"});'>
                 Go to the full system video
               </a>
             </div>
@@ -226,8 +223,15 @@
     <div class="footer">
       <div>© <span id="y"></span> McSpadden Math Lab</div>
       <div>
-        <a href="./vsl.html" onclick="fbq('track','ViewContent',{content_name:'Footer->VSL'});">Full system video</a> ·
-        <a href="./schedule-call.html" onclick="fbq('track','Lead',{content_name:'Footer->ScheduleCall'});">Schedule a call</a>
+        <a href="./vsl.html"
+           onclick='fbq("track","ViewContent",{content_name:"Footer->VSL"});'>
+          Full system video
+        </a>
+        ·
+        <a href="./schedule-call.html"
+           onclick='fbq("track","Lead",{content_name:"Footer->ScheduleCall"});'>
+          Schedule a call
+        </a>
       </div>
     </div>
   </div>
@@ -237,6 +241,5 @@
   </script>
 </body>
 </html>
-```
 
 
