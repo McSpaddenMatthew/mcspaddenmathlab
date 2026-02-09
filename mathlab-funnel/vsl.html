@@ -4,22 +4,32 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Ready for the Next Grade | McSpadden Math Lab</title>
-  <meta name="description" content="10-week, in-person readiness cohorts by grade (2nd–6th)."/>
+  <meta name="description" content="10-week, in-person readiness cohorts by grade (2nd–6th). Clear offer, price, and next step."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./styles.css?v=6"/>
 
-  <!-- Meta Pixel -->
+  <!-- Open Graph (optional) -->
+  <meta property="og:title" content="Ready for the Next Grade | McSpadden Math Lab" />
+  <meta property="og:description" content="A 10-week, in-person readiness program for Grades 2–6. Clear plan. Limited seats." />
+  <meta property="og:type" content="website" />
+
+  <!-- Meta Pixel (use the SAME pixel ID you use everywhere else) -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','1626495865016197');
+
+    fbq('init','1263416992352726');
     fbq('track','PageView');
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"/>
+  </noscript>
 </head>
 
 <body>
@@ -33,8 +43,8 @@
         <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
           <option value="" selected>Choose a page</option>
           <option value="../index.html">Next-Grade Readiness (Grades 2–6)</option>
-          <option value="./lead-magnet.html">7-Day Math Reset (Lead Magnet)</option>
-          <option value="./vsl.html">Ready for the Next Grade (VSL)</option>
+          <option value="./lead-magnet.html">7-Day Math Reset (Free Video)</option>
+          <option value="./vsl.html">Ready for the Next Grade (Full System)</option>
           <option value="./schedule-call.html">Schedule a Call</option>
           <option value="./thank-you.html">You're Booked (Thank You)</option>
         </select>
@@ -51,6 +61,22 @@
       <p class="lede">
         A 10-week, in-person readiness program for capable kids who need smoother fundamentals —
         so the next grade feels easier, not louder.
+      </p>
+
+      <!-- Top CTA (push to call) -->
+      <div class="cta" style="margin-top: 14px;">
+        <a class="btn" href="./schedule-call.html"
+           onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Top"});'>
+          Book the 10-minute fit call
+        </a>
+        <a class="btn outline" href="./lead-magnet.html"
+           onclick='fbq("track","ViewContent",{content_name:"VSL->LeadMagnet"});'>
+          Watch the free 7-day reset first
+        </a>
+      </div>
+
+      <p class="note" style="margin-top: 10px;">
+        The call is simple: I’ll tell you if it’s a fit. If it’s not, I’ll tell you what to do instead.
       </p>
     </section>
 
@@ -69,6 +95,7 @@
               <iframe
                 src="https://www.youtube.com/embed/c2MO7ClrC48"
                 title="Ready for the Next Grade VSL"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
               </iframe>
@@ -76,17 +103,65 @@
 
             <div class="cta">
               <a class="btn" href="./schedule-call.html"
-                 onclick="fbq('track','Lead',{content_name:'VSL->ScheduleCall'});">
-                Schedule a short call
+                 onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Main"});'>
+                Book the 10-minute fit call
               </a>
-              <a class="btn outline" href="./lead-magnet.html">
+              <a class="btn outline" href="./lead-magnet.html"
+                 onclick='fbq("track","ViewContent",{content_name:"VSL->RewatchReset"});'>
                 Rewatch the free 7-day reset
               </a>
             </div>
 
+            <div class="hr"></div>
+
+            <!-- BANT-lite: Who it’s for / not for -->
+            <h2 style="margin: 0 0 10px 0;">Who this is for</h2>
+            <ul class="note" style="margin-top: 0; padding-left: 18px;">
+              <li>Kids who <strong>understand lessons</strong> but slow down on the basics.</li>
+              <li>Kids who hesitate on facts, regrouping, or place value and it shows up in word problems.</li>
+              <li>Families who want a <strong>clear plan</strong> instead of chasing worksheets.</li>
+              <li>Grades <strong>2–6</strong> who want the next grade to feel easier.</li>
+            </ul>
+
+            <h2 style="margin: 14px 0 10px 0;">Who this is not for</h2>
+            <ul class="note" style="margin-top: 0; padding-left: 18px;">
+              <li>Families looking for daily homework help or reteaching school lessons night-by-night.</li>
+              <li>Kids who need 1:1 specialized services beyond small-group instruction.</li>
+              <li>Families who can’t attend consistently (two sessions/week).</li>
+            </ul>
+
+            <div class="hr"></div>
+
+            <!-- Price + what includes (reduce surprise) -->
+            <h2 style="margin: 0 0 10px 0;">Tuition</h2>
+            <p class="note" style="margin-top: 0;">
+              Most families invest <strong>$2,000–$2,500</strong> for the full 10 weeks.
+              Exact tuition depends on grade + what the diagnostic shows.
+            </p>
+            <ul class="note" style="margin-top: 8px; padding-left: 18px;">
+              <li>Diagnostic + placement</li>
+              <li>Two in-person sessions per week for 10 weeks</li>
+              <li>Progress tracking (what’s solid, what’s next)</li>
+              <li>Home guidance that’s <strong>simple</strong> (no reteaching)</li>
+            </ul>
+
+            <div class="hr"></div>
+
+            <!-- Risk reversal -->
+            <h2 style="margin: 0 0 10px 0;">Risk reversal</h2>
+            <p class="note" style="margin-top: 0;">
+              If after the first week you feel it’s not a fit, tell me and I’ll help you choose a better next step.
+            </p>
+
+            <div class="cta">
+              <a class="btn" href="./schedule-call.html"
+                 onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Bottom"});'>
+                Book the 10-minute fit call
+              </a>
+            </div>
+
             <p class="note">
-              On the call, I’ll tell you honestly if this is a fit.
-              If it’s not, I’ll tell you what to focus on instead.
+              Capacity is limited. The fastest way to confirm fit + timing is the short call.
             </p>
           </div>
 
@@ -97,7 +172,7 @@
               <li><strong>10 weeks</strong> • two in-person sessions per week</li>
               <li><strong>Small cohorts</strong> • grouped by grade (2nd–6th)</li>
               <li><strong>Diagnostic first</strong> • I identify the lowest rung causing slowdown</li>
-              <li><strong>Targeted intervention</strong> • number sense, facts, and grade-level demands</li>
+              <li><strong>Targeted instruction</strong> • number sense, facts, and grade-level demands</li>
               <li><strong>Progress tracking</strong> • what’s solid, what’s next, what’s coming up</li>
               <li><strong>Less parent workload</strong> • no reteaching, no worksheet chasing</li>
             </ol>
@@ -108,6 +183,22 @@
               <strong>Capacity is limited.</strong>
               Groups stay small by design. Once a cohort is full, it closes.
             </small>
+
+            <div class="hr"></div>
+
+            <small>
+              <strong>Next step:</strong>
+              Book the 10-minute fit call. If it’s a match, I’ll tell you the next cohort options and reserve a seat.
+            </small>
+
+            <div class="hr"></div>
+
+            <div class="cta">
+              <a class="btn" href="./schedule-call.html"
+                 onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Sidebar"});'>
+                Book the fit call
+              </a>
+            </div>
           </aside>
         </div>
       </div>
@@ -116,7 +207,12 @@
     <!-- Footer -->
     <div class="footer">
       <div>© <span id="y"></span> McSpadden Math Lab</div>
-      <div><a href="./schedule-call.html">Schedule a call</a></div>
+      <div>
+        <a href="./schedule-call.html"
+           onclick='fbq("track","Lead",{content_name:"Footer->ScheduleCall"});'>
+          Schedule a call
+        </a>
+      </div>
     </div>
   </div>
 
