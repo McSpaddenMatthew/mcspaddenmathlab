@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=7"/>
+  <link rel="stylesheet" href="./styles.css?v=8"/>
 
   <meta property="og:title" content="Ready for the Next Grade | McSpadden Math Lab" />
   <meta property="og:description" content="Watch the full system video first. Then book a short fit call." />
@@ -137,9 +137,12 @@
     }
     .below-video-cta .btn{ flex: 1 1 240px; }
 
-    /* Gate: hide booking until watched (or user explicitly confirms) */
+    /* Gate styles */
     .gate-locked{ opacity: .55; filter: saturate(.9); }
     .gate-hidden{ display:none; }
+
+    .gate-locked-btn{ opacity:.6; cursor:not-allowed; }
+    .gate-unlocked-btn{ opacity:1; cursor:pointer; }
 
     /* Make navigation less tempting (kept, but softened) */
     .softlink{
@@ -248,12 +251,32 @@
           </a>
         </div>
 
+        <!-- NEXT STEP (visible early) -->
+        <div class="card" style="margin-top:14px; padding:14px;">
+          <strong>Next step after the video:</strong>
+          <span class="note" style="display:block; margin-top:6px;">
+            If the video sounded like your child, book the short fit call.
+          </span>
+
+          <div class="cta" style="margin-top:10px;">
+            <a class="btn gate-locked-btn" id="nextStepBookBtn" href="#book"
+               onclick='fbq("track","ViewContent",{content_name:"VSL:NextStep_Book_Click"});'>
+              Book the fit call (unlocks after you watch)
+            </a>
+
+            <a class="btn outline" href="#watch"
+               onclick='fbq("track","ViewContent",{content_name:"VSL:BackToVideo_FromNextStep"});'>
+              Back to video
+            </a>
+          </div>
+        </div>
+
         <div class="microproof">
           If you only do one thing: watch the video. It will save you weeks of guessing.
         </div>
       </div>
 
-      <!-- Soft link only (no booking above fold) -->
+      <!-- Soft link only -->
       <a class="softlink" href="#book" onclick='fbq("track","ViewContent",{content_name:"VSL:JumpToBooking"});'>
         Already watched? Jump to booking →
       </a>
@@ -425,6 +448,7 @@
     const unlockBtn = document.getElementById("unlockBtn");
     const bookCard = document.getElementById("book");
     const bookBtn = document.getElementById("bookBtn");
+    const nextStepBookBtn = document.getElementById("nextStepBookBtn");
 
     let player = null;
     let started = false;
@@ -454,6 +478,15 @@
       // Visual unlock
       bookCard.classList.remove("gate-locked");
       bookBtn.classList.remove("gate-hidden");
+
+      // Enable early "Next step" button
+      if (nextStepBookBtn) {
+        nextStepBookBtn.classList.remove("gate-locked-btn");
+        nextStepBookBtn.classList.add("gate-unlocked-btn");
+        nextStepBookBtn.textContent = "Book the 10-minute fit call";
+        nextStepBookBtn.setAttribute("href", "./schedule-call.html");
+        nextStepBookBtn.setAttribute("onclick", 'fbq("track","Lead",{content_name:"VSL->ScheduleCall_NextStepTop"});');
+      }
 
       fireMeta("VSL_BookingUnlocked", {video_id: VIDEO_ID, reason: reason || "unknown"});
     }
@@ -514,7 +547,6 @@
         if (pct >= 50 && !quartilesFired[50]) {
           quartilesFired[50] = true;
           fireMeta("VSL_Video50", {video_id: VIDEO_ID});
-          // This is the minimum watch threshold to reveal booking automatically
           unlockBooking("50pct");
         }
         if (pct >= 75 && !quartilesFired[75]) {
@@ -532,13 +564,14 @@
       if (e.key === "Enter" || e.key === " ") mountPlayerAndPlay();
     });
 
-    // Manual unlock button (still logs event; lower trust than watch-based unlock)
+    // Manual unlock button
     unlockBtn.addEventListener("click", () => unlockBooking("manual"));
 
-    // If someone deep-links to #book, keep it locked unless unlocked
+    // If someone deep-links to #book, log it
     if (window.location.hash === "#book") {
       fireMeta("VSL_TriedBookingLocked", {video_id: VIDEO_ID});
     }
   </script>
 </body>
 </html>
+
