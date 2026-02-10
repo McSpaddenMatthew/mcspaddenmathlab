@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=6"/>
+  <link rel="stylesheet" href="./styles.css?v=7"/>
 
   <meta property="og:title" content="7-Day Math Reset | McSpadden Math Lab" />
   <meta property="og:description" content="Find the lowest rung. Fix it first. 5 minutes/day for 7 days." />
@@ -38,14 +38,12 @@
   <style>
     /* Page-specific improvements without touching your shared styles.css */
     .hero .cta { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-    .hero .btn.primary { flex: 1 1 260px; }
-    .hero .btn.outline { flex: 1 1 220px; }
     .watch-first { font-weight:800; }
     .microproof { margin-top:10px; color: var(--muted, #a1a1aa); font-size: 14px; }
     .video-shell { margin-top: 14px; }
 
     .video-guard{
-      position: relative;            /* IMPORTANT */
+      position: relative;
       border-radius: 16px;
       overflow: hidden;
       background: #0b0b0b;
@@ -57,12 +55,21 @@
       padding-top:56.25%;
     }
 
-    /* Host is present before iframe exists — do NOT let it steal clicks */
+    /* Host exists before iframe; do NOT block clicks until iframe is injected */
     #ytFrameHost{
       position:absolute;
       inset:0;
       z-index:1;
-      pointer-events:none;           /* IMPORTANT */
+      pointer-events:none;
+    }
+    /* IMPORTANT FIX: force iframe to fill the box (prevents tiny/squished player) */
+    #ytFrameHost iframe{
+      position:absolute;
+      inset:0;
+      width:100% !important;
+      height:100% !important;
+      border:0;
+      display:block;
     }
 
     /* Thumb sits above host so it receives the click */
@@ -102,7 +109,6 @@
       justify-content:center;
       box-shadow: 0 10px 28px rgba(0,0,0,.45);
       margin-bottom: 10px;
-      transform: translateZ(0);
     }
     .playbtn span{
       display:block;
@@ -199,10 +205,11 @@
         and what to do for <strong>5 minutes/day</strong> for the next 7 days.
       </p>
 
-      <!-- VIDEO ABOVE THE FOLD (with a big click-to-play overlay) -->
+      <!-- VIDEO ABOVE THE FOLD -->
       <div class="video-shell" id="watch">
         <div class="video-guard" aria-label="7-Day Math Reset video">
-          <!-- Frame host (starts inert so it can't block clicks) -->
+
+          <!-- Frame host -->
           <div id="ytFrameHost" aria-hidden="true"></div>
 
           <!-- Clickable thumbnail overlay -->
@@ -236,7 +243,6 @@
           Most parents don’t need “more worksheets.” They need the <strong>right rung</strong>, practiced the <strong>right way</strong>, until it’s automatic.
         </div>
 
-        <!-- De-emphasize skipping -->
         <a class="softlink" href="./vsl.html"
            onclick='fbq("track","ViewContent",{content_name:"LeadMagnet:GoToVSL_SoftLink_Top"});'>
           If you already watched this before, you can go to the full system video →
@@ -383,7 +389,7 @@
 
   <!-- Sticky mobile watch button -->
   <div class="sticky-watch">
-    <a class="btn" href="#watch" id="stickyWatchBtn"
+    <a class="btn" href="#watch"
        onclick='fbq("track","ViewContent",{content_name:"LeadMagnet:StickyWatchTap"});'>
       Watch the video (6–10 min)
     </a>
@@ -391,10 +397,6 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // --- VIDEO PLAY FIX + TRACKING ---
-    // Key fix: ytFrameHost cannot block the click before the iframe exists (pointer-events: none).
-    // On click, we inject the iframe and then enable pointer-events for interaction.
 
     const VIDEO_ID = "W1gy7wQdoWw";
     const ytThumb = document.getElementById("ytThumb");
@@ -422,10 +424,10 @@
       // Track intent
       fireMeta("LeadMagnet_VideoIntent", {video_id: VIDEO_ID, placement: "hero"});
 
-      // Remove thumb
+      // Hide thumbnail overlay
       ytThumb.style.display = "none";
 
-      // Inject iframe (autoplay muted; user initiated click helps autoplay succeed)
+      // Inject iframe that fills the container (CSS enforces 100% width/height)
       ytFrameHost.innerHTML = `
         <iframe
           id="ytPlayer"
@@ -437,15 +439,14 @@
         ></iframe>
       `;
 
-      // NOW allow interaction with the iframe
+      // Allow interaction with the iframe after injection
       ytFrameHost.style.pointerEvents = "auto";
 
-      // Bind YouTube API for quartile tracking
+      // Bind YouTube API for watch tracking
       loadYouTubeAPI().then(() => {
         player = new YT.Player('ytPlayer', {
           events: {
             onStateChange: (evt) => {
-              // 1 = playing, 2 = paused, 0 = ended
               if (evt.data === YT.PlayerState.PLAYING && !started) {
                 started = true;
                 fireMeta("LeadMagnet_VideoStart", {video_id: VIDEO_ID});
@@ -490,13 +491,11 @@
       setTimeout(tickProgress, 2000);
     }
 
-    // Click or keyboard activate
     ytThumb.addEventListener("click", mountPlayerAndPlay);
     ytThumb.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") mountPlayerAndPlay();
     });
 
-    // Optional arrival tracking
     if (window.location.hash === "#watch") {
       fireMeta("LeadMagnet_ArrivedAtWatch", {video_id: VIDEO_ID});
     }
