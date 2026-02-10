@@ -4,18 +4,17 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Ready for the Next Grade | McSpadden Math Lab</title>
-  <meta name="description" content="10-week, in-person readiness cohorts by grade (2nd–6th). Clear offer, price, and next step."/>
+  <meta name="description" content="Watch the full system video first. Then book a short fit call if it’s a match."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=6"/>
+  <link rel="stylesheet" href="./styles.css?v=7"/>
 
-  <!-- Open Graph (optional) -->
   <meta property="og:title" content="Ready for the Next Grade | McSpadden Math Lab" />
-  <meta property="og:description" content="A 10-week, in-person readiness program for Grades 2–6. Clear plan. Limited seats." />
+  <meta property="og:description" content="Watch the full system video first. Then book a short fit call." />
   <meta property="og:type" content="website" />
 
-  <!-- Meta Pixel (use the SAME pixel ID you use everywhere else) -->
+  <!-- Meta Pixel (same ID) -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -30,6 +29,145 @@
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"/>
   </noscript>
+
+  <style>
+    /* Page-specific: force a single path (watch → then reveal booking) */
+    .watch-first { font-weight: 800; }
+    .microproof { margin-top: 10px; color: var(--muted, #a1a1aa); font-size: 14px; }
+    .video-shell { margin-top: 14px; }
+
+    .video-guard{
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0b0b0b;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .video-guard::before{
+      content:"";
+      display:block;
+      padding-top:56.25%;
+    }
+
+    #ytFrameHost{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none; /* IMPORTANT: do not block click before iframe exists */
+    }
+    #ytFrameHost iframe{
+      position:absolute;
+      inset:0;
+      width:100% !important;
+      height:100% !important;
+      border:0;
+      display:block;
+    }
+
+    #ytThumb{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      background-position:center;
+      background-size:cover;
+    }
+    #ytThumb .overlay{
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(0deg, rgba(0,0,0,.62), rgba(0,0,0,.25));
+      padding: 18px;
+      text-align:center;
+    }
+    .playbtn{
+      width: 74px; height: 74px;
+      border-radius: 999px;
+      background: var(--accent, #FF6B35);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 28px rgba(0,0,0,.45);
+      margin-bottom: 10px;
+    }
+    .playbtn span{
+      display:block;
+      width:0;height:0;
+      border-left: 18px solid #0a0a0a;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+    #ytThumb .title{
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 20px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    #ytThumb .sub{
+      font-size: 14px;
+      color: rgba(255,255,255,.9);
+      max-width: 620px;
+      line-height: 1.35;
+    }
+    .overlay-bullets{
+      margin-top: 10px;
+      text-align:left;
+      max-width: 620px;
+      color: rgba(255,255,255,.92);
+      font-size: 14px;
+      line-height: 1.35;
+      padding-left: 18px;
+    }
+    .overlay-bullets li{ margin: 6px 0; }
+
+    .below-video-cta{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .below-video-cta .btn{ flex: 1 1 240px; }
+
+    /* Gate: hide booking until watched (or user explicitly confirms) */
+    .gate-locked{ opacity: .55; filter: saturate(.9); }
+    .gate-hidden{ display:none; }
+
+    /* Make navigation less tempting (kept, but softened) */
+    .softlink{
+      display:inline-block;
+      color: var(--muted, #a1a1aa);
+      text-decoration: underline;
+      font-size: 14px;
+      padding: 6px 2px;
+    }
+
+    /* Sticky watch nudger on mobile */
+    .sticky-watch{
+      position: fixed;
+      left: 12px; right: 12px; bottom: 12px;
+      display:none;
+      z-index: 50;
+    }
+    .sticky-watch .btn{
+      width:100%;
+      border-radius: 999px;
+      justify-content:center;
+      padding: 14px 16px;
+      box-shadow: 0 12px 34px rgba(0,0,0,.45);
+    }
+    @media (max-width: 820px){
+      .sticky-watch{ display:block; }
+    }
+  </style>
 </head>
 
 <body>
@@ -51,71 +189,98 @@
         <span class="chev" aria-hidden="true">⌄</span>
       </div>
 
-      <div class="pill">Limited seats • Cohorts by grade</div>
+      <div class="pill">Watch first • Then book</div>
     </div>
 
     <!-- Hero -->
-    <section class="hero">
-      <div class="kicker">Full system</div>
-      <h1>Ready for the Next Grade.</h1>
+    <section class="hero" id="top">
+      <div class="kicker">Full system · Start here</div>
+      <h1 class="watch-first">Watch this before you schedule a call.</h1>
       <p class="lede">
-        A 10-week, in-person readiness program for capable kids who need smoother fundamentals —
-        so the next grade feels easier, not louder.
+        In <strong>10–15 minutes</strong>, you’ll know if your child is a fit for the
+        <strong>10-week Next-Grade Readiness</strong> program — and what to do if they’re not.
       </p>
-
-      <!-- Top CTA (push to call) -->
-      <div class="cta" style="margin-top: 14px;">
-        <a class="btn" href="./schedule-call.html"
-           onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Top"});'>
-          Book the 10-minute fit call
-        </a>
-        <a class="btn outline" href="./lead-magnet.html"
-           onclick='fbq("track","ViewContent",{content_name:"VSL->LeadMagnet"});'>
-          Watch the free 7-day reset first
-        </a>
-      </div>
 
       <p class="note" style="margin-top: 10px;">
-        The call is simple: I’ll tell you if it’s a fit. If it’s not, I’ll tell you what to do instead.
+        <strong>This is for you if</strong> your child understands the lesson, but math is slow, inconsistent,
+        or becomes a fight at home.
+        <br/>
+        <strong>Skip this</strong> if math is already fast and easy.
       </p>
+
+      <!-- VIDEO ABOVE THE FOLD (forced path) -->
+      <div class="video-shell" id="watch">
+        <div class="video-guard" aria-label="Ready for the Next Grade VSL">
+          <div id="ytFrameHost" aria-hidden="true"></div>
+
+          <div
+            id="ytThumb"
+            role="button"
+            tabindex="0"
+            aria-label="Play the full system video"
+            style="background-image:url('https://i.ytimg.com/vi/c2MO7ClrC48/hqdefault.jpg');"
+          >
+            <div class="overlay">
+              <div class="playbtn" aria-hidden="true"><span></span></div>
+              <div class="title">Press play. See if it’s a fit.</div>
+              <div class="sub">
+                This is not a sales pitch. It’s the decision tool.
+              </div>
+              <ul class="overlay-bullets">
+                <li>Who this program is for (and who it’s not)</li>
+                <li>What we fix first, second, and third (the “ladder” order)</li>
+                <li>Exactly what happens each week for 10 weeks</li>
+                <li>What to do if your child needs a different next step</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="below-video-cta">
+          <a class="btn" href="#summary"
+             onclick='fbq("track","ViewContent",{content_name:"VSL:ScrollToSummary"});'>
+            Show me the quick summary
+          </a>
+
+          <a class="btn outline" href="./lead-magnet.html"
+             onclick='fbq("track","ViewContent",{content_name:"VSL->LeadMagnet"});'>
+            Watch the free 7-day reset first
+          </a>
+        </div>
+
+        <div class="microproof">
+          If you only do one thing: watch the video. It will save you weeks of guessing.
+        </div>
+      </div>
+
+      <!-- Soft link only (no booking above fold) -->
+      <a class="softlink" href="#book" onclick='fbq("track","ViewContent",{content_name:"VSL:JumpToBooking"});'>
+        Already watched? Jump to booking →
+      </a>
     </section>
 
     <!-- Main Card -->
-    <div class="card">
+    <div class="card" id="summary">
       <div class="card-hd">
-        <strong>Watch: How the program works</strong>
-        <small>~10–15 min</small>
+        <strong>What this video explains</strong>
+        <small>So you can decide fast</small>
       </div>
 
       <div class="card-bd">
         <div class="grid two">
-          <!-- Video + CTA -->
+          <!-- Left: Summary + fit filter + tuition -->
           <div>
-            <div class="video">
-              <iframe
-                src="https://www.youtube.com/embed/c2MO7ClrC48"
-                title="Ready for the Next Grade VSL"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-
-            <div class="cta">
-              <a class="btn" href="./schedule-call.html"
-                 onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Main"});'>
-                Book the 10-minute fit call
-              </a>
-              <a class="btn outline" href="./lead-magnet.html"
-                 onclick='fbq("track","ViewContent",{content_name:"VSL->RewatchReset"});'>
-                Rewatch the free 7-day reset
-              </a>
-            </div>
+            <ul class="note" style="margin-top: 0; padding-left: 18px;">
+              <li><strong>Why math feels “hard”</strong> when one low rung isn’t automatic yet.</li>
+              <li><strong>How the 10-week sequence works</strong> (and why order matters).</li>
+              <li><strong>What we practice in-session</strong> vs what parents do at home (simple guidance).</li>
+              <li><strong>Who improves quickly</strong> vs who needs a different plan.</li>
+              <li><strong>What to do next</strong> if it looks like a fit.</li>
+            </ul>
 
             <div class="hr"></div>
 
-            <!-- BANT-lite: Who it’s for / not for -->
-            <h2 style="margin: 0 0 10px 0;">Who this is for</h2>
+            <h2 style="margin: 0 0 10px 0;">Who it’s for</h2>
             <ul class="note" style="margin-top: 0; padding-left: 18px;">
               <li>Kids who <strong>understand lessons</strong> but slow down on the basics.</li>
               <li>Kids who hesitate on facts, regrouping, or place value and it shows up in word problems.</li>
@@ -123,20 +288,19 @@
               <li>Grades <strong>2–6</strong> who want the next grade to feel easier.</li>
             </ul>
 
-            <h2 style="margin: 14px 0 10px 0;">Who this is not for</h2>
+            <h2 style="margin: 14px 0 10px 0;">Who it’s not for</h2>
             <ul class="note" style="margin-top: 0; padding-left: 18px;">
-              <li>Families looking for daily homework help or reteaching school lessons night-by-night.</li>
+              <li>Families looking for night-by-night homework help.</li>
               <li>Kids who need 1:1 specialized services beyond small-group instruction.</li>
               <li>Families who can’t attend consistently (two sessions/week).</li>
             </ul>
 
             <div class="hr"></div>
 
-            <!-- Price + what includes (reduce surprise) -->
             <h2 style="margin: 0 0 10px 0;">Tuition</h2>
             <p class="note" style="margin-top: 0;">
-              Families invest <strong>$2,000 </strong> for the 10 week course.
-              No add ons. No upsells. $2,000 for the Ready for the next grade course.
+              Families invest <strong>$2,000</strong> for the full 10-week program.
+              No add-ons. No upsells. Just the full system.
             </p>
             <ul class="note" style="margin-top: 8px; padding-left: 18px;">
               <li>Diagnostic + placement</li>
@@ -147,25 +311,31 @@
 
             <div class="hr"></div>
 
-            <!-- Risk reversal -->
             <h2 style="margin: 0 0 10px 0;">Risk reversal</h2>
             <p class="note" style="margin-top: 0;">
-              If after the first week you feel it’s not a fit, tell me and I’ll help you choose a better next step.
+              If after week one you feel it’s not a fit, tell me. I’ll help you choose a better next step.
             </p>
 
+            <div class="hr"></div>
+
+            <!-- Gate button -->
             <div class="cta">
-              <a class="btn" href="./schedule-call.html"
-                 onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Bottom"});'>
-                Book the 15-minute fit call
+              <a class="btn" id="unlockBtn" href="#book"
+                 onclick='fbq("track","ViewContent",{content_name:"VSL:UnlockBooking_Click"});'>
+                I watched the video — show me booking
+              </a>
+              <a class="btn outline" href="#watch"
+                 onclick='fbq("track","ViewContent",{content_name:"VSL:BackToVideo"});'>
+                Go back to the video
               </a>
             </div>
 
             <p class="note">
-              Capacity is limited. The fastest way to confirm fit + timing is the short call.
+              Booking is intentionally below. Watch first so the call is actually useful.
             </p>
           </div>
 
-          <!-- Offer Clarity -->
+          <!-- Right: Offer Clarity -->
           <aside class="steps">
             <h2>What you’re buying (clear)</h2>
             <ol>
@@ -187,20 +357,41 @@
             <div class="hr"></div>
 
             <small>
-              <strong>Next step:</strong>
-              Book the 15-minute fit call. If it’s a match, I’ll tell you the next cohort options and reserve a seat.
+              <strong>Next step after watching:</strong>
+              Book the short fit call. If it’s a match, I’ll share cohort options and reserve a seat.
             </small>
-
-            <div class="hr"></div>
-
-            <div class="cta">
-              <a class="btn" href="./schedule-call.html"
-                 onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Sidebar"});'>
-                Book the fit call
-              </a>
-            </div>
           </aside>
         </div>
+      </div>
+    </div>
+
+    <!-- BOOKING (GATED) -->
+    <div class="card gate-locked" id="book">
+      <div class="card-hd">
+        <strong>Book the short fit call</strong>
+        <small>Only if the video sounded like your child</small>
+      </div>
+
+      <div class="card-bd">
+        <p class="note" style="margin-top: 0;">
+          This is a fit check, not a sales call. If it’s not right for your child, I’ll tell you what to do instead.
+        </p>
+
+        <div class="cta" style="margin-top: 12px;">
+          <a class="btn gate-hidden" id="bookBtn" href="./schedule-call.html"
+             onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Gated"});'>
+            Book the 10-minute fit call
+          </a>
+          <a class="btn outline" href="#watch"
+             onclick='fbq("track","ViewContent",{content_name:"VSL:BackToVideo_FromBooking"});'>
+            Back to video
+          </a>
+        </div>
+
+        <p class="note" style="margin-top: 10px;">
+          <strong>Investment note:</strong> Families who enroll typically invest <strong>$2,000</strong> for the 10-week program.
+          The call is just to confirm fit and timing.
+        </p>
       </div>
     </div>
 
@@ -208,17 +399,146 @@
     <div class="footer">
       <div>© <span id="y"></span> McSpadden Math Lab</div>
       <div>
-        <a href="./schedule-call.html"
-           onclick='fbq("track","Lead",{content_name:"Footer->ScheduleCall"});'>
-          Schedule a call
+        <a href="./lead-magnet.html"
+           onclick='fbq("track","ViewContent",{content_name:"Footer->LeadMagnet"});'>
+          Free 7-day reset
         </a>
       </div>
     </div>
   </div>
 
+  <!-- Sticky mobile watch button -->
+  <div class="sticky-watch">
+    <a class="btn" href="#watch"
+       onclick='fbq("track","ViewContent",{content_name:"VSL:StickyWatchTap"});'>
+      Watch the video (10–15 min)
+    </a>
+  </div>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    const VIDEO_ID = "c2MO7ClrC48";
+    const ytThumb = document.getElementById("ytThumb");
+    const ytFrameHost = document.getElementById("ytFrameHost");
+
+    const unlockBtn = document.getElementById("unlockBtn");
+    const bookCard = document.getElementById("book");
+    const bookBtn = document.getElementById("bookBtn");
+
+    let player = null;
+    let started = false;
+    let unlocked = false;
+
+    // Gate: require either 50% watch OR explicit "I watched" click to reveal booking
+    const quartilesFired = {25:false,50:false,75:false,100:false};
+
+    function loadYouTubeAPI() {
+      return new Promise((resolve) => {
+        if (window.YT && window.YT.Player) return resolve();
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        window.onYouTubeIframeAPIReady = () => resolve();
+        document.head.appendChild(tag);
+      });
+    }
+
+    function fireMeta(eventName, payload){
+      try { fbq("trackCustom", eventName, payload || {}); } catch(e){}
+    }
+
+    function unlockBooking(reason){
+      if (unlocked) return;
+      unlocked = true;
+
+      // Visual unlock
+      bookCard.classList.remove("gate-locked");
+      bookBtn.classList.remove("gate-hidden");
+
+      fireMeta("VSL_BookingUnlocked", {video_id: VIDEO_ID, reason: reason || "unknown"});
+    }
+
+    function mountPlayerAndPlay() {
+      fireMeta("VSL_VideoIntent", {video_id: VIDEO_ID, placement: "hero"});
+
+      ytThumb.style.display = "none";
+
+      ytFrameHost.innerHTML = `
+        <iframe
+          id="ytPlayer"
+          src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
+          title="Ready for the Next Grade VSL"
+          loading="eager"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      `;
+
+      ytFrameHost.style.pointerEvents = "auto";
+
+      loadYouTubeAPI().then(() => {
+        player = new YT.Player('ytPlayer', {
+          events: {
+            onStateChange: (evt) => {
+              if (evt.data === YT.PlayerState.PLAYING && !started) {
+                started = true;
+                fireMeta("VSL_VideoStart", {video_id: VIDEO_ID});
+                tickProgress();
+              }
+              if (evt.data === YT.PlayerState.ENDED) {
+                if (!quartilesFired[100]) {
+                  quartilesFired[100] = true;
+                  fireMeta("VSL_VideoComplete", {video_id: VIDEO_ID});
+                  unlockBooking("complete");
+                }
+              }
+            }
+          }
+        });
+      });
+    }
+
+    function tickProgress() {
+      if (!player || !started) return;
+
+      const duration = player.getDuration ? player.getDuration() : 0;
+      const current = player.getCurrentTime ? player.getCurrentTime() : 0;
+
+      if (duration > 0) {
+        const pct = (current / duration) * 100;
+
+        if (pct >= 25 && !quartilesFired[25]) {
+          quartilesFired[25] = true;
+          fireMeta("VSL_Video25", {video_id: VIDEO_ID});
+        }
+        if (pct >= 50 && !quartilesFired[50]) {
+          quartilesFired[50] = true;
+          fireMeta("VSL_Video50", {video_id: VIDEO_ID});
+          // This is the minimum watch threshold to reveal booking automatically
+          unlockBooking("50pct");
+        }
+        if (pct >= 75 && !quartilesFired[75]) {
+          quartilesFired[75] = true;
+          fireMeta("VSL_Video75", {video_id: VIDEO_ID});
+        }
+      }
+
+      setTimeout(tickProgress, 2000);
+    }
+
+    // Click or keyboard activate
+    ytThumb.addEventListener("click", mountPlayerAndPlay);
+    ytThumb.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") mountPlayerAndPlay();
+    });
+
+    // Manual unlock button (still logs event; lower trust than watch-based unlock)
+    unlockBtn.addEventListener("click", () => unlockBooking("manual"));
+
+    // If someone deep-links to #book, keep it locked unless unlocked
+    if (window.location.hash === "#book") {
+      fireMeta("VSL_TriedBookingLocked", {video_id: VIDEO_ID});
+    }
   </script>
 </body>
 </html>
-
