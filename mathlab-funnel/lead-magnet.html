@@ -29,22 +29,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=5"/>
+  <link rel="stylesheet" href="./styles.css?v=6"/>
 
   <meta property="og:title" content="7-Day Math Reset | McSpadden Math Lab" />
   <meta property="og:description" content="Find the lowest rung. Fix it first. 5 minutes/day for 7 days." />
   <meta property="og:type" content="website" />
 
   <style>
-    /* Lightweight page-specific improvements without touching your shared styles.css */
+    /* Page-specific improvements without touching your shared styles.css */
     .hero .cta { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
     .hero .btn.primary { flex: 1 1 260px; }
     .hero .btn.outline { flex: 1 1 220px; }
-    .watch-first { font-weight:700; }
+    .watch-first { font-weight:800; }
     .microproof { margin-top:10px; color: var(--muted, #a1a1aa); font-size: 14px; }
     .video-shell { margin-top: 14px; }
-    .video-guard {
-      position: relative;
+
+    .video-guard{
+      position: relative;            /* IMPORTANT */
       border-radius: 16px;
       overflow: hidden;
       background: #0b0b0b;
@@ -55,30 +56,50 @@
       display:block;
       padding-top:56.25%;
     }
-    .video-guard iframe,
-    .video-guard .thumb {
-      position:absolute; inset:0; width:100%; height:100%;
-      border:0;
+
+    /* Host is present before iframe exists — do NOT let it steal clicks */
+    #ytFrameHost{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none;           /* IMPORTANT */
     }
-    .thumb{
-      display:flex; align-items:center; justify-content:center;
+
+    /* Thumb sits above host so it receives the click */
+    #ytThumb{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       cursor:pointer;
       background-position:center;
       background-size:cover;
     }
-    .thumb .overlay{
-      width:100%; height:100%;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
+
+    #ytThumb .overlay{
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
       background: linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.25));
       padding: 18px;
       text-align:center;
     }
+
     .playbtn{
-      width: 74px; height: 74px;
+      width: 74px;
+      height: 74px;
       border-radius: 999px;
       background: var(--accent, #FF6B35);
-      display:flex; align-items:center; justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       box-shadow: 0 10px 28px rgba(0,0,0,.45);
       margin-bottom: 10px;
       transform: translateZ(0);
@@ -91,21 +112,25 @@
       border-bottom: 12px solid transparent;
       margin-left: 4px;
     }
-    .thumb .title{
+
+    #ytThumb .title{
       font-weight: 800;
       letter-spacing: -0.02em;
       font-size: 20px;
       margin-bottom: 6px;
       color: #fff;
     }
-    .thumb .sub{
+    #ytThumb .sub{
       font-size: 14px;
       color: rgba(255,255,255,.88);
       max-width: 560px;
     }
+
     .below-video-cta {
       margin-top: 12px;
-      display:flex; gap:10px; flex-wrap:wrap;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
       align-items:center;
     }
     .below-video-cta .btn { flex: 1 1 240px; }
@@ -122,7 +147,9 @@
     /* Sticky “Watch first” nudge on mobile */
     .sticky-watch {
       position: fixed;
-      left: 12px; right: 12px; bottom: 12px;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
       display:none;
       z-index: 50;
     }
@@ -175,9 +202,11 @@
       <!-- VIDEO ABOVE THE FOLD (with a big click-to-play overlay) -->
       <div class="video-shell" id="watch">
         <div class="video-guard" aria-label="7-Day Math Reset video">
+          <!-- Frame host (starts inert so it can't block clicks) -->
+          <div id="ytFrameHost" aria-hidden="true"></div>
+
           <!-- Clickable thumbnail overlay -->
           <div
-            class="thumb"
             id="ytThumb"
             role="button"
             tabindex="0"
@@ -190,9 +219,6 @@
               <div class="sub">In 6–10 minutes you’ll know: what to practice, how to practice, and how to tell if it’s “easy yet.”</div>
             </div>
           </div>
-
-          <!-- Real iframe injected on click (so play is intentional + trackable) -->
-          <div id="ytFrameHost" style="position:absolute; inset:0;"></div>
         </div>
 
         <div class="below-video-cta">
@@ -299,7 +325,7 @@
               </li>
               <li>
                 <strong>Use one success rule.</strong>
-                You’re aiming for answers without pauses, <strong>ummmm</strong> without fingers,
+                You’re aiming for answers in about <strong>2 seconds</strong> without fingers,
                 whisper-counting, or long pauses.
               </li>
               <li>
@@ -366,7 +392,117 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // --- VIDEO PLAY CONVERS
+    // --- VIDEO PLAY FIX + TRACKING ---
+    // Key fix: ytFrameHost cannot block the click before the iframe exists (pointer-events: none).
+    // On click, we inject the iframe and then enable pointer-events for interaction.
+
+    const VIDEO_ID = "W1gy7wQdoWw";
+    const ytThumb = document.getElementById("ytThumb");
+    const ytFrameHost = document.getElementById("ytFrameHost");
+
+    let player = null;
+    let quartilesFired = {25:false,50:false,75:false,100:false};
+    let started = false;
+
+    function loadYouTubeAPI() {
+      return new Promise((resolve) => {
+        if (window.YT && window.YT.Player) return resolve();
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        window.onYouTubeIframeAPIReady = () => resolve();
+        document.head.appendChild(tag);
+      });
+    }
+
+    function fireMeta(eventName, payload){
+      try { fbq("trackCustom", eventName, payload || {}); } catch(e){}
+    }
+
+    function mountPlayerAndPlay() {
+      // Track intent
+      fireMeta("LeadMagnet_VideoIntent", {video_id: VIDEO_ID, placement: "hero"});
+
+      // Remove thumb
+      ytThumb.style.display = "none";
+
+      // Inject iframe (autoplay muted; user initiated click helps autoplay succeed)
+      ytFrameHost.innerHTML = `
+        <iframe
+          id="ytPlayer"
+          src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
+          title="7-Day Math Reset"
+          loading="eager"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      `;
+
+      // NOW allow interaction with the iframe
+      ytFrameHost.style.pointerEvents = "auto";
+
+      // Bind YouTube API for quartile tracking
+      loadYouTubeAPI().then(() => {
+        player = new YT.Player('ytPlayer', {
+          events: {
+            onStateChange: (evt) => {
+              // 1 = playing, 2 = paused, 0 = ended
+              if (evt.data === YT.PlayerState.PLAYING && !started) {
+                started = true;
+                fireMeta("LeadMagnet_VideoStart", {video_id: VIDEO_ID});
+                try { fbq("track","ViewContent",{content_name:"LeadMagnet:VideoStarted"}); } catch(e){}
+                tickProgress();
+              }
+              if (evt.data === YT.PlayerState.ENDED) {
+                if (!quartilesFired[100]) {
+                  quartilesFired[100] = true;
+                  fireMeta("LeadMagnet_VideoComplete", {video_id: VIDEO_ID});
+                }
+              }
+            }
+          }
+        });
+      });
+    }
+
+    function tickProgress() {
+      if (!player || !started) return;
+
+      const duration = player.getDuration ? player.getDuration() : 0;
+      const current = player.getCurrentTime ? player.getCurrentTime() : 0;
+
+      if (duration > 0) {
+        const pct = (current / duration) * 100;
+
+        if (pct >= 25 && !quartilesFired[25]) {
+          quartilesFired[25] = true;
+          fireMeta("LeadMagnet_Video25", {video_id: VIDEO_ID});
+        }
+        if (pct >= 50 && !quartilesFired[50]) {
+          quartilesFired[50] = true;
+          fireMeta("LeadMagnet_Video50", {video_id: VIDEO_ID});
+        }
+        if (pct >= 75 && !quartilesFired[75]) {
+          quartilesFired[75] = true;
+          fireMeta("LeadMagnet_Video75", {video_id: VIDEO_ID});
+        }
+      }
+
+      setTimeout(tickProgress, 2000);
+    }
+
+    // Click or keyboard activate
+    ytThumb.addEventListener("click", mountPlayerAndPlay);
+    ytThumb.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") mountPlayerAndPlay();
+    });
+
+    // Optional arrival tracking
+    if (window.location.hash === "#watch") {
+      fireMeta("LeadMagnet_ArrivedAtWatch", {video_id: VIDEO_ID});
+    }
+  </script>
+</body>
+</html>
 
 
 
