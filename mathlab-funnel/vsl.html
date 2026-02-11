@@ -3,591 +3,364 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Ready for the Next Grade | McSpadden Math Lab</title>
-  <meta name="description" content="Watch the full system video first. Then book a short fit call if it’s a match."/>
+  <title>Foundation Lock-In | McSpadden Math Lab</title>
+  <meta name="description" content="A 10-week Foundation Lock-In to prevent the 'I don’t like math' phase by locking in facts, fractions/decimals, and fundamentals."/>
+  <meta property="og:title" content="Foundation Lock-In | McSpadden Math Lab"/>
+  <meta property="og:description" content="If your child says 'um' at 8×6, 'I don't like math' is coming. Lock in the foundations before it breaks."/>
+  <meta property="og:type" content="website"/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=8"/>
+  <link rel="stylesheet" href="./styles.css?v=1"/>
 
-  <meta property="og:title" content="Ready for the Next Grade | McSpadden Math Lab" />
-  <meta property="og:description" content="Watch the full system video first. Then book a short fit call." />
-  <meta property="og:type" content="website" />
-
-  <!-- Meta Pixel (same ID) -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init','1263416992352726');
-    fbq('track','PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1263416992352726&ev=PageView&noscript=1"/>
-  </noscript>
-
-  <style>
-    /* Page-specific: force a single path (watch → then reveal booking) */
-    .watch-first { font-weight: 800; }
-    .microproof { margin-top: 10px; color: var(--muted, #a1a1aa); font-size: 14px; }
-    .video-shell { margin-top: 14px; }
-
-    .video-guard{
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #0b0b0b;
-      border: 1px solid rgba(255,255,255,.08);
-    }
-    .video-guard::before{
-      content:"";
-      display:block;
-      padding-top:56.25%;
-    }
-
-    #ytFrameHost{
-      position:absolute;
-      inset:0;
-      z-index:1;
-      pointer-events:none; /* IMPORTANT: do not block click before iframe exists */
-    }
-    #ytFrameHost iframe{
-      position:absolute;
-      inset:0;
-      width:100% !important;
-      height:100% !important;
-      border:0;
-      display:block;
-    }
-
-    #ytThumb{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      z-index:2;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      background-position:center;
-      background-size:cover;
-    }
-    #ytThumb .overlay{
-      width:100%;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      background: linear-gradient(0deg, rgba(0,0,0,.62), rgba(0,0,0,.25));
-      padding: 18px;
-      text-align:center;
-    }
-    .playbtn{
-      width: 74px; height: 74px;
-      border-radius: 999px;
-      background: var(--accent, #FF6B35);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 10px 28px rgba(0,0,0,.45);
-      margin-bottom: 10px;
-    }
-    .playbtn span{
-      display:block;
-      width:0;height:0;
-      border-left: 18px solid #0a0a0a;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      margin-left: 4px;
-    }
-    #ytThumb .title{
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      font-size: 20px;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-    #ytThumb .sub{
-      font-size: 14px;
-      color: rgba(255,255,255,.9);
-      max-width: 620px;
-      line-height: 1.35;
-    }
-    .overlay-bullets{
-      margin-top: 10px;
-      text-align:left;
-      max-width: 620px;
-      color: rgba(255,255,255,.92);
-      font-size: 14px;
-      line-height: 1.35;
-      padding-left: 18px;
-    }
-    .overlay-bullets li{ margin: 6px 0; }
-
-    .below-video-cta{
-      margin-top: 12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .below-video-cta .btn{ flex: 1 1 240px; }
-
-    /* Gate styles */
-    .gate-locked{ opacity: .55; filter: saturate(.9); }
-    .gate-hidden{ display:none; }
-
-    .gate-locked-btn{ opacity:.6; cursor:not-allowed; }
-    .gate-unlocked-btn{ opacity:1; cursor:pointer; }
-
-    /* Make navigation less tempting (kept, but softened) */
-    .softlink{
-      display:inline-block;
-      color: var(--muted, #a1a1aa);
-      text-decoration: underline;
-      font-size: 14px;
-      padding: 6px 2px;
-    }
-
-    /* Sticky watch nudger on mobile */
-    .sticky-watch{
-      position: fixed;
-      left: 12px; right: 12px; bottom: 12px;
-      display:none;
-      z-index: 50;
-    }
-    .sticky-watch .btn{
-      width:100%;
-      border-radius: 999px;
-      justify-content:center;
-      padding: 14px 16px;
-      box-shadow: 0 12px 34px rgba(0,0,0,.45);
-    }
-    @media (max-width: 820px){
-      .sticky-watch{ display:block; }
-    }
-  </style>
+  <!-- Calendly widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="wrap">
-    <!-- Top Bar -->
-    <div class="topbar">
-      <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
-
-      <div class="site-nav" aria-label="Site navigation">
-        <label for="page-select">Navigate</label>
-        <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
-          <option value="" selected>Choose a page</option>
-          <option value="../index.html">Next-Grade Readiness (Grades 2–6)</option>
-          <option value="./lead-magnet.html">7-Day Math Reset (Free Video)</option>
-          <option value="./vsl.html">Ready for the Next Grade (Full System)</option>
-          <option value="./schedule-call.html">Schedule a Call</option>
-          <option value="./thank-you.html">You're Booked (Thank You)</option>
-        </select>
-        <span class="chev" aria-hidden="true">⌄</span>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">McSpadden Math Lab</div>
+      <div class="topbar__right">
+        <span class="pill">Max 5 students / cohort</span>
+        <span class="pill">Application required</span>
       </div>
-
-      <div class="pill">Watch first • Then book</div>
     </div>
+  </div>
 
-    <!-- Hero -->
+  <main class="container">
+    <!-- HERO -->
     <section class="hero" id="top">
-      <div class="kicker">Full system · Start here</div>
-      <h1 class="watch-first">Watch this before you schedule a call.</h1>
-      <p class="lede">
-        In <strong>10–15 minutes</strong>, you’ll know if your child is a fit for the
-        <strong>10-week Next-Grade Readiness</strong> program — and what to do if they’re not.
-      </p>
+      <div class="hero__copy">
+        <h1>
+          If Your Child Says <span class="accent">“Um…”</span> at <span class="accent">8 × 6</span>,<br/>
+          <span class="accent">“I Don’t Like Math”</span> Is Coming.
+        </h1>
+        <p class="lead">
+          Math doesn’t break at geometry. It breaks at <strong>facts</strong>, <strong>fractions</strong>, and <strong>fundamentals</strong>.
+          This is a 10-week <strong>Foundation Lock-In</strong>—built to prevent small gaps from turning into long-term struggle.
+        </p>
 
-      <!-- UPDATED: Protection / future-proofing framing -->
-      <p class="note" style="margin-top: 10px;">
-        <strong>This is for you if</strong> you want to protect your child’s confidence as math gets harder —
-        so it stays something they handle calmly, not emotionally.
-        <br/>
-        This program is designed to prevent small foundation gaps from turning into stress,
-        avoidance, or blow-ups as the pace increases in later grades.
-      </p>
-
-      <p class="note">
-        Think of this as <strong>future-proofing</strong>: the work that keeps capable students steady
-        when math stops being forgiving.
-      </p>
-
-      <!-- VIDEO ABOVE THE FOLD (forced path) -->
-      <div class="video-shell" id="watch">
-        <div class="video-guard" aria-label="Ready for the Next Grade VSL">
-          <div id="ytFrameHost" aria-hidden="true"></div>
-
-          <div
-            id="ytThumb"
-            role="button"
-            tabindex="0"
-            aria-label="Play the full system video"
-            style="background-image:url('https://i.ytimg.com/vi/c2MO7ClrC48/hqdefault.jpg');"
-          >
-            <div class="overlay">
-              <div class="playbtn" aria-hidden="true"><span></span></div>
-              <div class="title">Press play. See if it’s a fit.</div>
-              <div class="sub">
-                This is not a sales pitch. It’s the decision tool.
-              </div>
-              <ul class="overlay-bullets">
-                <li><strong>How to prevent</strong> math from becoming stressful as expectations rise</li>
-                <li><strong>The ladder order</strong>: what we fix first, second, and third (so you’re not guessing)</li>
-                <li><strong>Exactly what happens</strong> each week for 10 weeks</li>
-                <li><strong>How to decide fast</strong>: fit vs not-fit and what to do instead</li>
-              </ul>
-            </div>
-          </div>
+        <div class="hero__ctaRow">
+          <a class="btn btn--primary" href="#video">Watch the breakdown</a>
+          <a class="btn btn--ghost" href="#offer">See the offer</a>
         </div>
 
-        <div class="below-video-cta">
-          <a class="btn" href="#summary"
-             onclick='fbq("track","ViewContent",{content_name:"VSL:ScrollToSummary"});'>
-            Show me the quick summary
-          </a>
-
-          <a class="btn outline" href="./lead-magnet.html"
-             onclick='fbq("track","ViewContent",{content_name:"VSL->LeadMagnet"});'>
-            Watch the free 7-day reset first
-          </a>
-        </div>
-
-        <!-- NEXT STEP (visible early) -->
-        <div class="card" style="margin-top:14px; padding:14px;">
-          <strong>Next step after the video:</strong>
-          <span class="note" style="display:block; margin-top:6px;">
-            If the video felt like “this protects my kid from what’s coming,” book the short fit call.
-          </span>
-
-          <div class="cta" style="margin-top:10px;">
-            <a class="btn gate-locked-btn" id="nextStepBookBtn" href="#book"
-               onclick='fbq("track","ViewContent",{content_name:"VSL:NextStep_Book_Click"});'>
-              Book the fit call (unlocks after you watch)
-            </a>
-
-            <a class="btn outline" href="#watch"
-               onclick='fbq("track","ViewContent",{content_name:"VSL:BackToVideo_FromNextStep"});'>
-              Back to video
-            </a>
-          </div>
-        </div>
-
-        <div class="microproof">
-          The goal isn’t “more practice.” The goal is making the right foundations automatic
-          so math stays calm when the pace speeds up.
+        <div class="micro">
+          <span class="dot"></span>
+          <span><strong>Not</strong> homework help. Not test cramming. This is foundations.</span>
         </div>
       </div>
 
-      <!-- Soft link only -->
-      <a class="softlink" href="#book" onclick='fbq("track","ViewContent",{content_name:"VSL:JumpToBooking"});'>
-        Already watched? Text me at 479-414-9474 or jump to booking →
-      </a>
+      <div class="hero__card">
+        <div class="card__kicker">Start here</div>
+        <div class="card__title">Watch the video first.</div>
+        <div class="card__text">
+          Then read the offer. If it’s a fit, apply for a short call.
+        </div>
+        <div class="card__steps">
+          <div class="step"><span class="step__num">1</span><span>Watch the breakdown</span></div>
+          <div class="step"><span class="step__num">2</span><span>Read the Foundation Lock-In offer</span></div>
+          <div class="step"><span class="step__num">3</span><span>Apply for a fit call</span></div>
+        </div>
+      </div>
     </section>
 
-    <!-- Main Card -->
-    <div class="card" id="summary">
-      <div class="card-hd">
-        <strong>What this video explains</strong>
-        <small>So you can decide fast</small>
+    <!-- VIDEO -->
+    <section class="section" id="video">
+      <div class="section__head">
+        <h2>Watch this first</h2>
+        <p class="muted">Keep it short. Keep it real. This video sets the frame.</p>
       </div>
 
-      <div class="card-bd">
-        <div class="grid two">
-          <!-- Left: Summary + fit filter + tuition -->
-          <div>
-            <ul class="note" style="margin-top: 0; padding-left: 18px;">
-              <li><strong>Why math becomes “heavy” later</strong> when foundations aren’t automatic.</li>
-              <li><strong>How the 10-week sequence works</strong> (and why order matters).</li>
-              <li><strong>What we practice in-session</strong> vs what parents do at home (simple guidance).</li>
-              <li><strong>How to keep confidence intact</strong> as work gets faster and longer.</li>
-              <li><strong>What to do next</strong> if it looks like a fit.</li>
+      <div class="videoWrap">
+        <!-- OPTION A: YouTube embed (recommended). Replace VIDEO_ID -->
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1"
+          title="Foundation Lock-In Breakdown"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+
+        <!-- OPTION B: If using Loom, replace with Loom embed code here and delete the iframe above -->
+      </div>
+
+      <div class="notice">
+        <strong>Important:</strong> This program targets the small set of skills that actually determine whether math stays easy later.
+        Most people wait until it breaks. We don’t.
+      </div>
+    </section>
+
+    <!-- FRACTURE -->
+    <section class="section" id="fracture">
+      <div class="section__head">
+        <h2>It starts with “um…”</h2>
+        <p class="muted">Before a kid says “I don’t like math,” they hesitate.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <div class="panel__title">Hesitation looks like:</div>
+          <ul class="list">
+            <li>“8 × 6 is… um… 48.”</li>
+            <li>“1/4 is… um…”</li>
+            <li>“0.5 equals… pause…”</li>
+            <li>Multi-digit subtraction = slow + unsure</li>
+            <li>997 vs 1,002—closer to 1,000?</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel__title">What happens next:</div>
+          <ul class="list">
+            <li>Basics aren’t automatic → math takes too much effort</li>
+            <li>Effort becomes frustration</li>
+            <li>Frustration becomes avoidance</li>
+            <li>A year later: <strong>“I don’t like math.”</strong></li>
+          </ul>
+          <div class="panel__note">
+            Not because they can’t. Because the basics were never fully locked in.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEVERAGE TRUTH -->
+    <section class="section" id="truth">
+      <div class="section__head">
+        <h2>Not all math skills are equal</h2>
+        <p class="muted">Schools often treat standards as equal. Real life doesn’t.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel__title">Math lives or dies on foundations:</div>
+        <div class="pillRow">
+          <span class="tag">Add/Sub fluency</span>
+          <span class="tag">Mult/Div automaticity</span>
+          <span class="tag">Fractions ↔ Decimals equivalence</span>
+          <span class="tag">Estimation & magnitude</span>
+          <span class="tag">Reasonableness checks</span>
+        </div>
+        <p class="muted" style="margin-top:12px;">
+          If these are solid, math stays smooth. If they’re shaky, the break is inevitable when math gets heavier.
+        </p>
+      </div>
+    </section>
+
+    <!-- OFFER -->
+    <section class="section" id="offer" data-gate="offer">
+      <div class="section__head">
+        <h2>The 10-Week Foundation Lock-In™</h2>
+        <p class="muted">This is the program. Read this before you apply.</p>
+      </div>
+
+      <div class="offerCard">
+        <div class="offerCard__row">
+          <div class="offerCard__col">
+            <div class="kicker">In 10 weeks, your child will:</div>
+            <ul class="list">
+              <li><strong>Answer core facts without hesitation</strong> (no “um”)</li>
+              <li><strong>Compute efficiently</strong> (multi-digit, not just “steps”)</li>
+              <li><strong>Understand fractions + decimals as one system</strong></li>
+              <li><strong>Estimate naturally</strong> and catch unreasonable answers</li>
+              <li><strong>Build real comfort</strong> that keeps math from turning against them later</li>
             </ul>
-
-            <!-- ADDED: prevention mechanism (keeps it credible) -->
-            <p class="note" style="margin-top:12px;">
-              Most math anxiety doesn’t come from inability — it comes from overload.
-              When foundations aren’t automatic, the brain runs out of room as complexity increases.
-              This program fixes that early, so math stays manageable as expectations rise.
-            </p>
-
-            <div class="hr"></div>
-
-            <h2 style="margin: 0 0 10px 0;">Who it’s for</h2>
-            <ul class="note" style="margin-top: 0; padding-left: 18px;">
-              <li>Families who want to <strong>future-proof</strong> math before the pace spikes.</li>
-              <li>Capable kids who need a <strong>stronger foundation</strong> so later grades don’t turn stressful.</li>
-              <li>Parents who want a <strong>clear sequence</strong> (what matters most, in the right order).</li>
-              <li>Grades <strong>2–6</strong> preparing for the next level.</li>
-            </ul>
-
-            <h2 style="margin: 14px 0 10px 0;">Who it’s not for</h2>
-            <ul class="note" style="margin-top: 0; padding-left: 18px;">
-              <li>Families looking for night-by-night homework help.</li>
-              <li>Kids who need 1:1 specialized services beyond small-group instruction.</li>
-              <li>Families who can’t attend consistently (two sessions/week).</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <h2 style="margin: 0 0 10px 0;">Tuition</h2>
-            <p class="note" style="margin-top: 0;">
-              Families invest <strong>$2,000</strong> for the full 10-week program.
-              No add-ons. No upsells. Just the full system.
-            </p>
-            <ul class="note" style="margin-top: 8px; padding-left: 18px;">
-              <li>Diagnostic + placement</li>
-              <li>Two in-person sessions per week for 10 weeks</li>
-              <li>Progress tracking (what’s solid, what’s next)</li>
-              <li>Home guidance that’s <strong>simple</strong> (no reteaching)</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <h2 style="margin: 0 0 10px 0;">Risk reversal</h2>
-            <p class="note" style="margin-top: 0;">
-              If after week one you feel it’s not a fit, tell me. I’ll help you choose a better next step.
-            </p>
-
-            <div class="hr"></div>
-
-            <!-- Gate button -->
-            <div class="cta">
-              <a class="btn" id="unlockBtn" href="#book"
-                 onclick='fbq("track","ViewContent",{content_name:"VSL:UnlockBooking_Click"});'>
-                I watched the video — text me at 479-414-9474 or show me booking
-              </a>
-              <a class="btn outline" href="#watch"
-                 onclick='fbq("track","ViewContent",{content_name:"VSL:BackToVideo"});'>
-                Go back to the video
-              </a>
-            </div>
-
-            <p class="note">
-              Booking is intentionally below. Watch first so the call is actually useful.
-            </p>
           </div>
 
-          <!-- Right: Offer Clarity -->
-          <aside class="steps">
-            <h2>What you’re buying (clear)</h2>
-            <ol>
-              <li><strong>10 weeks</strong> • two in-person sessions per week</li>
-              <li><strong>Small cohorts</strong> • grouped by grade (2nd–6th)</li>
-              <li><strong>Diagnostic first</strong> • I identify the lowest rung causing slowdown</li>
-              <li><strong>Targeted instruction</strong> • number sense, facts, and grade-level demands</li>
-              <li><strong>Progress tracking</strong> • what’s solid, what’s next, what’s coming up</li>
-              <li><strong>Less parent workload</strong> • no reteaching, no worksheet chasing</li>
-            </ol>
-
-            <div class="hr"></div>
-
-            <small>
-              <strong>Capacity is limited.</strong>
-              Groups stay small by design. Once a cohort is full, it closes.
-            </small>
-
-            <div class="hr"></div>
-
-            <small>
-              <strong>Next step after watching:</strong>
-              Book the short fit call. If it’s a match, I’ll share cohort options and reserve a seat.
-            </small>
-          </aside>
-        </div>
-      </div>
-    </div>
-
-    <!-- BOOKING (GATED) -->
-    <div class="card gate-locked" id="book">
-      <div class="card-hd">
-        <strong>Book the short fit call</strong>
-        <small>Only if the video sounded like your child</small>
-      </div>
-
-      <div class="card-bd">
-        <p class="note" style="margin-top: 0;">
-          This is a fit check, not a sales call. If it’s not right for your child, I’ll tell you what to do instead.
-        </p>
-
-        <div class="cta" style="margin-top: 12px;">
-          <a class="btn gate-hidden" id="bookBtn" href="./schedule-call.html"
-             onclick='fbq("track","Lead",{content_name:"VSL->ScheduleCall_Gated"});'>
-            Book the 10-minute fit call
-          </a>
-          <a class="btn outline" href="#watch"
-             onclick='fbq("track","ViewContent",{content_name:"VSL:BackToVideo_FromBooking"});'>
-            Back to video
-          </a>
+          <div class="offerCard__col">
+            <div class="kicker">You receive:</div>
+            <ul class="list">
+              <li>Pre-program fluency snapshot</li>
+              <li>Midpoint check</li>
+              <li>Post-program comparison</li>
+              <li>Parent roadmap for next-grade foundations</li>
+              <li>Parent “5-Minute Reinforcement” guide</li>
+            </ul>
+          </div>
         </div>
 
-        <p class="note" style="margin-top: 10px;">
-          <strong>Investment note:</strong> Families who enroll typically invest <strong>$2,000</strong> for the 10-week program.
-          The call is just to confirm fit and timing.
-        </p>
-      </div>
-    </div>
+        <div class="divider"></div>
 
-    <!-- Footer -->
-    <div class="footer">
-      <div>© <span id="y"></span> McSpadden Math Lab</div>
-      <div>
-        <a href="./lead-magnet.html"
-           onclick='fbq("track","ViewContent",{content_name:"Footer->LeadMagnet"});'>
-          Free 7-day reset
-        </a>
+        <div class="offerMeta">
+          <div class="metaBox">
+            <div class="metaBox__title">Cohort cap</div>
+            <div class="metaBox__value">5 students</div>
+            <div class="metaBox__note">Quality collapses when groups get big.</div>
+          </div>
+          <div class="metaBox">
+            <div class="metaBox__title">Format</div>
+            <div class="metaBox__value">Small-group, structured</div>
+            <div class="metaBox__note">Foundations only. No busywork.</div>
+          </div>
+          <div class="metaBox">
+            <div class="metaBox__title">Investment</div>
+            <div class="metaBox__value">$X – $X</div>
+            <div class="metaBox__note">Depends on grade + schedule.</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Sticky mobile watch button -->
-  <div class="sticky-watch">
-    <a class="btn" href="#watch"
-       onclick='fbq("track","ViewContent",{content_name:"VSL:StickyWatchTap"});'>
-      Watch the video (10–15 min)
-    </a>
-  </div>
+    <!-- PROOF -->
+    <section class="section" id="proof">
+      <div class="section__head">
+        <h2>What parents notice</h2>
+        <p class="muted">Short. Specific. Foundations talk.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="quote">
+          <div class="quote__text">“The hesitation is gone. Facts are automatic now.”</div>
+          <div class="quote__meta">Parent</div>
+        </div>
+        <div class="quote">
+          <div class="quote__text">“Fractions and decimals finally connect for her.”</div>
+          <div class="quote__meta">Parent</div>
+        </div>
+        <div class="quote">
+          <div class="quote__text">“Homework takes half the time because the basics are solid.”</div>
+          <div class="quote__meta">Parent</div>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:14px;">
+        <strong>Real line:</strong> Grades can hide gaps. Algebra exposes them.
+      </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="section" id="guarantee">
+      <div class="section__head">
+        <h2>The Foundation Guarantee™</h2>
+        <p class="muted">Strong risk reversal. Serious families only.</p>
+      </div>
+
+      <div class="panel">
+        <ul class="list">
+          <li><strong>Two-Session Fit Guarantee:</strong> If after the first two sessions you don’t see structure and seriousness, withdraw and receive a refund of the unused portion.</li>
+          <li><strong>Measurable Improvement Guarantee:</strong> If your child completes the program and shows no measurable improvement in foundational fluency, I continue working at no cost until they do.</li>
+        </ul>
+        <div class="panel__note">
+          I’m not interested in pressure. I’m interested in alignment and outcomes.
+        </div>
+      </div>
+    </section>
+
+    <!-- GATE + BOOK -->
+    <section class="section" id="apply">
+      <div class="section__head">
+        <h2>Apply for a fit call</h2>
+        <p class="muted">This call is to confirm fit and placement. If it’s not needed, I’ll tell you.</p>
+      </div>
+
+      <div class="gateCard" id="gateCard">
+        <div class="gateCard__title">Before you book:</div>
+        <label class="check">
+          <input type="checkbox" id="chkOffer"/>
+          <span>I read the Foundation Lock-In offer (facts, fractions/decimals, reasonableness).</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="chkFit"/>
+          <span>I understand this is foundations—<strong>not</strong> homework help or test cramming.</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="chkCap"/>
+          <span>I understand cohorts are capped at 5 and application is required.</span>
+        </label>
+
+        <div class="gateCard__actions">
+          <button class="btn btn--primary" id="unlockBtn" disabled>
+            Unlock booking
+          </button>
+          <span class="muted small" id="gateStatus">Scroll through the offer, then check all boxes to unlock.</span>
+        </div>
+      </div>
+
+      <div class="calWrap" id="calWrap" aria-hidden="true">
+        <div class="calWrap__head">
+          <div class="kicker">Booking</div>
+          <div class="calWrap__title">Fit Call Calendar</div>
+          <div class="muted small">Choose a time. You’ll receive confirmation + next steps.</div>
+        </div>
+
+        <!-- Calendly inline widget begin -->
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/YOUR_CALENDLY_USERNAME/fit-call?hide_gdpr_banner=1"
+          style="min-width:320px;height:820px;">
+        </div>
+        <!-- Calendly inline widget end -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted small">
+        © <span id="year"></span> McSpadden Math Lab · Foundations over fluff.
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // ===== Utilities =====
+    const $ = (id) => document.getElementById(id);
 
-    const VIDEO_ID = "c2MO7ClrC48";
-    const ytThumb = document.getElementById("ytThumb");
-    const ytFrameHost = document.getElementById("ytFrameHost");
+    // Year
+    $("year").textContent = new Date().getFullYear();
 
-    const unlockBtn = document.getElementById("unlockBtn");
-    const bookCard = document.getElementById("book");
-    const bookBtn = document.getElementById("bookBtn");
-    const nextStepBookBtn = document.getElementById("nextStepBookBtn");
+    // Gate state
+    let offerSeen = false;
 
-    let player = null;
-    let started = false;
-    let unlocked = false;
-
-    // Gate: require either 50% watch OR explicit "I watched" click to reveal booking
-    const quartilesFired = {25:false,50:false,75:false,100:false};
-
-    function loadYouTubeAPI() {
-      return new Promise((resolve) => {
-        if (window.YT && window.YT.Player) return resolve();
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        window.onYouTubeIframeAPIReady = () => resolve();
-        document.head.appendChild(tag);
+    // Mark "offer" as seen when user scrolls it into view
+    const offerSection = document.querySelector('[data-gate="offer"]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          offerSeen = true;
+          updateGate();
+        }
       });
-    }
+    }, { threshold: 0.35 });
+    observer.observe(offerSection);
 
-    function fireMeta(eventName, payload){
-      try { fbq("trackCustom", eventName, payload || {}); } catch(e){}
-    }
+    // Checkboxes
+    const chkOffer = $("chkOffer");
+    const chkFit = $("chkFit");
+    const chkCap = $("chkCap");
+    const unlockBtn = $("unlockBtn");
+    const gateStatus = $("gateStatus");
+    const calWrap = $("calWrap");
 
-    function unlockBooking(reason){
-      if (unlocked) return;
-      unlocked = true;
+    [chkOffer, chkFit, chkCap].forEach(cb => cb.addEventListener('change', updateGate));
 
-      // Visual unlock
-      bookCard.classList.remove("gate-locked");
-      bookBtn.classList.remove("gate-hidden");
+    function updateGate() {
+      const allChecked = chkOffer.checked && chkFit.checked && chkCap.checked;
+      const ready = offerSeen && allChecked;
 
-      // Enable early "Next step" button
-      if (nextStepBookBtn) {
-        nextStepBookBtn.classList.remove("gate-locked-btn");
-        nextStepBookBtn.classList.add("gate-unlocked-btn");
-        nextStepBookBtn.textContent = "Book the 10-minute fit call";
-        nextStepBookBtn.setAttribute("href", "./schedule-call.html");
-        nextStepBookBtn.setAttribute("onclick", 'fbq("track","Lead",{content_name:"VSL->ScheduleCall_NextStepTop"});');
+      unlockBtn.disabled = !ready;
+
+      if (!offerSeen) {
+        gateStatus.textContent = "Scroll through the offer, then check all boxes to unlock.";
+        return;
       }
-
-      fireMeta("VSL_BookingUnlocked", {video_id: VIDEO_ID, reason: reason || "unknown"});
-    }
-
-    function mountPlayerAndPlay() {
-      fireMeta("VSL_VideoIntent", {video_id: VIDEO_ID, placement: "hero"});
-
-      ytThumb.style.display = "none";
-
-      ytFrameHost.innerHTML = `
-        <iframe
-          id="ytPlayer"
-          src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
-          title="Ready for the Next Grade VSL"
-          loading="eager"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      `;
-
-      ytFrameHost.style.pointerEvents = "auto";
-
-      loadYouTubeAPI().then(() => {
-        player = new YT.Player('ytPlayer', {
-          events: {
-            onStateChange: (evt) => {
-              if (evt.data === YT.PlayerState.PLAYING && !started) {
-                started = true;
-                fireMeta("VSL_VideoStart", {video_id: VIDEO_ID});
-                tickProgress();
-              }
-              if (evt.data === YT.PlayerState.ENDED) {
-                if (!quartilesFired[100]) {
-                  quartilesFired[100] = true;
-                  fireMeta("VSL_VideoComplete", {video_id: VIDEO_ID});
-                  unlockBooking("complete");
-                }
-              }
-            }
-          }
-        });
-      });
-    }
-
-    function tickProgress() {
-      if (!player || !started) return;
-
-      const duration = player.getDuration ? player.getDuration() : 0;
-      const current = player.getCurrentTime ? player.getCurrentTime() : 0;
-
-      if (duration > 0) {
-        const pct = (current / duration) * 100;
-
-        if (pct >= 25 && !quartilesFired[25]) {
-          quartilesFired[25] = true;
-          fireMeta("VSL_Video25", {video_id: VIDEO_ID});
-        }
-        if (pct >= 50 && !quartilesFired[50]) {
-          quartilesFired[50] = true;
-          fireMeta("VSL_Video50", {video_id: VIDEO_ID});
-          unlockBooking("50pct");
-        }
-        if (pct >= 75 && !quartilesFired[75]) {
-          quartilesFired[75] = true;
-          fireMeta("VSL_Video75", {video_id: VIDEO_ID});
-        }
+      if (!allChecked) {
+        gateStatus.textContent = "Check all boxes to unlock booking.";
+        return;
       }
-
-      setTimeout(tickProgress, 2000);
+      gateStatus.textContent = "Unlocked. Book below.";
     }
 
-    // Click or keyboard activate
-    ytThumb.addEventListener("click", mountPlayerAndPlay);
-    ytThumb.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") mountPlayerAndPlay();
+    unlockBtn.addEventListener('click', () => {
+      calWrap.setAttribute('aria-hidden', 'false');
+      calWrap.classList.add('calWrap--open');
+      // Smooth scroll to calendar
+      calWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-
-    // Manual unlock button
-    unlockBtn.addEventListener("click", () => unlockBooking("manual"));
-
-    // If someone deep-links to #book, log it
-    if (window.location.hash === "#book") {
-      fireMeta("VSL_TriedBookingLocked", {video_id: VIDEO_ID});
-    }
   </script>
 </body>
 </html>
+
 
 
