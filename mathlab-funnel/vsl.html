@@ -4,336 +4,18 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Foundation Lock-In | McSpadden Math Lab</title>
-  <meta name="description" content="A 10-week Foundation Lock-In to prevent the 'I don’t like math' phase by locking in facts, fractions/decimals, and fundamentals."/>
+  <meta name="description" content="A 10-week Foundation Lock-In to prevent the 'I don’t like math' phase by locking in facts and fractions/decimals."/>
   <meta property="og:title" content="Foundation Lock-In | McSpadden Math Lab"/>
-  <meta property="og:description" content="Smart kid. Good grades. Still hesitates on the basics. Watch the short breakdown video."/>
+  <meta property="og:description" content="Smart kid. Good grades. Still hesitates on the basics. Watch the short video and schedule a call."/>
   <meta property="og:type" content="website"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=3"/>
 
   <!-- Calendly widget -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#ffffff;
-      --card:#f8f9fb;
-      --text:#111111;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --accent:#1e3a8a; /* navy */
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius: 18px;
-      --max: 1100px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
-
-    .topbar{
-      position:sticky;top:0;z-index:20;
-      background:#ffffff;
-      border-bottom:1px solid var(--line);
-    }
-    .topbar__inner{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 0;
-    }
-    .brand{font-weight:700;letter-spacing:.2px}
-    .topbar__right{display:flex;gap:10px;flex-wrap:wrap}
-
-    .pill{
-      font-size:12px;color:var(--muted);
-      border:1px solid var(--line);
-      padding:6px 10px;border-radius:999px;
-      background:#ffffff;
-    }
-
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:34px;
-      padding:44px 0 18px;
-      align-items:start;
-    }
-
-    h1{
-      margin:0 0 14px;
-      font-size: clamp(32px, 3.3vw, 46px);
-      line-height:1.05;
-      letter-spacing:-.6px;
-    }
-
-    .subhead{
-      margin: 6px 0 12px;
-      font-size:18px;
-      line-height:1.55;
-      font-weight:600;
-      color: rgba(17,17,17,.88);
-      max-width: 62ch;
-    }
-
-    .lead{
-      margin:0 0 18px;
-      font-size:18px;
-      line-height:1.6;
-      max-width: 62ch;
-    }
-
-    .hero__ctaRow{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin:18px 0 10px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:13px 18px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      font-weight:700;
-      cursor:pointer;
-      transition: all .15s ease;
-      background:#fff;
-    }
-
-    .btn--primary{
-      background: var(--accent);
-      color:#ffffff;
-      border:1px solid var(--accent);
-    }
-
-    .btn--primary:hover{opacity:.92}
-
-    .btn--ghost{
-      background:#ffffff;
-      color:var(--text);
-    }
-
-    .micro{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      margin-top:10px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .dot{
-      width:8px;height:8px;border-radius:99px;
-      background:var(--accent);
-      display:inline-block
-    }
-
-    /* RIGHT COLUMN: VIDEO CARD (ABOVE FOLD) */
-    .videoCard{
-      background: var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: var(--shadow);
-    }
-
-    .card__kicker{
-      color:var(--muted);
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-    }
-
-    .card__title{
-      font-weight:800;
-      font-size:18px;
-      margin:8px 0 10px;
-    }
-
-    .card__text{
-      color:var(--muted);
-      margin:0 0 12px;
-      font-size:14px;
-      line-height:1.45;
-    }
-
-    .videoWrap{
-      aspect-ratio: 16 / 9;
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid var(--line);
-      background:#000;
-    }
-    .videoWrap iframe{width:100%;height:100%}
-
-    .stepsMini{
-      margin-top:12px;
-      border-top:1px solid var(--line);
-      padding-top:12px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .step{
-      display:flex;gap:10px;align-items:center
-    }
-    .step__num{
-      width:26px;height:26px;border-radius:8px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background: rgba(30,58,138,.10);
-      color: var(--accent);
-      font-weight:800;
-      font-size:13px;
-      flex:0 0 auto;
-    }
-    .step span:last-child{font-size:14px;color:#111}
-
-    .section{
-      padding:52px 0;
-      border-top:1px solid var(--line);
-    }
-    .section__head{margin-bottom:18px}
-    h2{
-      margin:0 0 8px;
-      font-size: clamp(22px, 2.4vw, 30px);
-      letter-spacing:-.2px;
-    }
-    .muted{color:var(--muted)}
-    .panel{
-      background: var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:24px;
-    }
-    .grid2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-    .panel__title{font-weight:800;margin-bottom:10px}
-    .panel__note{margin-top:10px;color:var(--muted)}
-    .list{margin:0;padding-left:18px}
-    .list li{margin:10px 0}
-    .notice{
-      margin-top:14px;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: var(--radius);
-      padding:14px 16px;
-      color:#111;
-      font-size:14px;
-      line-height:1.45;
-    }
-
-    /* Offer */
-    .offerCard{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:24px;
-      box-shadow: var(--shadow);
-    }
-    .offerCard__row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-    .kicker{
-      color:var(--muted);
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      margin-bottom:10px;
-    }
-    .divider{
-      height:1px;background:var(--line);
-      margin:18px 0;
-    }
-    .offerMeta{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:14px;
-    }
-    .metaBox{
-      background: var(--card);
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding:14px;
-    }
-    .metaBox__title{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
-    .metaBox__value{font-weight:800;margin-top:6px}
-    .metaBox__note{color:var(--muted);font-size:13px;margin-top:6px;line-height:1.35}
-
-    /* Proof */
-    .grid3{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:14px;
-    }
-    .quote{
-      background: var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:18px;
-    }
-    .quote__text{font-weight:700;line-height:1.35}
-    .quote__meta{margin-top:8px;color:var(--muted);font-size:13px}
-
-    /* Gate + Calendar */
-    .gateCard{
-      border:1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding:20px;
-    }
-    .gateCard__title{font-weight:800;margin-bottom:10px}
-    .check{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:#111}
-    .check input{margin-top:3px}
-    .gateCard__actions{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
-    .small{font-size:13px}
-    .calWrap{
-      margin-top:18px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:18px;
-      display:none;
-      background:#fff;
-    }
-    .calWrap--open{display:block}
-    .calWrap__title{font-weight:800;margin:6px 0 4px}
-
-    .footer{
-      padding:34px 0;
-      border-top:1px solid var(--line);
-      margin-top:34px;
-      text-align:center;
-    }
-
-    @media (max-width: 940px){
-      .hero{grid-template-columns:1fr}
-      .offerCard__row{grid-template-columns:1fr}
-      .offerMeta{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-    }
-  </style>
 </head>
 
 <body>
@@ -348,8 +30,10 @@
   </div>
 
   <main class="container">
-    <!-- HERO (VIDEO VISIBLE ABOVE FOLD) -->
+
+    <!-- HERO (video is ABOVE THE FOLD on the right) -->
     <section class="hero" id="top">
+
       <div class="hero__copy">
         <h1>
           Smart kid. Good grades.<br/>
@@ -357,14 +41,19 @@
         </h1>
 
         <p class="subhead">
-          Pauses at 8 × 6.<br/>
-          Unsure if 1/4 is 0.25.<br/>
-          Takes too long on subtraction.
+          <strong>Pauses at 8 × 6.</strong><br/>
+          <strong>Unsure if 1/4 is 0.25.</strong><br/>
+          <strong>Takes too long on subtraction.</strong>
         </p>
 
         <p class="lead">
-          That hesitation turns into <strong>“I don’t like math”</strong> when the math gets heavier.
-          We lock in facts, fractions/decimals, and number sense now—so it doesn’t.
+          If the basics aren’t automatic, math gets heavy.<br/>
+          Heavy becomes frustration.<br/>
+          Frustration becomes “I don’t like math.”
+        </p>
+
+        <p class="lead">
+          We lock in the foundations before that happens.
         </p>
 
         <div class="hero__ctaRow">
@@ -375,16 +64,24 @@
 
         <div class="micro">
           <span class="dot"></span>
-          <span><strong>Two steps:</strong> watch the video → schedule a short call.</span>
+          <span><strong>Not</strong> homework help. Not test cramming. This is foundations.</span>
         </div>
       </div>
 
-      <div class="videoCard">
-        <div class="card__kicker">Start here</div>
-        <div class="card__title">Watch the 3-minute breakdown.</div>
-        <p class="card__text">This explains the problem, what we fix, and who this is for.</p>
+      <div class="hero__card">
+        <div class="card__kicker">Do this in order</div>
+        <div class="card__title">Two steps.</div>
+        <div class="card__text">Watch the video. Then schedule a short call.</div>
 
-        <div class="videoWrap" id="videoTop">
+        <div class="card__steps">
+          <div class="step"><span class="step__num">1</span><span><strong>Watch the video</strong> (2–4 minutes)</span></div>
+          <div class="step"><span class="step__num">2</span><span><strong>Schedule a short call</strong> (fit + next steps)</span></div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <!-- SINGLE VIDEO (ONLY ONE EMBED ON THE PAGE) -->
+        <div class="videoWrap" id="video">
           <iframe
             src="https://www.youtube.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1"
             title="Foundation Lock-In Breakdown"
@@ -393,60 +90,34 @@
             allowfullscreen></iframe>
         </div>
 
-        <div class="stepsMini">
-          <div class="step"><span class="step__num">1</span><span>Watch the video</span></div>
-          <div class="step"><span class="step__num">2</span><span>Schedule a short call</span></div>
-        </div>
-
-        <div class="hero__ctaRow" style="margin-top:12px">
+        <div class="card__cta">
           <a class="btn btn--primary" href="#book">Schedule a short call</a>
+          <a class="btn btn--ghost" href="#offer">Read the offer</a>
         </div>
-      </div>
-    </section>
-
-    <!-- VIDEO SECTION (ANCHOR TARGET) -->
-    <section class="section" id="video">
-      <div class="section__head">
-        <h2>Watch this first</h2>
-        <p class="muted">Same video as above — kept here so the page still reads well below the fold.</p>
-      </div>
-
-      <div class="videoWrap">
-        <iframe
-          src="https://www.youtube.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1"
-          title="Foundation Lock-In Breakdown"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-      </div>
-
-      <div class="notice">
-        <strong>Important:</strong> This program targets the small set of skills that actually determine whether math stays easy later.
-        Most people wait until it breaks. We don’t.
       </div>
     </section>
 
     <!-- FRACTURE -->
     <section class="section" id="fracture">
       <div class="section__head">
-        <h2>It starts with “um…”</h2>
-        <p class="muted">Before a kid says “I don’t like math,” they hesitate.</p>
+        <h2>It starts with hesitation</h2>
+        <p class="muted">Before a kid says “I don’t like math,” they stall on basics.</p>
       </div>
 
       <div class="grid2">
         <div class="panel">
-          <div class="panel__title">Hesitation looks like:</div>
+          <div class="panel__title">What it looks like</div>
           <ul class="list">
-            <li>“8 × 6 is… um… 48.”</li>
-            <li>“1/4 is… um…”</li>
-            <li>“0.5 equals… pause…”</li>
-            <li>Multi-digit subtraction = slow + unsure</li>
+            <li>“8 × 6 is… um…”</li>
+            <li>“Is 1/4 the same as 0.25?”</li>
+            <li>“0.5… is that half?”</li>
+            <li>Multi-digit subtraction feels slow + uncertain</li>
             <li>997 vs 1,002—closer to 1,000?</li>
           </ul>
         </div>
 
         <div class="panel">
-          <div class="panel__title">What happens next:</div>
+          <div class="panel__title">What happens next</div>
           <ul class="list">
             <li>Basics aren’t automatic → math takes too much effort</li>
             <li>Effort becomes frustration</li>
@@ -454,9 +125,13 @@
             <li>A year later: <strong>“I don’t like math.”</strong></li>
           </ul>
           <div class="panel__note">
-            Not because they can’t. Because the basics were never fully locked in.
+            Grades can hide gaps. Heavier math exposes them.
           </div>
         </div>
+      </div>
+
+      <div class="notice">
+        <strong>Important:</strong> This is designed to prevent the “math turns on them later” moment.
       </div>
     </section>
 
@@ -464,20 +139,20 @@
     <section class="section" id="truth">
       <div class="section__head">
         <h2>Not all math skills are equal</h2>
-        <p class="muted">Schools often treat standards as equal. Real life doesn’t.</p>
+        <p class="muted">Foundations decide whether math stays easy.</p>
       </div>
 
       <div class="panel">
-        <div class="panel__title">Math lives or dies on foundations:</div>
-        <ul class="list">
-          <li>Add/Sub fluency</li>
-          <li>Mult/Div automaticity</li>
-          <li>Fractions ↔ Decimals equivalence</li>
-          <li>Estimation & magnitude</li>
-          <li>Reasonableness checks</li>
-        </ul>
+        <div class="panel__title">Math lives or dies on:</div>
+        <div class="pillRow">
+          <span class="tag">Add/Sub fluency</span>
+          <span class="tag">Mult/Div automaticity</span>
+          <span class="tag">Fractions ↔ Decimals</span>
+          <span class="tag">Estimation & magnitude</span>
+          <span class="tag">Reasonableness checks</span>
+        </div>
         <p class="muted" style="margin-top:12px;">
-          If these are solid, math stays smooth. If they’re shaky, the break is inevitable when math gets heavier.
+          If these are solid, math stays smooth. If they’re shaky, the break is predictable when math gets heavier.
         </p>
       </div>
     </section>
@@ -494,11 +169,11 @@
           <div class="offerCard__col">
             <div class="kicker">In 10 weeks, your child will:</div>
             <ul class="list">
-              <li><strong>Answer core facts without hesitation</strong> (no “um”)</li>
-              <li><strong>Compute efficiently</strong> (multi-digit, not just “steps”)</li>
-              <li><strong>Understand fractions + decimals as one system</strong></li>
-              <li><strong>Estimate naturally</strong> and catch unreasonable answers</li>
-              <li><strong>Build real comfort</strong> that keeps math from turning against them later</li>
+              <li><strong>Answer core facts without hesitation</strong></li>
+              <li><strong>Compute efficiently</strong> (multi-digit)</li>
+              <li><strong>Connect fractions + decimals</strong> as one system</li>
+              <li><strong>Estimate naturally</strong> and catch bad answers</li>
+              <li><strong>Feel calm</strong> when math gets heavier</li>
             </ul>
           </div>
 
@@ -520,7 +195,7 @@
           <div class="metaBox">
             <div class="metaBox__title">Cohort cap</div>
             <div class="metaBox__value">5 students</div>
-            <div class="metaBox__note">Quality collapses when groups get big.</div>
+            <div class="metaBox__note">Small groups keep quality high.</div>
           </div>
           <div class="metaBox">
             <div class="metaBox__title">Format</div>
@@ -532,10 +207,6 @@
             <div class="metaBox__value">$X – $X</div>
             <div class="metaBox__note">Depends on grade + schedule.</div>
           </div>
-        </div>
-
-        <div class="notice" style="margin-top:14px;">
-          If you’re unsure, schedule a short call. I’ll tell you if foundations are actually the bottleneck—or if something else would be a better next step.
         </div>
       </div>
     </section>
@@ -561,17 +232,13 @@
           <div class="quote__meta">Parent</div>
         </div>
       </div>
-
-      <div class="notice" style="margin-top:14px;">
-        <strong>Real line:</strong> Grades can hide gaps. Algebra exposes them.
-      </div>
     </section>
 
     <!-- GUARANTEE -->
     <section class="section" id="guarantee">
       <div class="section__head">
         <h2>The Foundation Guarantee™</h2>
-        <p class="muted">Strong risk reversal. Serious families only.</p>
+        <p class="muted">Risk reversal for serious families.</p>
       </div>
 
       <div class="panel">
@@ -580,7 +247,7 @@
           <li><strong>Measurable improvement guarantee:</strong> If your child completes the program and shows no measurable improvement in foundational fluency, I continue working at no cost until they do.</li>
         </ul>
         <div class="panel__note">
-          I’m not interested in pressure. I’m interested in alignment and outcomes.
+          No pressure. Just alignment and outcomes.
         </div>
       </div>
     </section>
@@ -596,29 +263,27 @@
         <div class="gateCard__title">Before you schedule:</div>
         <label class="check">
           <input type="checkbox" id="chkOffer"/>
-          <span>I read the Foundation Lock-In offer.</span>
+          <span>I read the offer and understand what this program does (foundations).</span>
         </label>
         <label class="check">
           <input type="checkbox" id="chkFit"/>
-          <span>I understand this is foundations—<strong>not</strong> homework help or test cramming.</span>
+          <span>I understand this is <strong>not</strong> homework help or test cramming.</span>
         </label>
         <label class="check">
           <input type="checkbox" id="chkCap"/>
-          <span>I understand cohorts are capped at 5 students.</span>
+          <span>I understand cohorts are capped at <strong>5</strong> students.</span>
         </label>
 
         <div class="gateCard__actions">
-          <button class="btn btn--primary" id="unlockBtn" disabled>
-            Unlock scheduling
-          </button>
-          <span class="muted small" id="gateStatus">Read the offer, then check all boxes to unlock.</span>
+          <button class="btn btn--primary" id="unlockBtn" disabled>Unlock scheduling</button>
+          <span class="muted small" id="gateStatus">Scroll through the offer, then check all boxes to unlock.</span>
         </div>
       </div>
 
       <div class="calWrap" id="calWrap" aria-hidden="true">
         <div class="kicker">Scheduling</div>
-        <div class="calWrap__title">Short Call Calendar</div>
-        <div class="muted small">Choose a time. You’ll receive confirmation + next steps.</div>
+        <h3 style="margin:6px 0 6px;font-size:18px;letter-spacing:-.2px">Short Call Calendar</h3>
+        <div class="muted small" style="margin-bottom:12px">Choose a time. You’ll receive confirmation + next steps.</div>
 
         <div
           class="calendly-inline-widget"
@@ -641,7 +306,6 @@
     const $ = (id) => document.getElementById(id);
     $("year").textContent = new Date().getFullYear();
 
-    // Gate: require (a) offer seen + (b) checkboxes checked
     let offerSeen = false;
 
     const offerSection = document.querySelector('[data-gate="offer"]');
@@ -671,7 +335,7 @@
       unlockBtn.disabled = !ready;
 
       if (!offerSeen) {
-        gateStatus.textContent = "Read the offer, then check all boxes to unlock.";
+        gateStatus.textContent = "Scroll through the offer, then check all boxes to unlock.";
         return;
       }
       if (!allChecked) {
