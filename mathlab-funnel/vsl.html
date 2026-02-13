@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=5"/>
+  <link rel="stylesheet" href="./styles.css?v=7"/>
 </head>
 
 <body>
@@ -22,6 +22,7 @@
     <div class="brand">McSpadden Math Lab</div>
     <div class="topbar__right">
       <span class="pill">Max 5 students / cohort</span>
+      <span class="pill">10 weeks • $2,000</span>
       <span class="pill">In-person • Haymarket / Gainesville</span>
     </div>
   </div>
@@ -40,19 +41,19 @@
       </h1>
 
       <p class="subhead">
-        Pauses at 8 × 6.  
-        Unsure if 1/4 is 0.25.  
+        Pauses at 8 × 6.<br>
+        Unsure if 1/4 is 0.25.<br>
         Takes too long on subtraction.
       </p>
 
       <p class="lead">
-        When the basics aren’t automatic, math gets heavy.
-        Heavy turns into frustration.
+        When the basics aren’t automatic, math gets heavy.<br>
+        Heavy turns into frustration.<br>
         Frustration turns into “I don’t like math.”
       </p>
 
       <p class="lead">
-        We lock in the foundations before that happens.
+        We fix that before it happens.
       </p>
 
       <div class="hero__ctaRow">
@@ -62,16 +63,19 @@
 
       <div class="micro">
         <span class="dot"></span>
-        <span>Two steps: watch the video → schedule a short call.</span>
+        <span><strong>10-week cohort</strong> (max 5). Investment is <strong>$2,000</strong>. Short call confirms fit.</span>
       </div>
 
     </div>
 
-    <!-- Video lives above the fold -->
+    <!-- VIDEO -->
     <div class="hero__card" id="video">
 
       <div class="card__kicker">Start here</div>
       <div class="card__title">Watch this first.</div>
+      <div class="card__text">
+        2–4 minutes. You’ll know if this is the right next step.
+      </div>
 
       <div class="videoWrap">
         <iframe
@@ -82,15 +86,19 @@
         </iframe>
       </div>
 
-      <div class="card__steps" style="margin-top:20px;">
+      <div class="card__steps" style="margin-top:16px;">
         <div class="step">
           <span class="step__num">1</span>
-          <span>Watch the video</span>
+          <span><strong>Watch</strong> the video</span>
         </div>
         <div class="step">
           <span class="step__num">2</span>
-          <span>Schedule a short call</span>
+          <span><strong>Schedule</strong> a short call</span>
         </div>
+      </div>
+
+      <div class="notice" style="margin-top:14px;">
+        <strong>Investment:</strong> $2,000 for a 10-week cohort. This is a defined intervention (not open-ended tutoring).
       </div>
 
     </div>
@@ -101,8 +109,8 @@
   <section class="section">
 
     <div class="section__head">
-      <h2>Before vs After</h2>
-      <p class="muted">What actually changes in 10 weeks.</p>
+      <h2>What changes in 10 weeks</h2>
+      <p class="muted">Before and after — without drama.</p>
     </div>
 
     <div class="grid2">
@@ -111,10 +119,10 @@
         <div class="panel__title">Before</div>
         <ul class="list">
           <li>Facts require thinking time</li>
-          <li>Fractions and decimals feel separate</li>
-          <li>Multi-step problems feel overwhelming</li>
-          <li>Homework takes too long</li>
-          <li>Confidence is fragile</li>
+          <li>Fractions and decimals feel disconnected</li>
+          <li>Multi-step problems feel heavy</li>
+          <li>Homework drags</li>
+          <li>Confidence depends on the teacher</li>
         </ul>
       </div>
 
@@ -123,9 +131,9 @@
         <ul class="list">
           <li>Facts are automatic</li>
           <li>Fractions and decimals connect naturally</li>
-          <li>Multi-step problems feel manageable</li>
+          <li>Problems feel manageable</li>
           <li>Homework moves faster</li>
-          <li>Math feels calmer</li>
+          <li>Confidence becomes internal</li>
         </ul>
       </div>
 
@@ -134,28 +142,62 @@
   </section>
 
   <!-- OFFER -->
-  <section class="section">
+  <section class="section" id="offer">
 
     <div class="section__head">
       <h2>The 10-Week Foundation Lock-In</h2>
       <p class="muted">Focused. Structured. Foundations only.</p>
     </div>
 
-    <div class="panel">
+    <div class="offerCard">
 
-      <ul class="list">
-        <li>10 weeks</li>
-        <li>Small cohort (max 5)</li>
-        <li>Pre + post fluency snapshot</li>
-        <li>Midpoint progress check</li>
-        <li>Parent roadmap for next-grade foundations</li>
-      </ul>
+      <div class="offerCard__row">
+        <div class="offerCard__col">
+          <div class="kicker">We focus on:</div>
+          <ul class="list">
+            <li><strong>Add/Sub fluency</strong> (fast + accurate)</li>
+            <li><strong>Mult/Div automaticity</strong></li>
+            <li><strong>Fractions ↔ Decimals</strong> (one system)</li>
+            <li><strong>Estimation</strong> + reasonableness checks</li>
+            <li><strong>Multi-step confidence</strong> through repetition</li>
+          </ul>
+        </div>
 
-      <p class="muted" style="margin-top:20px;">
-        This is not homework help.
-        This is not test cramming.
-        This is fixing the small weaknesses that compound later.
-      </p>
+        <div class="offerCard__col">
+          <div class="kicker">You get:</div>
+          <ul class="list">
+            <li>Pre-program fluency snapshot</li>
+            <li>Midpoint check-in</li>
+            <li>Post-program comparison</li>
+            <li>Parent roadmap for next-grade foundations</li>
+            <li>Parent “5-minute reinforcement” guide</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="offerMeta">
+        <div class="metaBox">
+          <div class="metaBox__title">Cohort cap</div>
+          <div class="metaBox__value">5 students</div>
+          <div class="metaBox__note">Small enough to correct mistakes in real time.</div>
+        </div>
+        <div class="metaBox">
+          <div class="metaBox__title">Timeframe</div>
+          <div class="metaBox__value">10 weeks</div>
+          <div class="metaBox__note">Long enough for automaticity, short enough to stay focused.</div>
+        </div>
+        <div class="metaBox">
+          <div class="metaBox__title">Investment</div>
+          <div class="metaBox__value">$2,000</div>
+          <div class="metaBox__note">A defined intervention designed to prevent a harder year later.</div>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:14px;">
+        This is not homework help and not test prep. It’s the small set of foundations that quietly determines whether math stays easy.
+      </div>
 
     </div>
 
@@ -171,8 +213,8 @@
 
     <div class="panel">
       <ul class="list">
-        <li>If after two sessions it’s not a fit, withdraw and receive a refund of the unused portion.</li>
-        <li>If foundational fluency does not measurably improve, I continue working at no cost until it does.</li>
+        <li><strong>Two-session fit guarantee:</strong> If after two sessions it’s not a fit, withdraw and receive a refund of the unused portion.</li>
+        <li><strong>Measurable improvement guarantee:</strong> If foundational fluency does not measurably improve, I continue working at no cost until it does.</li>
       </ul>
     </div>
 
@@ -184,8 +226,8 @@
     <div class="section__head">
       <h2>Schedule a short call</h2>
       <p class="muted">
-        We’ll confirm whether foundations are actually the bottleneck.
-        If they aren’t, I’ll tell you.
+        We’ll confirm whether foundations are actually the bottleneck, and which cohort is right.
+        If this isn’t the right tool, I’ll tell you.
       </p>
     </div>
 
@@ -193,6 +235,10 @@
       <a class="btn btn--primary" href="https://calendly.com/YOUR_CALENDLY_USERNAME/fit-call">
         Schedule a short call
       </a>
+      <div class="micro" style="margin-top:12px;">
+        <span class="dot"></span>
+        <span>On the call: fit + cohort placement + exact next steps.</span>
+      </div>
     </div>
 
   </section>
