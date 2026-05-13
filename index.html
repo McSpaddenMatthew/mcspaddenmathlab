@@ -3,15 +3,13 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Math Readiness Path — Next-Grade Readiness (Grades 2–6) | McSpadden Math Lab</title>
-  <meta name="description" content="A 10-week readiness phase for students in Grades 2–6. Gainesville–Haymarket Library. Two cohorts: Monday and Wednesday nights or Tuesday and Thursday nights. Each cohort is capped at 5 students to protect outcomes."/>
+  <title>Math Foundation Lab for Grades 3–5 | McSpadden Math Lab</title>
+  <meta name="description" content="A defined 10-week math foundation program for grades 3–5 in Haymarket / Gainesville. Not homework help. We diagnose the bottleneck, rebuild fluency, and show measurable progress."/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Use the SAME CSS system as your funnel pages (white Loom vibe) -->
-  <link rel="stylesheet" href="./mathlab-funnel/styles.css"/>
+  <link rel="stylesheet" href="./mathlab-funnel/styles.css?v=11"/>
 
   <!-- Meta Pixel -->
   <script>
@@ -29,106 +27,201 @@
 </head>
 
 <body>
-  <div class="wrap">
-    <!-- Top Bar -->
-    <div class="topbar">
+  <div class="topbar">
+    <div class="container topbar__inner">
       <div class="brand"><span class="dot"></span> McSpadden Math Lab</div>
-
-      <div class="site-nav" aria-label="Site navigation">
-        <label for="page-select">Navigate</label>
-        <select id="page-select" onchange="if (this.value) window.location.href = this.value;">
-          <option value="" selected>Choose a page</option>
-          <option value="./index.html">Next-Grade Readiness (Grades 2–6)</option>
-          <option value="./mathlab-funnel/lead-magnet.html">7-Day Math Reset (Lead Magnet)</option>
-          <option value="./mathlab-funnel/vsl.html">Ready for the Next Grade (VSL)</option>
-          <option value="./mathlab-funnel/schedule-call.html">Schedule a Call</option>
-          <option value="./mathlab-funnel/thank-you.html">You're Booked (Thank You)</option>
-        </select>
-        <span class="chev" aria-hidden="true">⌄</span>
-      </div>
-
-      <div class="pill">In-person • Haymarket / Gainesville</div>
-    </div>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="kicker">Next-Grade Readiness (Grades 2–6)</div>
-      <h1>Make math feel calm again.</h1>
-      <p class="lede">
-        A focused 10-week readiness program that builds speed, accuracy, and confidence —
-        without the overwhelm.
-      </p>
-
-      <div class="cta">
-        <a class="btn" href="./mathlab-funnel/schedule-call.html"
-           onclick="fbq('track','Lead',{content_name:'Index->ScheduleCall'});">
-          Schedule a short call
-        </a>
-        <a class="btn outline" href="./mathlab-funnel/lead-magnet.html"
-           onclick="fbq('track','ViewContent',{content_name:'Index->LeadMagnet'});">
-          Watch the free 7-day reset
-        </a>
-      </div>
-
-      <p class="note">
-        If it’s a fit, I’ll walk you through the next step. If it’s not, I’ll tell you what to do instead.
-      </p>
-    </section>
-
-    <!-- Main Card -->
-    <div class="card">
-      <div class="card-hd">
-        <strong>What you’re buying (clear)</strong>
-        <small>10 weeks • in person • cohorts by grade</small>
-      </div>
-
-      <div class="card-bd">
-        <div class="grid two">
-          <div>
-            <h2 style="margin:0 0 10px;">Program structure</h2>
-            <ol style="margin:0; padding-left:18px; display:grid; gap:8px;">
-              <li><strong>10 weeks</strong> • two in-person sessions per week</li>
-              <li><strong>Small cohorts</strong> • grouped by grade (2nd–6th)</li>
-              <li><strong>Diagnostic first</strong> • I identify the lowest rung causing slowdown</li>
-              <li><strong>Targeted intervention</strong> • number sense, facts, grade-level demands</li>
-              <li><strong>Progress tracking</strong> • what’s solid, what’s next, what’s coming up</li>
-              <li><strong>Parent relief</strong> • no reteaching, no worksheet chasing</li>
-            </ol>
-            <div class="hr"></div>
-            <p class="note" style="margin:0;">
-              <strong>Capacity stays small by design.</strong> Once a cohort is full, it closes.
-            </p>
-          </div>
-
-          <aside class="steps">
-            <h2>Start here</h2>
-            <ol>
-              <li><strong>Watch the free reset</strong> (5 min/day for 7 days)</li>
-              <li><strong>Watch the full system</strong> (how the program works)</li>
-              <li><strong>Schedule a short call</strong> (fit + next steps)</li>
-            </ol>
-            <div class="hr"></div>
-            <small>
-              Parents usually try to fix everything at once. We fix the lowest rung first — then move up the ladder.
-            </small>
-          </aside>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <div>© <span id="y"></span> McSpadden Math Lab</div>
-      <div>
-        <a href="./mathlab-funnel/vsl.html">Full system</a> ·
-        <a href="./mathlab-funnel/schedule-call.html">Schedule a call</a>
+      <div class="topbar__right">
+        <span class="pill">Grades 3–5</span>
+        <span class="pill">Max 5 students</span>
+        <span class="pill">10-week foundation lab</span>
+        <span class="pill">Haymarket / Gainesville</span>
       </div>
     </div>
   </div>
+
+  <main class="container">
+    <section class="hero hero--lab">
+      <div class="hero__copy">
+        <div class="kicker">Math foundation repair for grades 3–5</div>
+        <h1>Not normal tutoring. A math lab for the skills school keeps building on.</h1>
+        <p class="subhead">
+          Most tutoring helps a child survive tonight’s worksheet. McSpadden Math Lab finds the hidden skill that is making math feel slow, rebuilds it with a repeatable plan, and proves progress with before-and-after measures.
+        </p>
+
+        <div class="hero__ctaRow">
+          <a class="btn btn--primary" href="./mathlab-funnel/schedule-call.html"
+             onclick="fbq('track','Lead',{content_name:'Index->ScheduleCall'});">
+            Schedule a short call
+          </a>
+          <a class="btn btn--ghost" href="./mathlab-funnel/lead-magnet.html"
+             onclick="fbq('track','ViewContent',{content_name:'Index->LeadMagnet'});">
+            Watch the free 7-day reset
+          </a>
+        </div>
+
+        <div class="micro">
+          <span class="dot"></span>
+          <span><strong>In-person</strong> small cohorts • Diagnostic first • Fluency, number sense, and grade-level readiness</span>
+        </div>
+      </div>
+
+      <aside class="hero__card lab-card">
+        <div class="card__kicker">The difference</div>
+        <div class="card__title">Tutoring patches. The Lab rebuilds.</div>
+        <div class="card__text">
+          If your child is counting, freezing, guessing, or taking forever on “easy” problems, more homework help is not the fix. The fix is finding the lowest rung and training it until it becomes automatic.
+        </div>
+        <div class="card__steps">
+          <div class="step"><span class="step__num">1</span><span><strong>Diagnose</strong> the bottleneck</span></div>
+          <div class="step"><span class="step__num">2</span><span><strong>Train</strong> the missing foundation</span></div>
+          <div class="step"><span class="step__num">3</span><span><strong>Measure</strong> visible progress</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section section--tight">
+      <div class="canyon">
+        <div>
+          <div class="kicker">Grand Canyon-sized gap</div>
+          <h2>Normal tutoring asks, “What homework is due?” I ask, “What skill is making the homework harder than it should be?”</h2>
+        </div>
+        <p>
+          For grades 3–5, the danger zone is not one bad quiz. It is moving into fractions, multi-step problem solving, and pre-algebra thinking while basic facts, place value, and mental math are still shaky.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="comparison">
+      <div class="section__head">
+        <h2>The gap between tutoring and McSpadden Math Lab</h2>
+        <p class="muted">Same subject. Completely different job.</p>
+      </div>
+
+      <div class="compareGrid" aria-label="Comparison between normal tutoring and McSpadden Math Lab">
+        <div class="compareCard compareCard--muted">
+          <div class="compareCard__label">Normal tutoring</div>
+          <ul class="list">
+            <li>Starts with tonight’s assignment</li>
+            <li>Explains the current lesson again</li>
+            <li>Helps finish worksheets</li>
+            <li>Progress feels like “less frustration today”</li>
+            <li>Often chases whatever school sends home next</li>
+          </ul>
+        </div>
+
+        <div class="compareCard compareCard--accent">
+          <div class="compareCard__label">McSpadden Math Lab</div>
+          <ul class="list">
+            <li>Starts with a diagnostic fluency and number-sense snapshot</li>
+            <li>Finds the lowest rung causing hesitation</li>
+            <li>Uses structured practice routines, not random worksheet help</li>
+            <li>Tracks speed, accuracy, confidence, and next-step readiness</li>
+            <li>Builds the foundation school will keep assuming is already there</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fit">
+      <div class="section__head">
+        <h2>Who this is for</h2>
+        <p class="muted">Grades 3–5 students who are capable, but not automatic yet.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="panel">
+          <div class="panel__title">The “smart but slow” student</div>
+          <p class="panel__note">They understand the lesson, but facts and steps take too long. Homework stretches because every problem uses too much brain power.</p>
+        </div>
+        <div class="panel">
+          <div class="panel__title">The counter or guesser</div>
+          <p class="panel__note">They count under their breath, use fingers, pause before facts, or guess when pressure shows up.</p>
+        </div>
+        <div class="panel">
+          <div class="panel__title">The confidence drop</div>
+          <p class="panel__note">They are starting to say “I’m bad at math,” even though the real issue is a fixable foundation gap.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="offerCard">
+        <div class="section__head">
+          <div class="kicker">The service</div>
+          <h2>10-week Math Foundation Lab</h2>
+          <p class="muted">A defined, in-person program for grades 3–5. Small enough for individual correction. Structured enough to show measurable change.</p>
+        </div>
+
+        <div class="offerCard__row">
+          <div>
+            <div class="kicker">What we build</div>
+            <ul class="list">
+              <li><strong>Fact fluency:</strong> addition, subtraction, multiplication, and division recall without counting</li>
+              <li><strong>Place value:</strong> the structure behind regrouping, multi-digit work, decimals, and fractions</li>
+              <li><strong>Mental math:</strong> flexible strategies so students stop treating every problem like a brand-new emergency</li>
+              <li><strong>Grade-level readiness:</strong> the prerequisite skills that make current and next-grade work feel lighter</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="kicker">What parents receive</div>
+            <ul class="list">
+              <li>Start-of-program snapshot</li>
+              <li>Clear training target for your child</li>
+              <li>Two in-person sessions per week for 10 weeks</li>
+              <li>End-of-program progress comparison</li>
+              <li>Simple guidance on what to practice and what to ignore</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="offerMeta">
+          <div class="metaBox">
+            <div class="metaBox__title">Grades</div>
+            <div class="metaBox__value">3–5</div>
+            <div class="metaBox__note">The window where foundations matter before math gets heavier.</div>
+          </div>
+          <div class="metaBox">
+            <div class="metaBox__title">Group size</div>
+            <div class="metaBox__value">Max 5</div>
+            <div class="metaBox__note">Small cohorts protect correction, pacing, and outcomes.</div>
+          </div>
+          <div class="metaBox">
+            <div class="metaBox__title">Format</div>
+            <div class="metaBox__value">10 weeks</div>
+            <div class="metaBox__note">Defined start, defined finish, and measurable progress.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="gateCard">
+        <div class="gateCard__title">Want to know if this fits your child?</div>
+        <p class="muted">
+          Schedule a short call. I’ll ask a few questions, tell you whether the Lab is the right move, and point you somewhere else if normal tutoring or a different support would serve your child better.
+        </p>
+        <div class="gateCard__actions">
+          <a class="btn btn--primary" href="./mathlab-funnel/schedule-call.html"
+             onclick="fbq('track','Lead',{content_name:'IndexBottom->ScheduleCall'});">
+            Schedule a short call
+          </a>
+          <a class="btn btn--ghost" href="./mathlab-funnel/vsl.html">
+            See the full system
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted">© <span id="y"></span> McSpadden Math Lab · Not homework help. Foundation repair.</div>
+    </footer>
+  </main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
