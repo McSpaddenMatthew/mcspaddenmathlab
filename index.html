@@ -1,787 +1,506 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>McSpadden Math Lab | Premium Math Instruction in Arlington</title>
-  <meta name="description" content="Premium small-group and individual math instruction for grades 3–5. Focused on MAP growth, SOL readiness, number sense, fluency, and long-term confidence." />
-  <meta property="og:title" content="McSpadden Math Lab" />
-  <meta property="og:description" content="Small-group and individual math instruction for families who want more than homework help." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Math Foundation Lab for Grades 3–5 | McSpadden Math Lab</title>
+  <meta name="description" content="A 10-week math foundation lab for grades 3–5 in Haymarket / Gainesville. Small cohorts, diagnostic-first practice, and measurable progress." />
+  <meta property="og:title" content="Math Foundation Lab | McSpadden Math Lab" />
+  <meta property="og:description" content="Not normal tutoring. A math lab for the skills school keeps building on." />
   <meta property="og:type" content="website" />
   <style>
     :root {
-      --black: #0a0a0a;
-      --white: #ffffff;
-      --cream: #f5f5f4;
-      --gray: #44403c;
-      --light-gray: #d6d3d1;
-      --orange: #0b2a5b;
-      --deep-blue: #082f6b;
-      --green: #166534;
-      --max-width: 1120px;
+      --bg: #ffffff;
+      --card: #f8f9fb;
+      --text: #111111;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #1e3a8a;
+      --accent-soft: rgba(30, 58, 138, 0.1);
+      --shadow: 0 16px 48px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --max: 1080px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--cream);
-      color: var(--black);
-      line-height: 1.5;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(92%, var(--max-width));
+      width: min(92%, var(--max));
       margin: 0 auto;
     }
 
-    header {
-      background: rgba(248, 245, 239, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--light-gray);
+    .topbar {
       position: sticky;
       top: 0;
       z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav {
+    .topbar-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      gap: 18px;
+      padding: 15px 0;
+    }
+
+    .brand {
+      display: inline-flex;
       align-items: center;
-      padding: 18px 0;
+      gap: 8px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
-    .logo {
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      font-size: 1.2rem;
+    .dot {
+      width: 9px;
+      height: 9px;
+      display: inline-block;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
-    .logo span {
-      color: var(--orange);
-    }
-
-    .nav-links {
+    .pills {
       display: flex;
-      gap: 28px;
-      align-items: center;
-      color: var(--gray);
-      font-size: 0.98rem;
-      font-weight: 500;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
     }
 
-    .nav-links a:hover {
-      color: var(--black);
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 30px;
+      align-items: center;
+      padding: 58px 0 36px;
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: clamp(27px, 3.3vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      max-width: 66ch;
+      color: var(--muted);
+      font-size: 18px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 999px;
-      padding: 13px 20px;
+      border-radius: 14px;
+      padding: 14px 20px;
+      background: var(--accent);
+      color: #fff;
       font-weight: 800;
-      border: 1px solid var(--black);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(30, 58, 138, 0.18);
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
     .button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      opacity: 0.94;
     }
 
-    .button-primary {
-      background: linear-gradient(135deg, #082f6b, #0b2a5b);
-      color: var(--white);
-    }
-
-    .button-secondary {
-      background: var(--white);
-      color: var(--black);
-    }
-
-    .hero {
-      padding: 84px 0 56px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--white);
-      border: 1px solid var(--light-gray);
-      border-radius: 999px;
-      padding: 8px 13px;
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--deep-blue);
-      margin-bottom: 22px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--orange);
-      display: inline-block;
-    }
-
-    h1 {
-      font-size: clamp(3.2rem, 7vw, 6.2rem);
-      line-height: 0.92;
-      letter-spacing: -0.07em;
-      max-width: 760px;
-      margin-bottom: 24px;
-      font-weight: 700;
-    }
-
-    .hero p {
-      font-size: 1.22rem;
-      color: var(--gray);
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
+    .cta-row {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .trust-line {
-      font-size: 0.94rem;
-      color: var(--gray);
-      max-width: 580px;
-    }
-
-    .hero-card {
-      background: linear-gradient(135deg, #041c44, #082f6b);
-      color: var(--white);
-      border-radius: 28px;
-      padding: 34px;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.18);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      background: rgba(59, 130, 246, 0.14);
-      border-radius: 999px;
-      top: -80px;
-      right: -70px;
-      filter: blur(8px);
-    }
-
-    .card-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-label {
-      color: #fed7aa;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.72rem;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    .diagnostic-list {
-      display: grid;
-      gap: 14px;
-      margin: 22px 0;
-    }
-
-    .diagnostic-item {
-      display: grid;
-      grid-template-columns: 28px 1fr;
       gap: 12px;
-      align-items: start;
-      color: #e5e7eb;
-      font-weight: 650;
+      margin: 22px 0 12px;
     }
 
-    .check {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: var(--orange);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 0.84rem;
-      font-weight: 900;
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-header {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1;
-      letter-spacing: -0.055em;
-      margin-bottom: 16px;
-    }
-
-    .section-header p {
-      color: var(--gray);
-      font-size: 1.08rem;
-    }
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .micro {
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .card {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--light-gray);
-      border-radius: 24px;
-      padding: 26px;
-      min-height: 220px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 24px;
     }
 
-    .card-number {
-      font-size: 0.85rem;
-      font-weight: 900;
-      color: var(--orange);
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      font-size: 1.35rem;
-      letter-spacing: -0.035em;
-      margin-bottom: 12px;
-    }
-
-    .card p,
-    .card li {
-      color: var(--gray);
-      font-size: 0.98rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 42px;
-      align-items: start;
-    }
-
-    .dark-panel {
-      background: var(--black);
-      color: var(--white);
-      border-radius: 28px;
-      padding: 34px;
-      position: sticky;
-      top: 104px;
-    }
-
-    .dark-panel p {
-      color: #d4d4d4;
-      margin-top: 12px;
-    }
-
-    .stack {
-      display: grid;
-      gap: 16px;
-    }
-
-    .offer-card {
-      background: var(--white);
-      border: 1px solid var(--light-gray);
-      border-radius: 24px;
-      padding: 26px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .offer-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .badge {
-      background: #eff6ff;
-      color: #1e3a8a;
-      border: 1px solid #bfdbfe;
-      border-radius: 999px;
-      padding: 7px 10px;
-      font-size: 0.76rem;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .price {
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-    }
-
-    ul {
-      list-style: none;
-      display: grid;
-      gap: 9px;
-    }
-
-    li::before {
-      content: "•";
-      color: var(--orange);
-      font-weight: 900;
-      margin-right: 8px;
-    }
-
-    .process {
-      background: var(--white);
-      border-top: 1px solid var(--light-gray);
-      border-bottom: 1px solid var(--light-gray);
+    .feature-card {
+      background:
+        radial-gradient(circle at top right, rgba(30, 58, 138, 0.14), transparent 40%),
+        var(--card);
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 12px;
+      margin-top: 18px;
     }
 
     .step {
-      border: 1px solid var(--light-gray);
-      border-radius: 22px;
-      padding: 22px;
-      background: var(--cream);
-    }
-
-    .step strong {
-      display: block;
-      margin-bottom: 8px;
-      letter-spacing: -0.025em;
-    }
-
-    .step p {
-      color: var(--gray);
-      font-size: 0.94rem;
-    }
-
-    .proof-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .quote {
-      background: linear-gradient(135deg, #082f6b, #041c44);
-      color: var(--white);
-      border-radius: 28px;
-      padding: 38px;
-    }
-
-    .quote p {
-      font-size: 1.35rem;
-      letter-spacing: -0.035em;
-      line-height: 1.25;
-    }
-
-    .note {
-      color: #cbd5e1;
-      margin-top: 20px;
-      font-size: 0.95rem !important;
-      letter-spacing: 0;
-    }
-
-    .faq {
-      display: grid;
-      gap: 14px;
-    }
-
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--light-gray);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .faq-item h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .faq-item p {
-      color: var(--gray);
-    }
-
-    .cta {
-      background: var(--black);
-      color: var(--white);
-      border-radius: 32px;
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
       align-items: center;
+      color: var(--muted);
     }
 
-    .cta p {
-      color: #d4d4d4;
-      font-size: 1.08rem;
-      margin-top: 12px;
+    .step-num {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 900;
+    }
+
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .canyon {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: center;
+      border: 1px solid rgba(30, 58, 138, 0.2);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), #f8f9fb);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .muted { color: var(--muted); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li { margin: 9px 0; }
+
+    .compare-lab {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .compare-lab .muted,
+    .compare-lab .list { color: rgba(255, 255, 255, 0.86); }
+
+    .offer {
+      display: grid;
+      gap: 18px;
+    }
+
+    .offer-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .meta-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .final-cta {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
     footer {
-      padding: 34px 0;
-      color: var(--gray);
-      font-size: 0.92rem;
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .split,
-      .proof-grid,
-      .cta {
+    @media (max-width: 880px) {
+      .topbar-inner,
+      .hero,
+      .canyon,
+      .grid-2,
+      .grid-3,
+      .offer-row,
+      .meta {
         grid-template-columns: 1fr;
       }
 
-      .cards-3,
-      .steps {
-        grid-template-columns: 1fr;
+      .topbar-inner {
+        align-items: flex-start;
       }
 
-      .nav-links {
-        display: none;
+      .pills {
+        justify-content: flex-start;
       }
 
       .hero {
-        padding-top: 54px;
-      }
-
-      .dark-panel {
-        position: static;
-      }
-
-      .cta {
-        padding: 32px;
+        padding-top: 42px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="#top" class="logo">McSpadden <span>Math Lab</span></a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#method">Method</a>
-        <a href="#programs">Programs</a>
-        <a href="#process">Process</a>
-        <a href="#apply" class="button button-primary">Apply for a slot</a>
-      </nav>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> McSpadden Math Lab</div>
+      <div class="pills" aria-label="Program details">
+        <span class="pill">Grades 3–5</span>
+        <span class="pill">Max 5 students</span>
+        <span class="pill">10-week foundation lab</span>
+        <span class="pill">Haymarket / Gainesville</span>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
+  <main>
+    <div class="container">
+      <section class="hero" aria-label="Math Foundation Lab introduction">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Grades 3–5 math instruction · Arlington area</div>
-          <h1>Math instruction for families who want measurable growth.</h1>
-          <p>
-            Small-group and individual math instruction built around number sense, fluency, MAP growth, SOL readiness, and long-term confidence — not worksheet completion or last-minute homework help.
+          <div class="kicker">Math foundation repair for grades 3–5</div>
+          <h1>Not normal tutoring. A math lab for the skills school keeps building on.</h1>
+          <p class="lead">
+            Most tutoring helps a child survive tonight’s worksheet. McSpadden Math Lab finds the hidden skill that is making math feel slow, rebuilds it with a repeatable plan, and proves progress with before-and-after measures.
           </p>
-          <div class="hero-actions">
-            <a href="#apply" class="button button-primary">Apply for a math slot</a>
-            <a href="#programs" class="button button-secondary">View instruction options</a>
+          <div class="cta-row">
+            <a class="button" href="mailto:mcspaddenmatthew@gmail.com?subject=Schedule%20a%20short%20call&body=Hi%20Matthew%2C%0A%0AI%27d%20like%20to%20schedule%20a%20short%20call%20about%20McSpadden%20Math%20Lab.%0A%0AChild%27s%20grade%3A%0AWhat%20we%27re%20seeing%20in%20math%3A%0APreferred%20days%2Ftimes%3A%0A%0AThanks%2C">Schedule a short call</a>
           </div>
-          <div class="trust-line">
-            Best fit: families who want a clear plan, consistent practice, and stronger performance over time — especially students who need to push, extend, deepen, or close hidden gaps.
-          </div>
+          <p class="micro">In-person small cohorts • Diagnostic first • Fluency, number sense, and grade-level readiness</p>
         </div>
 
-        <aside class="hero-card" aria-label="Instruction focus">
-          <div class="card-content">
-            <div class="card-label">What your child gets</div>
-            <h2 style="font-size: 2.2rem; margin-bottom: 10px;">A math plan, not random tutoring.</h2>
-            <div class="diagnostic-list">
-              <div class="diagnostic-item"><span class="check">✓</span><span>MAP and SOL data reviewed when available</span></div>
-              <div class="diagnostic-item"><span class="check">✓</span><span>Targeted fluency, number sense, fractions, and problem solving</span></div>
-              <div class="diagnostic-item"><span class="check">✓</span><span>Small groups capped for attention and accountability</span></div>
-              <div class="diagnostic-item"><span class="check">✓</span><span>Clear parent communication about what to practice next</span></div>
-            </div>
-            <a href="#apply" class="button button-secondary">Start with a fit conversation</a>
+        <aside class="card feature-card" aria-label="The difference">
+          <div class="kicker">The difference</div>
+          <h2>Tutoring patches. The Lab rebuilds.</h2>
+          <p class="muted">
+            If your child is counting, freezing, guessing, or taking forever on “easy” problems, more homework help is not the fix. The fix is finding the lowest rung and training it until it becomes automatic.
+          </p>
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><strong>Diagnose the bottleneck</strong></div>
+            <div class="step"><span class="step-num">2</span><strong>Train the missing foundation</strong></div>
+            <div class="step"><span class="step-num">3</span><strong>Measure visible progress</strong></div>
           </div>
         </aside>
-      </div>
-    </section>
+      </section>
 
-    <section id="method">
-      <div class="container">
-        <div class="section-header">
-          <h2>Most students do not need more math noise. They need the right reps.</h2>
-          <p>
-            The goal is not to keep a child busy. The goal is to identify the highest-leverage skill gap, practice it correctly, and transfer it into school performance, MAP growth, and SOL readiness.
+      <section aria-label="Grand Canyon-sized gap">
+        <div class="canyon">
+          <div>
+            <div class="kicker">Grand Canyon-sized gap</div>
+            <h2>Normal tutoring asks, “What homework is due?” I ask, “What skill is making the homework harder than it should be?”</h2>
+          </div>
+          <p class="muted">
+            For grades 3–5, the danger zone is not one bad quiz. It is moving into fractions, multi-step problem solving, and pre-algebra thinking while basic facts, place value, and mental math are still shaky.
           </p>
         </div>
+      </section>
 
-        <div class="cards-3">
+      <section aria-label="Tutoring comparison">
+        <div class="kicker">The gap between tutoring and McSpadden Math Lab</div>
+        <h2>Same subject. Completely different job.</h2>
+        <div class="grid-2">
           <article class="card">
-            <div class="card-number">01</div>
-            <h3>Diagnose the real gap</h3>
-            <p>We look beyond grades. MAP data, SOL strands, class performance, and student work reveal whether the issue is fluency, number sense, multi-step problem solving, or confidence under pressure.</p>
-          </article>
-          <article class="card">
-            <div class="card-number">02</div>
-            <h3>Build automaticity</h3>
-            <p>Weak math facts and shaky number relationships slow everything down. We strengthen the foundation so students have more working memory available for harder problems.</p>
-          </article>
-          <article class="card">
-            <div class="card-number">03</div>
-            <h3>Transfer to performance</h3>
-            <p>Practice is tied back to school expectations: explaining reasoning, solving multi-step problems, using benchmarks, checking reasonableness, and preparing for assessments.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="programs">
-      <div class="container split">
-        <div class="dark-panel">
-          <h2>Group-first. Individual when needed.</h2>
-          <p>
-            The best model is usually small-group instruction: enough peer energy to create momentum, small enough to keep the work targeted. Individual sessions are available for families who want a deeper diagnostic plan or more intensive support.
-          </p>
-        </div>
-
-        <div class="stack">
-          <article class="offer-card">
-            <div class="offer-top">
-              <div>
-                <h3>Small-Group Math Lab</h3>
-                <p class="price">Primary offer</p>
-              </div>
-              <span class="badge">Best value</span>
-            </div>
-            <p>Designed for families who want strong math instruction, accountability, and consistent growth within a focused small-group environment.</p>
-            <ul>
-              <li>Grades 3–5</li>
-              <li>Small groups, typically 3–4 students</li>
-              <li>Focus on fluency, number sense, fractions, decimals, word problems, MAP, and SOL readiness</li>
-              <li>Structured environment with repeated targeted practice</li>
-              <li>Families who host sessions receive priority scheduling and help shape the learning group</li>
-              <li>Best for students who benefit from consistency, structure, and peer momentum</li>
+            <h3>Normal tutoring</h3>
+            <ul class="list">
+              <li>Starts with tonight’s assignment</li>
+              <li>Explains the current lesson again</li>
+              <li>Helps finish worksheets</li>
+              <li>Progress feels like “less frustration today”</li>
+              <li>Often chases whatever school sends home next</li>
             </ul>
           </article>
-
-          <article class="offer-card">
-            <div class="offer-top">
-              <div>
-                <h3>Individual Math Instruction</h3>
-                <p class="price">Limited availability</p>
-              </div>
-              <span class="badge">Premium</span>
-            </div>
-            <p>For families who want a customized plan based on data, student work, and specific growth goals.</p>
-            <ul>
-              <li>Best for students with specific gaps or ambitious goals</li>
-              <li>MAP/SOL review available when parents provide reports</li>
-              <li>Designed for long-term improvement, not emergency homework rescue</li>
-              <li>Current individual rate: starting at $150/hour</li>
-            </ul>
-          </article>
-
-          <article class="offer-card">
-            <div class="offer-top">
-              <div>
-                <h3>Private Family Advisory</h3>
-                <p class="price">Boutique retainer</p>
-              </div>
-              <span class="badge">Highly limited</span>
-            </div>
-            <p>For families who want a higher-touch academic strategy partnership built around structure, accountability, and long-term growth — without requiring hours of daily tutoring.</p>
-            <ul>
-              <li>Monthly retainer beginning at $3,000/month</li>
-              <li>Customized roadmap for math growth, fluency, and academic habits</li>
-              <li>2–3 in-person check-ins per week focused on accountability, adjustment, and progress</li>
-              <li>Ongoing MAP and school performance review</li>
-              <li>Parent guidance around routines, expectations, and practice structure</li>
-              <li>Designed to create consistency and momentum outside of sessions</li>
-              <li>Additional high-frequency check-ins available for select families</li>
-            </ul>
-          </article>
-
-          <article class="offer-card">
-            <div class="offer-top">
-              <div>
-                <h3>MAP + SOL Growth Review</h3>
-                <p class="price">Add-on diagnostic</p>
-              </div>
-              <span class="badge">Strategic</span>
-            </div>
-            <p>For parents who want to understand what the scores actually mean and what to do next.</p>
-            <ul>
-              <li>Review MAP goal areas and growth patterns</li>
-              <li>Identify likely skill bottlenecks</li>
-              <li>Create a short action plan for home practice and instruction</li>
-              <li>Useful before summer, fall MAP, or SOL season</li>
+          <article class="card compare-lab">
+            <h3>McSpadden Math Lab</h3>
+            <ul class="list">
+              <li>Starts with a diagnostic fluency and number-sense snapshot</li>
+              <li>Finds the lowest rung causing hesitation</li>
+              <li>Uses structured practice routines, not random worksheet help</li>
+              <li>Tracks speed, accuracy, confidence, and next-step readiness</li>
+              <li>Builds the foundation school will keep assuming is already there</li>
             </ul>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="process" id="process">
-      <div class="container">
-        <div class="section-header">
-          <h2>Simple process. Clear expectations.</h2>
-          <p>Families should know exactly what happens next before they commit.</p>
+      <section aria-label="Who this is for">
+        <div class="kicker">Who this is for</div>
+        <h2>Grades 3–5 students who are capable, but not automatic yet.</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3>The “smart but slow” student</h3>
+            <p class="muted">They understand the lesson, but facts and steps take too long. Homework stretches because every problem uses too much brain power.</p>
+          </article>
+          <article class="card">
+            <h3>The counter or guesser</h3>
+            <p class="muted">They count under their breath, use fingers, pause before facts, or guess when pressure shows up.</p>
+          </article>
+          <article class="card">
+            <h3>The confidence drop</h3>
+            <p class="muted">They are starting to say “I’m bad at math,” even though the real issue is a fixable foundation gap.</p>
+          </article>
         </div>
-        <div class="steps">
-          <div class="step"><strong>1. Apply for a slot</strong><p>Share your child’s grade, current concern, and preferred schedule.</p></div>
-          <div class="step"><strong>2. Send data if available</strong><p>MAP, SOL, report cards, teacher notes, or recent math work are useful but not required.</p></div>
-          <div class="step"><strong>3. Pick the right format</strong><p>Small-group is the default. Individual instruction is reserved for students who need a custom plan.</p></div>
-          <div class="step"><strong>4. Start consistent reps</strong><p>We focus on the highest-ROI skills and build momentum through repeated, targeted practice.</p></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="container proof-grid">
-        <div class="section-header" style="margin-bottom:0;">
-          <h2>What I work on most.</h2>
-          <p>These are the skill areas that usually create the biggest return for upper-elementary math students.</p>
-          <div style="height:20px"></div>
-          <ul>
-            <li>Multiplication and division automaticity</li>
-            <li>Addition and subtraction fluency</li>
-            <li>Place value, magnitude, and estimation</li>
-            <li>Fractions, decimals, and benchmark reasoning</li>
-            <li>Multi-step word problems and explaining reasoning</li>
-            <li>MAP Growth goal areas and Virginia SOL-aligned review</li>
-          </ul>
+      <section aria-label="The service">
+        <div class="card offer">
+          <div>
+            <div class="kicker">The service</div>
+            <h2>10-week Math Foundation Lab</h2>
+            <p class="muted">A defined, in-person program for grades 3–5. Small enough for individual correction. Structured enough to show measurable change.</p>
+          </div>
+          <div class="offer-row">
+            <div>
+              <h3>What we build</h3>
+              <ul class="list">
+                <li><strong>Fact fluency:</strong> addition, subtraction, multiplication, and division recall without counting</li>
+                <li><strong>Place value:</strong> the structure behind regrouping, multi-digit work, decimals, and fractions</li>
+                <li><strong>Mental math:</strong> flexible strategies so students stop treating every problem like a brand-new emergency</li>
+                <li><strong>Grade-level readiness:</strong> the prerequisite skills that make current and next-grade work feel lighter</li>
+              </ul>
+            </div>
+            <div>
+              <h3>What parents receive</h3>
+              <ul class="list">
+                <li>Start-of-program snapshot</li>
+                <li>Clear training target for your child</li>
+                <li>Two in-person sessions per week for 10 weeks</li>
+                <li>End-of-program progress comparison</li>
+                <li>Simple guidance on what to practice and what to ignore</li>
+              </ul>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="meta-box">
+              <div class="meta-label">Grades</div>
+              <div class="meta-value">3–5</div>
+              <p class="muted">The window where foundations matter before math gets heavier.</p>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Group size</div>
+              <div class="meta-value">Max 5</div>
+              <p class="muted">Small cohorts protect correction, pacing, and outcomes.</p>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Format</div>
+              <div class="meta-value">10 weeks</div>
+              <p class="muted">Defined start, defined finish, and measurable progress.</p>
+            </div>
+          </div>
         </div>
-        <div class="quote">
-          <p>“This is for families who do not want to guess. We look at the data, find the bottleneck, and practice the skills that actually move performance.”</p>
-          <p class="note">This is not a generic homework-support service. It is targeted math instruction for grades 3–5.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <h2>What families say.</h2>
-          <p>
-            The common theme is not just better grades. Families consistently report stronger confidence, deeper understanding, and measurable academic growth over time.
+      <section aria-label="Schedule a call">
+        <div class="final-cta">
+          <h2>Want to know if this fits your child?</h2>
+          <p class="muted">
+            Schedule a short call. I’ll ask a few questions, tell you whether the Lab is the right move, and point you somewhere else if normal tutoring or a different support would serve your child better.
           </p>
-        </div>
-
-        <div class="cards-3">
-          <article class="card">
-            <h3>“The first thing we noticed was confidence.” — Jessica</h3>
-            <p>
-              “Math stopped feeling overwhelming. Our child became faster, calmer, and more willing to tackle harder problems independently.”
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>“The growth finally showed up in the data.” — Catherine</h3>
-            <p>
-              “We had tried other programs before, but this was the first time we saw clear improvement connected to MAP performance and classroom work.”
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>“This felt much more strategic than tutoring.” — Ruth</h3>
-            <p>
-              “Instead of just helping with homework, Matthew identified the actual skill gaps and focused on the skills creating the biggest bottlenecks.”
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container split">
-        <div class="section-header" style="margin-bottom:0;">
-          <h2>Common parent questions.</h2>
-          <p>Clear fit beats pressure. The right families will value the structure.</p>
-        </div>
-        <div class="faq">
-          <div class="faq-item">
-            <h3>Is this tutoring?</h3>
-            <p>It is math instruction. I am not positioned as a homework helper. The work is built around skill growth, confidence, number sense, fluency, and school performance.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Do you offer one-on-one sessions?</h3>
-            <p>Yes, with limited availability. Small groups are the primary model, but individual instruction is available when a child needs a more customized plan.</p>
-          </div>
-          <div class="faq-item">
-            <h3>What grades do you work with?</h3>
-            <p>I work with students in grades 3–5.</p>
-          </div>
-          <div class="faq-item">
-            <h3>What should parents send before the first conversation?</h3>
-            <p>If available, send MAP reports, SOL results, report card comments, recent math work, or a short description of where your child is getting stuck.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Where do sessions happen?</h3>
-            <p>Sessions are typically scheduled in local homes or agreed-upon locations in the Arlington area, depending on the group and schedule.</p>
+          <div class="cta-row">
+            <a class="button" href="mailto:mcspaddenmatthew@gmail.com?subject=Schedule%20a%20short%20call&body=Hi%20Matthew%2C%0A%0AI%27d%20like%20to%20schedule%20a%20short%20call%20about%20McSpadden%20Math%20Lab.%0A%0AChild%27s%20grade%3A%0AWhat%20we%27re%20seeing%20in%20math%3A%0APreferred%20days%2Ftimes%3A%0A%0AThanks%2C">Schedule a short call</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="apply">
-      <div class="container cta">
-        <div>
-          <h2>Apply for a math instruction slot.</h2>
-          <p>
-            Send your child’s grade, school, what you are seeing in math right now, and whether you are interested in small-group instruction or individual instruction.
-          </p>
-        </div>
-        <div style="display:grid; gap:12px; justify-items:start;">
-          <a class="button button-secondary" href="mailto:mcspaddenmatthew@gmail.com?subject=Math%20Instruction%20Slot%20Inquiry&body=Hi%20Matthew%2C%0A%0AI%27m%20interested%20in%20math%20instruction.%0A%0AChild%27s%20grade%3A%0ASchool%3A%0AWhat%20we%27re%20seeing%20in%20math%3A%0AInterested%20in%3A%20Small-group%20%2F%20Individual%0AMAP%20or%20SOL%20data%20available%3A%20Yes%20%2F%20No%0APreferred%20schedule%3A%0A%0AThanks%2C">Email to apply</a>
-
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <div class="container">
-      © <span id="year"></span> McSpadden Math Lab. Premium small-group and individual math instruction for grades 3–5.
-    </div>
+    <div class="container">© <span id="year"></span> McSpadden Math Lab · Not homework help. Foundation repair.</div>
   </footer>
 
   <script>
